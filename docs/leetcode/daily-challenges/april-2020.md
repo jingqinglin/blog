@@ -16,7 +16,7 @@
 
 ---
 
-打卡完毕🎉
+打卡完毕 🎉
 
 <img src="https://cdn.jsdelivr.net/gh/JingqingLin/Blog/docs/leetcode-daily-challenges/_images/medal.png" alt="打卡勋章" width="40%"/>
 
@@ -468,7 +468,7 @@ public static int getMaxRepetitions(String s1, int n1, String s2, int n2) {
 
 <img src="https://cdn.jsdelivr.net/gh/JingqingLin/ImageHosting@master/img/1917068-20200422101831118-2042260186.png" width="30%"/>
 
-BFS，⭐DFS 皆可。BFS 先把左子树入队，DFS 先递归右子树
+BFS，⭐ DFS 皆可。BFS 先把左子树入队，DFS 先递归右子树
 
 ## 17. 💣 硬币
 
