@@ -1,4 +1,4 @@
-## LeetCode
+### 🌈 LeetCode
 
 > 此部分记录我所做的力扣题，按照 [CS-Notes](https://cyc2018.github.io/CS-Notes/#/notes/Leetcode%20%E9%A2%98%E8%A7%A3%20-%20%E7%9B%AE%E5%BD%951) 的分类进行做题
 
@@ -14,16 +14,18 @@
 #### 🔐 算法思想
 
 - [双指针](leetcode/algorithm/双指针.md)
-- 排序
-- 贪心思想
+- [排序](leetcode/algorithm/排序.md)
+- [贪心思想](leetcode/algorithm/贪心思想.md)
 - 二分查找
 - 分治
-- 搜索
-- 动态规划
+- [搜索](leetcode/algorithm/搜索.md)
+- [动态规划](leetcode/algorithm/动态规划.md)
 - 数学
 
 #### 🔢 数据结构相关
 
+- [链表](leetcode/data-structure/链表.md)
+- [树](leetcode/data-structure/树.md)
 
 #### 🌞 每日一题
 

@@ -224,4 +224,4 @@ https://leetcode-cn.com/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/soluti
 
 从题解中的递推图理解递推关系，截图备份：
 
-<img src="https://cdn.jsdelivr.net/gh/JingqingLin/ImageHosting@master/img/20200330112806.png" width="70%"/>
+<img src="https://cdn.jsdelivr.net/gh/JingqingLin/ImageHosting@master/img/20200330112806.png" />

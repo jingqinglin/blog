@@ -287,7 +287,7 @@ public static int superEggDrop(int K, int N) {
 
 0 <font color=red>0</font> 0  
 0 1 0  
-<font color=yellow>0</font> <font color=blue>1</font> 1  
+<font color=green>0</font> <font color=blue>1</font> 1  
 
 若先从红色的 0 点开始 BFS，那么蓝色的 1 会被更新成 2；再从绿色的 0 点开始 BFS，蓝色的 1 会被重新更新为 1。所以从每个 0 点更新距离的方法可能会对某个点进行多次更新（要取最小值），导致时间复杂度非常高
 
