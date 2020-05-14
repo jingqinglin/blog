@@ -1,5 +1,5 @@
 <div align="center">
-📖 <a href="https://github.com/JingqingLin/Blog">Github</a>
+📖 <a href="https://github.com/JingqingLin/Blog" target="_blank">Github</a>
 &emsp; | &emsp;
 📚 Docsify
 </div> 
@@ -11,7 +11,7 @@ Hi，这是我的个人博客，我在这个网站记录我的学习心得。受
 
 ### 👉 剑指 Offer
 
-> 剑指 Offer 做题记录
+> 此部分记录我所做的剑指 Offer 题目
 
 - [剑指 Offer](lcof/lcof.md)
 

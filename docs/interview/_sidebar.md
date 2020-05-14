@@ -7,6 +7,9 @@
   - ☕ Java
 
     - [Java 基础](interview/java.md "Java 基础 - 面试相关")
+    - [Java 容器](interview/java-container.md "Java 容器 - 面试相关")
+    - [Java 并发](interview/java-concurrency.md "Java 并发 - 面试相关")
+    - [Java 虚拟机](interview/java-jvm.md "Java 虚拟机 - 面试相关")
 
   - 📚 计算机基础
 

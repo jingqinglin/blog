@@ -11,8 +11,11 @@
     - [双指针](leetcode/双指针.md "双指针 - LeetCode")
     - [排序](leetcode/排序.md "排序 - LeetCode")
     - [贪心思想](leetcode/贪心思想.md "贪心思想 - LeetCode")
+    - [二分查找](leetcode/二分查找.md)
+    - [分治](leetcode/分治.md)
     - [搜索](leetcode/搜索.md "搜索 - LeetCode")
     - [动态规划](leetcode/动态规划.md "动态规划 - LeetCode")
+    - [数学](leetcode/数学.md)
   
   - 🔢 数据结构相关
 

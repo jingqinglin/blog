@@ -3,7 +3,7 @@
 
 #### 👍 前 n 题
 
-前 20 多道题按顺序做了下来，之后转向 [CS-Notes](https://cyc2018.github.io/CS-Notes/#/notes/Leetcode%20%E9%A2%98%E8%A7%A3%20-%20%E7%9B%AE%E5%BD%951) 做题
+> 按顺序做了 20 多道题之后，转向了 [CS-Notes](https://cyc2018.github.io/CS-Notes/#/notes/Leetcode%20%E9%A2%98%E8%A7%A3%20-%20%E7%9B%AE%E5%BD%951) 做题
 
 - [1 - 10 题](leetcode/1-10.md)
 - [11 - 20 题](leetcode/11-20.md)
@@ -14,11 +14,11 @@
 - [双指针](leetcode/双指针.md)
 - [排序](leetcode/排序.md)
 - [贪心思想](leetcode/贪心思想.md)
-- 二分查找
-- 分治
+- [二分查找](leetcode/二分查找.md)
+- [分治](leetcode/分治.md)
 - [搜索](leetcode/搜索.md)
 - [动态规划](leetcode/动态规划.md)
-- 数学
+- [数学](leetcode/数学.md)
 
 #### 🔢 数据结构相关
 

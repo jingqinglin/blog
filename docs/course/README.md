@@ -6,3 +6,6 @@
 
 - 课程资料：[传送门](https://github.com/JingqingLin/Cryptography)
 
+#### 👷 高级软件工程
+
+- 作业内容及报告：[传送门](course/software-engineering/)
