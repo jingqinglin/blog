@@ -19,7 +19,7 @@ Hi，这是我的个人博客，我在这个网站记录我的学习心得。受
 
 > 剑指 Offer 做题记录
 
-- [剑指 Offer](lcof/lcof.md)
+- [剑指 Offer](lcof/)
 
 <br>
 
