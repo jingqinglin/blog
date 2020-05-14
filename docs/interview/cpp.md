@@ -905,7 +905,7 @@ template <typename T> void relay(T&& arg)
 
 - **定位 new**（placement new）允许我们向 new 传递额外的地址参数，从而在预先指定的内存区域创建对象。相关问题：如何在指定内存上调用类的构造函数
 
-  ```C++
+  ```cpp
   new (place_address) type
   new (place_address) type (initializers)
   new (place_address) type [size]
