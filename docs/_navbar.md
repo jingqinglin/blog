@@ -3,7 +3,7 @@
 
 - 算法题
   - [LeetCode](leetcode/)
-  - [剑指 Offer](lcof/)
+  - [剑指 Offer](lcof/lcof.md)
 
 - 其他
   - [面试相关](interview/)

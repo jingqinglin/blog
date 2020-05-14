@@ -1,5 +1,3 @@
-?> C++ 基础知识
-
 <img src="https://cdn.jsdelivr.net/gh/JingqingLin/ImageHosting@master/img/17145ecf552295da.jpg" width="50%"/>
 
 <img src="https://cdn.jsdelivr.net/gh/JingqingLin/ImageHosting@master/img/17145ecf6c897404.jpg" width="50%"/>
@@ -52,7 +50,9 @@ Java 的引用在本质上是一个**指针**（受限的指针），只不过�
 4. 文字常量区 — 常量字符串就是放在这里的
 5. **程序代码区** — 存放函数体的二进制代码
 
-## 内联函数（编译时期展开函数）
+## 内联函数
+
+> 编译时期展开函数
 
 https://interview.huihut.com/#/?id=inline-%e5%86%85%e8%81%94%e5%87%bd%e6%95%b0
 
@@ -249,9 +249,9 @@ a = b;
 
 - Java 默认就动态绑定
 
-## 纯虚函数（即 Java 中的接口）、虚继承等
+## 纯虚函数、虚继承等
 
-纯虚函数是一种特殊的虚函数，在基类中不能对虚函数给出有意义的实现，而把它声明为纯虚函数，它的实现留给该基类的派生类去做
+纯虚函数（即 Java 中的接口）是一种特殊的虚函数，在基类中不能对虚函数给出有意义的实现，而把它声明为纯虚函数，它的实现留给该基类的派生类去做
 
 ```cpp
 virtual int A() = 0;

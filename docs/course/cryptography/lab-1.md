@@ -1,3 +1,5 @@
+## 实验内容
+
 > 【时间】 暂定 5 月 23 号（周六）晚上
 > 
 > 【编程语言】 Python（推荐）或者 C/C++
@@ -12,7 +14,7 @@
 > 
 > 在掌握流密码结构的基础上，通过本实验观察使用相同流密码密钥加密多个明文导致的严重后果。
 > 
-> 附件 [ciphertext.txt](course/cryptography/ciphertext.txt ':ignore') 有 11 个十六进制编码的密文，它们是使用流密码加密 11 个明文的结果，所有密文都使用相同的流密码密钥。
+> 附件 [ciphertext.txt](course/cryptography/lab-1-ciphertext.txt ':ignore') 有 11 个十六进制编码的密文，它们是使用流密码加密 11 个明文的结果，所有密文都使用相同的流密码密钥。
 > 
 > 实验的目标是解密最后一个密文，并提交明文消息。
 > 
@@ -20,7 +22,7 @@
 > 提示：
 > 
 > 1. 对密文进行异或，并考虑当空格与 [a ~ z, A ~ Z] 中的字符进行异或时会发生什么。
-> 2. 附件 [encrypt.py](course/cryptography/encrypt.py ':ignore') 是用于生成密文的 Python 示例程序（不影响实验，仅供参考）。 
+> 2. 附件 [encrypt.py](course/cryptography/lab-1-encrypt.py ':ignore') 是用于生成密文的 Python 示例程序（不影响实验，仅供参考）。 
 
 ## 实验分析
 
@@ -53,7 +55,7 @@
 
 如何寻找明文中可能存在的空格呢？
 
-在 [ciphertext.txt](course/cryptography/ciphertext.txt ':ignore') 中，每两个 16 进制字符代表明文的一个字符（因为 ASCII 的范围为 0 ~ 255）。我们把某条密文与剩余 9 条密文的相同位置进行异或，如果异或出来结果大部分都是字母，则说明了这条密文的这个位置对应的明文**极有可能**是个空格。
+在 [ciphertext.txt](course/cryptography/lab-1-ciphertext.txt ':ignore') 中，每两个 16 进制字符代表明文的一个字符（因为 ASCII 的范围为 0 ~ 255）。我们把某条密文与剩余 9 条密文的相同位置进行异或，如果异或出来结果大部分都是字母，则说明了这条密文的这个位置对应的明文**极有可能**是个空格。
 
 因此，从上述分析得知，在流密码加密中多次使用相同密钥是不安全的。
 

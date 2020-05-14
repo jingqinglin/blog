@@ -1,5 +1,5 @@
 <center>
-<img src="https://cdn.jsdelivr.net/gh/JingqingLin/Blog/docs/leetcode-daily-challenges/_images/daily-challenges.png" alt="每日一题" width="70%"/>
+<img src="https://cdn.jsdelivr.net/gh/JingqingLin/Blog/docs/leetcode/_images/daily-challenges.png" alt="每日一题" width="70%"/>
 </center>
 
 力扣<a href="https://leetcode-cn.com/problemset/2020-04/" target="_blank">每日一题：4 月</a>（部分）。4 月的题难度等级为<font color=#ed7336>中等</font>和<font color=#ec4c47>困难</font>，会从各题解中学习一些比较好的思想
@@ -18,7 +18,7 @@
 
 打卡完毕 🎉
 
-<img src="https://cdn.jsdelivr.net/gh/JingqingLin/Blog/docs/leetcode-daily-challenges/_images/medal.png" alt="打卡勋章" width="40%"/>
+<img src="https://cdn.jsdelivr.net/gh/JingqingLin/Blog/docs/leetcode/_images/medal.png" alt="打卡勋章" width="40%"/>
 
 ---
 

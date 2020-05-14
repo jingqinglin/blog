@@ -1,0 +1,3 @@
+- [现代密码学与应用](course/cryptography/)
+  - [实验一](course/cryptography/lab-1.md "实验一 - 现代密码学与应用")
+  - [实验二](course/cryptography/lab-2.md "实验二 - 现代密码学与应用")

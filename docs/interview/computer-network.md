@@ -1,5 +1,3 @@
-?> 计算机网络
-
 - 电路交换、分组交换  
 <img src="https://i.loli.net/2020/03/14/5U96sYfqRXWZQkv.png" width="70%">
 
