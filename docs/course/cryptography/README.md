@@ -51,6 +51,8 @@
 >  
 > 【实验内容】
 > 实验内容和要求请见附件 [EXP2-Doc.pdf](course/cryptography/lab-2-EXP2-Doc.pdf ':ignore')
-
+>
+> [pdf-2](lab-2-EXP2-Doc.pdf ':include :type=iframe width=100% height=500px')
 
 </details>
+

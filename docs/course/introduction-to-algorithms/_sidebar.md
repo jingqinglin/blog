@@ -1,0 +1,4 @@
+- [算法设计与分析](course/introduction-to-algorithms/)
+  - [实验一](course/introduction-to-algorithms/lab-1.md "分治法实验 - 算法设计与分析")
+  - [实验二](course/introduction-to-algorithms/lab-2.md "典型排序算法训练 - 算法设计与分析")
+  - [实验三](course/introduction-to-algorithms/lab-3.md "二叉查找树、红黑树的基本操作实现 - 算法设计与分析")
