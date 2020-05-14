@@ -52,7 +52,10 @@
 > 【实验内容】
 > 实验内容和要求请见附件 [EXP2-Doc.pdf](course/cryptography/lab-2-EXP2-Doc.pdf ':ignore')
 >
-> [pdf-2](lab-2-EXP2-Doc.pdf ':include :type=iframe width=100% height=500px')
+
+<iframe src="https://cdn.jsdelivr.net/gh/JingqingLin/Blog/docs/course/cryptography/lab-2-EXP2-Doc.pdf" width="100%" height=500px>
+浏览器不支持显示 PDF，请下载：
+<a href="https://cdn.jsdelivr.net/gh/JingqingLin/Blog/docs/course/cryptography/lab-2-EXP2-Doc.pdf">下载 PDF</a></iframe>
 
 </details>
 
