@@ -1,8 +1,10 @@
-## 实验一 用分治法求解数组的中位数和最大子集
+?> 用分治法求解数组的中位数和最大子集
 
-### [问题一](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/)：寻找两个有序数组的中位数
+## 问题一：寻找两个有序数组的中位数
 
-#### 题目描述
+!> [4](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/). 寻找两个正序数组的中位数
+
+### 题目描述
 
 给定两个大小为 m 和 n 的有序数组 `nums1` 和 `nums2`。
 
@@ -28,10 +30,12 @@ nums2 = [3, 4]
 则中位数是 (2 + 3)/2 = 2.5
 ```
 
-#### 解题思路
+### 解题思路
+
 > 参考自[力扣题解](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/solution/xiang-xi-tong-su-de-si-lu-fen-xi-duo-jie-fa-by-w-2/)
 
-#### 代码
+### 代码
+
 ```java
 public static double findMedianSortedArrays(int[]nums1, int[] nums2) {
     int j1 = nums1.length, j2 = nums2.length;
@@ -71,15 +75,17 @@ private static int getKth(int[] nums1, int start1,int end1, int[] nums2, int sta
 }
 ```
 
-#### 复杂度分析
+### 复杂度分析
 
 **时间复杂度**：每进行一次循环，我们就减少 `k/2` 个元素，所以时间复杂度是 $O(log(k)$，而 `k = (m + n) / 2`，所以最终的复杂也就是 $O(log(m+n))$
 
 **空间复杂度**：$O(1)$
 
-### [问题二](https://leetcode-cn.com/problems/maximum-subarray/)：最大子序和
+## 问题二：最大子序和
 
-#### 题目描述
+!> [53](https://leetcode-cn.com/problems/maximum-subarray/). 最大子序和
+
+### 题目描述
 
 给定一个整数数组 `nums` ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
 
@@ -95,11 +101,11 @@ private static int getKth(int[] nums1, int start1,int end1, int[] nums2, int sta
 
 如果你已经实现复杂度为 $O(n)$ 的解法，尝试使用更为精妙的分治法求解。
 
-#### 解题思路
+### 解题思路
 
 > 参考自[力扣官方题解](https://leetcode-cn.com/problems/maximum-subarray/solution/zui-da-zi-xu-he-by-leetcode/)
 
-#### 代码
+### 代码
 
 ```java
 public static int maxSubArray(int[] nums) {
@@ -135,7 +141,7 @@ public static int partition(int[] nums, int left,int right) {
 }
 ```
 
-#### 复杂度分析
+### 复杂度分析
 
 时间复杂度：$O(NlogN)$
 
