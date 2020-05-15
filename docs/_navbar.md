@@ -1,5 +1,5 @@
 <!-- _navbar.md -->
-- [首页]()
+- [首页](https://jingqinglin.github.io/Blog/#/)
 
 - 算法题
   - [LeetCode](leetcode/)
