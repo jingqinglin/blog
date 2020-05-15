@@ -269,7 +269,7 @@ virtual int A() = 0;
 
 ## 拷贝构造函数
 
-https://www.cnblogs.com/jingqinglin/articles/12557560.html
+拷贝构造函数部分为部分摘录，原文已转载在[这里](interview/cpp-copy-constructor.md)
 
 ### 拷贝构造函数的调用时机
 
