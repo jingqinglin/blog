@@ -1,5 +1,19 @@
 算法导论的作业答案摘自 [walkccc](https://walkccc.github.io/CLRS/)
 
+## 红黑树相关知识
+
+### 插入
+
+1. 和二叉搜索树一样，把新结点 $z$ 插入到相应位置，并着红色
+2. 若红结点 $z$ 的插入破坏了红黑性质，则需要进行调整，分三种情况：
+   1. $z$ 的叔结点 $y$ 是红色的（case 1）
+   2. $z$ 的叔结点 $y$ 是黑色的且 $z$ 是一个右孩子（case 2）
+   3. $z$ 的叔结点 $y$ 是黑色的且 $z$ 是一个左孩子（case 3）
+
+对于 case 1，经过一次调色并把 $z.p.p$ 作为新的 $z$，可变为 case 2 或 case 3；对于 case 2，把 $z.p$ 作为新的 $z$ 并经过一次左旋，变为 case 3；对于 case 3，经过一次调色和右旋后，红黑树重新保持了红黑性质
+
+- 使红黑树保持红黑性质的过程中，旋转不会超过两次
+
 ## 13.1-2
 
 > Draw the red-black tree that results after $\text{TREE-INSERT}$ is called on the tree in Figure 13.1 with key $36$. If the inserted node is colored red, is the resulting tree a red-black tree? What if it is colored black?
