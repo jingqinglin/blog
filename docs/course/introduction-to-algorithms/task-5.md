@@ -18,7 +18,7 @@
 
 > Draw the red-black tree that results after $\text{TREE-INSERT}$ is called on the tree in Figure 13.1 with key $36$. If the inserted node is colored red, is the resulting tree a red-black tree? What if it is colored black?
 >
-> 对图 13-1 中的红黑树，画出对其调用 $\text{TREE-INSERT}$ 操作插入关键字 $36$ 后的结果。如果插人的结点被标为红色，所得的树是否还是一棵红黑树？如果该结点被标为黑色呢？ 
+> 对图 13-1 中的红黑树，画出对其调用 $\text{TREE-INSERT}$ 操作插入关键字 $36$ 后的结果。如果插入的结点被标为红色，所得的树是否还是一棵红黑树？如果该结点被标为黑色呢？ 
 
 
 - If the inserted node is colored red, the tree doesn't satisfy property 4 because $35$ will be the parent of $36$, which is also colored red.
@@ -65,24 +65,38 @@ If we chose to set the color of $z$ to black then we would be violating property
 
 - insert $41$:
 
-  ![](_images/13.3-2-1.png ':size=80x80')
+![](_images/13.3-2-1.png ':class=image-41')
 
 - insert $38$:
 
-  ![](_images/13.3-2-2.png ':size=282x147')
+![](_images/13.3-2-2.png ':class=image-38')
 
 - insert $31$:
 
-  ![](_images/13.3-2-3.png ':size=500x150')
+![](_images/13.3-2-3.png ':class=image-31')
 
 - insert $12$:
 
-  ![](_images/13.3-2-4.png ':size=600x205')
+![](_images/13.3-2-4.png)
 
 - insert $19$:
 
-  ![](_images/13.3-2-5.png)
+![](_images/13.3-2-5.png)
 
 - insert $8$:
 
-  ![](_images/13.3-2-6.png)
+![](_images/13.3-2-6.png)
+
+<style>
+.image-41 {
+  width: 12%
+}
+
+.image-38 {
+  width: 45%
+}
+
+.image-31 {
+  width: 80%
+}
+</style>
