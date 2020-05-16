@@ -60,7 +60,6 @@ string decimalToHex(int decimal)
     return ss.str();
 }
 
-/// [show]
 // 计算可能的空格位置
 vector<vector<int>> findSpace(vector<string> ciphertext)
 {
@@ -121,7 +120,6 @@ vector<string> calculateKey(vector<string> ciphertext)
     }
     return key;
 }
-/// [show]
 
 int main(int argc, char** argv)
 {

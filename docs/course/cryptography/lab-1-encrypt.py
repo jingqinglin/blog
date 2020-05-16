@@ -1,7 +1,7 @@
 import sys
 import codecs
 
-MSGS = ["LinJingqing", "Code"]
+MSGS = ["明文 1", "明文 2"]
 
 
 def split_hex(h, dtype='int'):
@@ -28,7 +28,7 @@ def strxor(a, b):
 
 
 def random(size=16):
-    return open("plaintext.txt").read(size)
+    return open("/dev/urandom").read(size)
 
 
 def encrypt(key, msg):
