@@ -79,7 +79,7 @@ public static boolean recursion(TreeNode node, Long lower, Long upper) {
 }
 ```
 
-力扣的测试用例中，出现了 Integer 边界值的测试用例（若区间初值为 Integer 的边界值，则对于 `[2147483647]` 会返回 false），所以将左右区间范围改为 Long 的区间
+力扣的测试用例中，出现了 Integer 边界值的测试用例（若区间初值为 Integer 的边界值，则对于 `[2147483647]` 会返回 false），所以将左右区间范围改为 Long 的区间。
 
 ### 复杂度分析
 时间复杂度 : $O(n)$，其中 $n$ 为二叉树的节点个数。在递归调用的时候二叉树的每个节点最多被访问一次。
@@ -90,7 +90,7 @@ public static boolean recursion(TreeNode node, Long lower, Long upper) {
 
 
 ### 问题描述
-用 `{1，5，6，7，8，9，10，11，12，13，14，15}` 构造一棵红黑树，给出过程以及结果。然后删除顺序为 `{14，9，5}` 的点，也给出过程及结果
+用 `{1，5，6，7，8，9，10，11，12，13，14，15}` 构造一棵红黑树，给出过程以及结果。然后删除顺序为 `{14，9，5}` 的点，也给出过程及结果。
 
 ### 流程图
 
@@ -134,9 +134,12 @@ public static boolean recursion(TreeNode node, Long lower, Long upper) {
 
 ![](_images/lab-3-13.png ':class=image-delete-14')
 
-- 删除 $9$、$5$:
+- 删除 $9$:
 
 ![](_images/lab-3-14.png ':class=image-delete-9')
+
+- 删除 $5$:
+
 ![](_images/lab-3-15.png ':class=image-delete-5')
 
 ### 复杂度分析
@@ -146,22 +149,18 @@ public static boolean recursion(TreeNode node, Long lower, Long upper) {
 
 <style>
 .image-insert-1 {
-  width: 7%
-}
-
-.image-insert-5, .image-insert-6 {
   width: 12%
 }
 
+.image-insert-5, .image-insert-6 {
+  width: 20%
+}
+
 .image-insert-7, .image-insert-8 {
-  width: 22%
+  width: 35%
 }
 
 .image-insert-9, .image-insert-10, .image-insert-11, .image-insert-12, .image-delete-14, .image-delete-9, .image-delete-5 {
-  width: 40%
-}
-
-.image-insert-13, .image-insert-14, .image-insert-15, {
-  width: 80%
+  width: 50%
 }
 </style>
