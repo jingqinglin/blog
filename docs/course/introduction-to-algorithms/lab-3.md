@@ -91,3 +91,77 @@ public static boolean recursion(TreeNode node, Long lower, Long upper) {
 
 ### 问题描述
 用 `{1，5，6，7，8，9，10，11，12，13，14，15}` 构造一棵红黑树，给出过程以及结果。然后删除顺序为 `{14，9，5}` 的点，也给出过程及结果
+
+### 流程图
+
+#### 插入
+
+- 插入 $1$:
+
+![](_images/lab-3-1.png ':class=image-insert-1')
+
+- 插入 $5$、$6$:
+
+![](_images/lab-3-2.png ':class=image-insert-5')![](_images/lab-3-3.png ':class=image-insert-6')
+
+- 插入 $7$、$8$
+
+![](_images/lab-3-4.png ':class=image-insert-7')![](_images/lab-3-5.png ':class=image-insert-8')
+
+- 插入 $9$、$10$
+
+![](_images/lab-3-6.png ':class=image-insert-9')![](_images/lab-3-7.png ':class=image-insert-10')
+
+- 插入 $11$、$12$
+
+![](_images/lab-3-8.png ':class=image-insert-11')![](_images/lab-3-9.png ':class=image-insert-12')
+
+- 插入 $13$
+
+![](_images/lab-3-10.png ':class=image-insert-13')
+
+- 插入 $14$
+
+![](_images/lab-3-11.png ':class=image-insert-14')
+
+- 插入 $15$
+
+![](_images/lab-3-12.png ':class=image-insert-15')
+
+#### 删除
+
+- 删除 $14$:
+
+![](_images/lab-3-13.png ':class=image-delete-14')
+
+- 删除 $9$、$5$:
+
+![](_images/lab-3-14.png ':class=image-delete-9')
+![](_images/lab-3-15.png ':class=image-delete-5')
+
+### 复杂度分析
+
+红黑树的基本动态集合操作（$\text{SEARCH}$、$\text{PREDECESSOR}$、$\text{SUCCESSOR}$、$\text{MINIMUM}$、$\text{MAXIMUM}$、$\text{INSERT}$ 和 $\text{DELETE}$）时间复杂度为 $O(log(n))$
+
+
+<style>
+.image-insert-1 {
+  width: 7%
+}
+
+.image-insert-5, .image-insert-6 {
+  width: 12%
+}
+
+.image-insert-7, .image-insert-8 {
+  width: 22%
+}
+
+.image-insert-9, .image-insert-10, .image-insert-11, .image-insert-12, .image-delete-14, .image-delete-9, .image-delete-5 {
+  width: 40%
+}
+
+.image-insert-13, .image-insert-14, .image-insert-15, {
+  width: 80%
+}
+</style>
