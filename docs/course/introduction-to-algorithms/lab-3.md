@@ -134,9 +134,13 @@ public static boolean recursion(TreeNode node, Long lower, Long upper) {
 
 ![](_images/lab-3-13.png ':class=image-delete-14')
 
+- 删除 $9$:
+
+![](_images/lab-3-14.png ':class=image-delete-9')
+
 ### 复杂度分析
 
-红黑树的基本动态集合操作（$\text{SEARCH}$、$\text{PREDECESSOR}$、$\text{SUCCESSOR}$、$\text{MINIMUM}$、$\text{MAXIMUM}$、$\text{INSERT}$ 和 $\text{DELETE}$）时间复杂度为 $O(log(n))$
+红黑树的基本动态集合操作（$\text{SEARCH}$、$\text{PREDECESSOR}$、$\text{SUCCESSOR}$、$\text{MINIMUM}$、$\text{MAXIMUM}$、$\text{INSERT}$ 和 $\text{DELETE}$）时间复杂度为 $O(logn)$
 
 
 <style>
@@ -152,7 +156,7 @@ public static boolean recursion(TreeNode node, Long lower, Long upper) {
   width: 35%
 }
 
-.image-insert-9, .image-insert-10, .image-insert-11, .image-insert-12, .image-delete-14 {
+.image-insert-9, .image-insert-10, .image-insert-11, .image-insert-12, .image-delete-14, .image-delete-9 {
   width: 50%
 }
 </style>

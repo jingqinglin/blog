@@ -85,7 +85,7 @@ public class QuickSort {
 
 流程图，截自 [visualgo](https://visualgo.net/zh)：
 
-<img src="https://cdn.jsdelivr.net/gh/JingqingLin/ImageHosting@master/img/gi76s-xn7oj.gif"/>
+![](https://cdn.jsdelivr.net/gh/JingqingLin/ImageHosting@master/img/gi76s-xn7oj.gif "-gifcontrol-mode=click;")
 
 ### 实验截图
 
