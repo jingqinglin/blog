@@ -9,7 +9,6 @@
 
 At the start of case 1 we have set $w$ to be the sibling of $x$. We check on line 4 that $w.color == red$, which means that the parent of $x$ and $w$ cannot be red. Otherwise property 4 is violated. Thus, their concerns are unfounded.
 
-
 ## 14.1-3
 
 > Write a nonrecursive version of $\text{OS-SELECT}$.
@@ -37,5 +36,61 @@ OS-SELECT(x, i)
 
 Since the black height of a node depends only on the black height and color of its children, Theorem 14.1 implies that we can maintain the attribute without affecting the asymptotic performance of the other red-black tree operations. The same is not true for maintaining the depths of nodes. If we delete the root of a tree we could potentially have to update the depths of $O(n)$ nodes, making the $\text{DELETE}$ operation asymptotically slower than before.
 
+<br>
+<details>
+<summary style="font-size: 17px;font-weight: 600;"><span style="color: red;cursor: pointer;">红黑树的删除<span></summary>
+
+不是作业题
+
+## 13.4-3
+
+> In Exercise 13.3-2, you found the red-black tree that results from successively inserting the keys $41, 38, 31, 12, 19, 8$ into an initially empty tree. Now show the red-black trees that result from the successive deletion of the keys in the order $8, 12, 19, 31, 38, 41$.
+>
+> 在练习 13.3-2 中， 将关键字 41、38、 31、 12、19、8 连续插入一棵初始的空树中，从而得到一棵红黑树。请给出从该树中连续删除关键字 8、12、19、31、38、41 后的红黑树。
+
+- initial:
+
+![](_images/13.4-3-1.png)
+
+- delete $8$:
+
+![](_images/13.4-3-2.png)
+
+- delete $12$:
+
+![](_images/13.4-3-3.png)
+
+- delete $19$:
+
+![](_images/13.4-3-4.png)
+
+- delete $31$:
+
+![](_images/13.4-3-5.png ':class=image-31')
+
+- delete $38$:
+
+![](_images/13.4-3-6.png ':class=image-38')
+
+- delete $41$:
+
+![](_images/13.4-3-7.png ':class=image-41')
+
+</details>
+<br>
 
 !> 第二版中的 [14.2-3](https://cdn.jsdelivr.net/gh/JingqingLin/ImageHosting@master/img/20200515170540.png) 第三版中已删去
+
+<style>
+.image-41 {
+  width: 12%
+}
+
+.image-38 {
+  width: 12%
+}
+
+.image-31 {
+  width: 45%
+}
+</style>
