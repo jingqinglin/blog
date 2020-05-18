@@ -74,10 +74,20 @@
 
 > 张曙老师上课使用的教材是算法导论第二版，布置的作业也来自第二版。此笔记的答案摘自 [walkccc](https://walkccc.github.io/CLRS/)，为第三版中对应的题目（第三版删去了第二版的某些题目，如果老师刚好布置了那些题，就不在此记录）
 
+- 作业一：2.1-2、2.1-3、2.2-1、3.1-1、3.1-2
+
+- 作业二：2.2-2、2.3-3、2.3-4
+
+- 作业三：4.1-1、4.1-2、4.2-1、4.2-2、<font color=#C0C0C0>4.3-1、4.3-2（第二版）</font>
+
+- 作业四：7.1-2、7.2-1、7.2-2、7.4-1、7.4-4
+
 - [作业五](course/introduction-to-algorithms/task-5.md)：13.1-2、13.1-5、13.2-3、13.3-1、13.3-2
 
-- [作业六](course/introduction-to-algorithms/task-6.md)：13.4-6、14.1-3、14.2-2
+- [作业六](course/introduction-to-algorithms/task-6.md)：13.4-6、14.1-3、14.2-2、<font color=#C0C0C0>14.2-3（第二版）</font>
 
 - [作业七](course/introduction-to-algorithms/task-7.md)：14.3-2、15.1-5
+
+- [作业八](course/introduction-to-algorithms/task-8.md)：15.3-1、15.3-2
 
 <!-- tabs:end -->

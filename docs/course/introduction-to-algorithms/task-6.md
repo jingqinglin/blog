@@ -23,7 +23,7 @@ OS-SELECT(x, i)
             x = x.left
         else x = x.right
             i = i - r
-        r = x.left + 1
+        r = x.left.size + 1
     return x
 ```
 
@@ -39,8 +39,10 @@ Since the black height of a node depends only on the black height and color of i
 <br>
 <details>
 <summary style="font-size: 17px;font-weight: 600;"><span style="color: red;cursor: pointer;">红黑树的删除<span></summary>
+<br>
 
-不是作业题
+> [!NOTE]
+> 此题不是作业题
 
 ## 13.4-3
 
@@ -79,7 +81,8 @@ Since the black height of a node depends only on the black height and color of i
 </details>
 <br>
 
-!> 第二版中的 [14.2-3](https://cdn.jsdelivr.net/gh/JingqingLin/ImageHosting@master/img/20200515170540.png) 第三版中已删去
+> [!WARNING]
+> 第二版中的 [14.2-3](https://cdn.jsdelivr.net/gh/JingqingLin/ImageHosting@master/img/20200515170540.png) 在第三版中已合并到 14.2-2
 
 <style>
 .image-41 {

@@ -20,7 +20,8 @@ INTERVAL-SEARCH(T, i)
 
 ## 15.1-5
 
-!> 老师上课使用的第二版教材中，动态规划的第一个例子是“装配线调度”问题，对应的 [15.1-5](https://cdn.jsdelivr.net/gh/JingqingLin/ImageHosting@master/img/20200515165208.png) 也不相同，以下是第三版的题目
+> [!WARNING]
+> 上课使用的第二版教材中，动态规划的第一个例子是“装配线调度”问题，对应的 [15.1-5](https://cdn.jsdelivr.net/gh/JingqingLin/ImageHosting@master/img/20200515165208.png) 也不相同，以下是第三版的题目
 
 > The Fibonacci numbers are defined by recurrence $\text{(3.22)}$. Give an $O(n)$-time dynamic-programming algorithm to compute the nth Fibonacci number. Draw the subproblem graph. How many vertices and edges are in the graph?
 >
