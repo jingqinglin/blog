@@ -94,15 +94,15 @@ If we chose to set the color of $z$ to black then we would be violating property
 
 - insert $41$:
 
-![](_images/13.3-2-1.png ':class=image-41')
+![](_images/13.3-2-1.png ':class=image-insert-41')
 
 - insert $38$:
 
-![](_images/13.3-2-2.png ':class=image-38')
+![](_images/13.3-2-2.png ':class=image-insert-38')
 
 - insert $31$:
 
-![](_images/13.3-2-3.png ':class=image-31')
+![](_images/13.3-2-3.png ':class=image-insert-31')
 
 - insert $12$:
 
@@ -117,15 +117,15 @@ If we chose to set the color of $z$ to black then we would be violating property
 ![](_images/13.3-2-6.png)
 
 <style>
-.image-41 {
+.image-insert-41 {
   width: 12%
 }
 
-.image-38 {
+.image-insert-38 {
   width: 45%
 }
 
-.image-31 {
+.image-insert-31 {
   width: 80%
 }
 </style>

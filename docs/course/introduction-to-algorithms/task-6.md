@@ -68,15 +68,15 @@ Since the black height of a node depends only on the black height and color of i
 
 - delete $31$:
 
-![](_images/13.4-3-5.png ':class=image-31')
+![](_images/13.4-3-5.png ':class=image-delete-31')
 
 - delete $38$:
 
-![](_images/13.4-3-6.png ':class=image-38')
+![](_images/13.4-3-6.png ':class=image-delete-38')
 
 - delete $41$:
 
-![](_images/13.4-3-7.png ':class=image-41')
+![](_images/13.4-3-7.png ':class=image-delete-41')
 
 </details>
 <br>
@@ -85,15 +85,15 @@ Since the black height of a node depends only on the black height and color of i
 > 第二版中的 [14.2-3](https://cdn.jsdelivr.net/gh/JingqingLin/ImageHosting@master/img/20200515170540.png) 在第三版中已合并到 14.2-2
 
 <style>
-.image-41 {
+.image-delete-41 {
   width: 12%
 }
 
-.image-38 {
+.image-delete-38 {
   width: 12%
 }
 
-.image-31 {
+.image-delete-31 {
   width: 45%
 }
 </style>
