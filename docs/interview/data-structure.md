@@ -49,7 +49,7 @@ private static void bubbleSort(int[] arr) {
 ### 插入排序
 > 将当前元素插入到左侧已经排序的数组中，使得插入之后左侧数组依然有序
 
-<img src="https://cdn.jsdelivr.net/gh/JingqingLin/ImageHosting/img/20200301175847.png" width="60%"/>
+<img src="https://cdn.jsdelivr.net/gh/JingqingLin/ImageHosting/img/20200301175847.png" width="70%"/>
 
 ### 希尔排序
 > 数组划分为多个小的部分（非连续，根据步长划分），每个部分进行插入排序；不断缩小步长，直至步长为 1
@@ -116,11 +116,20 @@ https://www.cnblogs.com/chengxiao/p/6129630.html
 https://blog.csdn.net/qq_25026989/article/details/89367954
 
 
-图片来自：https://www.cnblogs.com/onepixel/articles/7674659.html
+| 排序方法 | 时间复杂度（平均） | 时间复杂度（最坏） | 时间复杂度（最好） | 空间复杂度   | 稳定性 |
+| -------- | ------------------ | ------------------ | ------------------ | ------------ | ------ |
+| 插入排序 | $O(n^2)$           | $O(n^2)$           | $O(n)$             | $O(1)$       | 稳定   |
+| 希尔排序 | $O(n^{1.3})$       | $O(n^2)$           | $O(n)$             | $O(1)$       | 不稳定 |
+| 选择排序 | $O(n^2)$           | $O(n^2)$           | $O(n^2)$           | $O(1)$       | 不稳定 |
+| 堆排序   | $O(nlog_2n)$       | $O(nlog_2n)$       | $O(nlog_2n)$       | $O(1)$       | 不稳定 |
+| 冒泡排序 | $O(n^2)$           | $O(n^2)$           | $O(n)$             | $O(1)$       | 稳定   |
+| 快速排序 | $O(nlog_2n)$       | $O(n^2)$           | $O(nlog_2n)$       | $O(nlog_2n)$ | 不稳定 |
+| 归并排序 | $O(nlog_2n)$       | $O(nlog_2n)$       | $O(nlog_2n)$       | $O(n)$       | 稳定   |
+|          |
+| 计数排序 | $O(n + k)$         | $O(n + k)$         | $O(n + k)$         | $O(n + k)$   | 稳定   |
+| 桶排序   | $O(n + k)$         | $O(n^2)$           | $O(n)$             | $O(n + k)$   | 稳定   |
+| 计数排序 | $O(n * k)$         | $O(n * k)$         | $O(n * k)$         | $O(n + k)$   | 稳定   |
 
-<img src="https://cdn.jsdelivr.net/gh/JingqingLin/ImageHosting@master/img/849589-20180402133438219-1946132192.png" />
-
-———
 
 ### 拓扑排序
 > 拓扑排序是将有向无环图 G 的所有顶点排成一个线性序列，用队列实现  
@@ -128,7 +137,7 @@ https://blog.csdn.net/qq_25026989/article/details/89367954
 <img src="https://cdn.jsdelivr.net/gh/JingqingLin/ImageHosting/img/20200305213252.png" width="70%"/>
 
 ## AOE & AOV 网
-AOE 网中的最长路径被称为关键路径，即最短工期。可用**动态规划**求
+AOE 网中的最长路径被称为关键路径，即最短工期。可用**动态规划**求。
 
 ## 并查集
 
@@ -163,6 +172,12 @@ static void union(int[] parent, int x, int y) {
 
 
 ## 树
+
+> [!TIP] 树的**高度**、**深度**和**层**的概念区分
+>
+> <img src="https://cdn.jsdelivr.net/gh/JingqingLin/ImageHosting@master/img/IMG_1435.PNG" width="80%"/>
+
+
 ### 非递归中序遍历
 在中序遍历中如果要输出一个节点，要么该节点没有左孩子，要么该节点的左子树已经全部输出。
 
@@ -244,7 +259,7 @@ https://blog.csdn.net/mmshixing/article/details/51692892
 
 ---
 
-⭐
-<img src="https://cdn.jsdelivr.net/gh/JingqingLin/ImageHosting/img/20200309203321.png" width="70%"/>
-
-出自 [CSDN](https://blog.csdn.net/AAAhxz/article/details/104101890)
+> [!TIP]
+> <img src="https://cdn.jsdelivr.net/gh/JingqingLin/ImageHosting/img/20200309203321.png" width="90%"/>
+>
+> 出自 [CSDN](https://blog.csdn.net/AAAhxz/article/details/104101890)
