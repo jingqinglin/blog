@@ -88,6 +88,8 @@
 
 - [作业七](course/introduction-to-algorithms/task-7.md)：14.3-2、15.1-5
 
-- [作业八](course/introduction-to-algorithms/task-8.md)：15.3-1、15.3-2
+- [作业八](course/introduction-to-algorithms/task-8.md)：15.2-1、15.2-2、15.3-1、15.3-2
+
+- 作业九：15.4-3、15.5-2、15.5-3
 
 <!-- tabs:end -->

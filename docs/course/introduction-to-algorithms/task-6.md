@@ -48,7 +48,7 @@ Since the black height of a node depends only on the black height and color of i
 
 > In Exercise 13.3-2, you found the red-black tree that results from successively inserting the keys $41, 38, 31, 12, 19, 8$ into an initially empty tree. Now show the red-black trees that result from the successive deletion of the keys in the order $8, 12, 19, 31, 38, 41$.
 >
-> 在练习 13.3-2 中， 将关键字 41、38、 31、 12、19、8 连续插入一棵初始的空树中，从而得到一棵红黑树。请给出从该树中连续删除关键字 8、12、19、31、38、41 后的红黑树。
+> 在练习 13.3-2 中， 将关键字 $41、38、 31、12、19、8$ 连续插入一棵初始的空树中，从而得到一棵红黑树。请给出从该树中连续删除关键字 $8、12、19、31、38、41$ 后的红黑树。
 
 - initial:
 

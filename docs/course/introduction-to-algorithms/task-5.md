@@ -90,7 +90,7 @@ If we chose to set the color of $z$ to black then we would be violating property
 
 > Show the red-black trees that result after successively inserting the keys $41, 38, 31, 12, 19, 8$ into an initially empty red-black tree.
 >
-> 将关键字 41、38、31、12、19、8 连续地插入一棵初始为空的红黑树之后，试画出该结果树。
+> 将关键字 $41、38、31、12、19、8$ 连续地插入一棵初始为空的红黑树之后，试画出该结果树。
 
 - insert $41$:
 
