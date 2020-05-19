@@ -12,7 +12,7 @@
 
 <br>
 
-### 👉 剑指 Offer
+### 👉 **剑指 Offer**
 
 > 此部分记录我所做的剑指 Offer 题目
 
@@ -22,7 +22,8 @@
 
 ---
 
-### 🌈 LeetCode
+### <svg class="icon" aria-hidden="true"><use xlink:href="#icon-LeetCode"></use></svg> **LeetCode**
+
 
 > 此部分记录我所做的力扣题，按照 [CS-Notes](https://cyc2018.github.io/CS-Notes/#/notes/Leetcode%20%E9%A2%98%E8%A7%A3%20-%20%E7%9B%AE%E5%BD%951) 的分类进行做题
 
@@ -62,7 +63,7 @@
 
 ---
 
-### 📝 面试相关
+### 📝 **面试相关**
 
 > 在准备面试的过程中，参考了许多资料，但主要来源于 [CS-Notes](https://cyc2018.github.io/CS-Notes/#/) 和 [Huihut](https://interview.huihut.com)。在这些资料的基础上，我针对自己的情况做了一些记录和总结
 
@@ -89,7 +90,7 @@
 
 ---
 
-### 💯 课程相关
+### 💯 **课程相关**
 
 > 2019 - 2020 学年第二学期的部分课程
 
