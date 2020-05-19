@@ -1,7 +1,7 @@
 <div align="center">
-📖 <a href="https://github.com/JingqingLin/Blog" target="_blank">Github</a>
+<svg class="icon" aria-hidden="true"><use xlink:href="#icon-githubblack"></use></svg> <a href="https://github.com/JingqingLin/Blog" target="_blank">Github</a>
 &emsp; | &emsp;
-📚 Docsify
+<embed class="icon" src="_media/docsify.svg" type="image/svg+xml" style="width: 1.3em;height: 1.3em;" /> Docsify
 </div> 
 <br>
 
