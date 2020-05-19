@@ -9,3 +9,4 @@
     - [作业六](course/introduction-to-algorithms/task-6.md "作业六 - 算法设计与分析")
     - [作业七](course/introduction-to-algorithms/task-7.md "作业七 - 算法设计与分析")
     - [作业八](course/introduction-to-algorithms/task-8.md "作业八 - 算法设计与分析")
+    - [作业九](course/introduction-to-algorithms/task-9.md "作业九 - 算法设计与分析")
