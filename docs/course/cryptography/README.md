@@ -1,3 +1,6 @@
+本课程的参考教材为《密码编码学与网络安全：原理与实践》，由于中文版只能找到扫描版，这里提供网络上的[英文影印版](course/cryptography/cryptography-and-network-security_principles-and-practice-7th-global-edition.pdf ':ignore')（第七版）。
+
+
 #### 🔬 实验一
 
 ?> Many Time Pad
