@@ -59,3 +59,5 @@
 <!-- <font color=gray>docsify 的文档嵌入（嵌入多个 iframe）还有一点问题，修复 bug 前先使用 docsify-pdf-embed 插件来显示 </font> -->
 
 </details>
+
+- [实验报告](course/cryptography/lab-2.md)
