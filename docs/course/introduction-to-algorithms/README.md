@@ -1,4 +1,4 @@
-本课程使用算法导论作为教材，张曙老师上课使用第二版。由于中文版只能找到扫描版，这里提供网络上的[英文影印版](course/introduction-to-algorithms/introduction-to-algorithms-3rd.pdf ':ignore')（第三版）。
+本课程使用《算法导论》作为教材，张曙老师上课使用第二版。由于中文版只能找到扫描版，这里提供网络上的[英文影印版](course/introduction-to-algorithms/introduction-to-algorithms-3rd.pdf ':ignore')（第三版）。
 
 
 <!-- tabs:start -->
@@ -72,7 +72,7 @@
 
 ### ** 📝 作业 **
 
-> 张曙老师上课使用的教材是算法导论第二版，布置的作业也来自第二版。此笔记的答案摘自 [walkccc](https://walkccc.github.io/CLRS/)，为第三版中对应的题目（第三版删去了第二版的某些题目，如果老师刚好布置了那些题，就不在此记录）
+> 张曙老师上课使用的教材是《算法导论》第二版，布置的作业也来自第二版。此笔记的答案摘自 [walkccc](https://walkccc.github.io/CLRS/)，为第三版中对应的题目（第三版删去了第二版的某些题目，如果老师刚好布置了那些题，就不在此记录）
 
 - 作业一：2.1-2、2.1-3、2.2-1、3.1-1、3.1-2
 
