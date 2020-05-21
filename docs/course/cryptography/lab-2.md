@@ -25,7 +25,7 @@
 > [!TIP]
 > MinGW Installer 下载地址：https://osdn.net/projects/mingw/downloads/68260/mingw-get-setup.exe
 
-接着开始安装。需要注意的是，安装过程对网络环境要求较高（尽量避免使用中国移动宽带）。若连接失败，可以使用学校提供的 [VPN](http://openvpn.ustc.edu.cn/index.php) 或开启科学上网后再安装；若网络没有问题仍无法安装，可能是 MinGW Installer 的版本不是最新。
+接着开始安装。需要注意的是，安装过程对网络环境要求较高（尽量避免使用中国移动宽带）。若网络连接失败，可以使用学校提供的 [VPN](http://openvpn.ustc.edu.cn/index.php) 或开启科学上网后再安装；若网络没有问题仍无法安装，可能是 MinGW Installer 的版本不是最新。
 
 安装完成后，可以看到 MinGW Installer Manager 已经打开。
 
