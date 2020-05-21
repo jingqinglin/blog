@@ -67,7 +67,7 @@ public static int[] maxDepthAfterSplit(String seq) {
 
 左右各扫描一次
 
-<img src="https://cdn.jsdelivr.net/gh/JingqingLin/ImageHosting@master/img/171688e72b1e69a4.png" width="70%"/>
+![](_images/april-3-1.png ':class=image-70')
 
 ### 双指针 和 单调栈
 
@@ -168,7 +168,7 @@ public static String reverseWords(String s) {
 
 ### 动态规划
 
-李永乐老师视频讲解：
+李永乐老师的视频讲解：
 
 <!-- B 站嵌入参数调整：https://www.xbeibeix.com/bilibili3/ -->
 
@@ -188,7 +188,7 @@ B 站：
 
 dp 思想截图：
 
-<img src="https://cdn.jsdelivr.net/gh/JingqingLin/ImageHosting@master/img/17209992c0189ec2.png" width="70%"/>
+![](_images/april-7-1.png)
 
 按照动规思想写出代码，
 
@@ -223,7 +223,7 @@ public static int superEggDrop(int K, int N) {
 
 类似于下图：
 
-<img src="https://cdn.jsdelivr.net/gh/JingqingLin/ImageHosting@master/img/1917068-20200413205206516-1038290242.png" width="60%"/>
+![](_images/april-7-2.png ':class=image-60')
 
 因此 max 在两者相交时取到最小值。那么我们令 `low = 1, high = j`（当前总楼层数），`index = (low + high) / 2`
 
@@ -310,7 +310,7 @@ public static int superEggDrop(int K, int N) {
 > 第一眼看起来和<a href="https://leetcode-cn.com/problems/non-overlapping-intervals/" target="_blank">无重叠区间</a>很像，想用贪心做，但失败了
 
 
-<img src="https://cdn.jsdelivr.net/gh/JingqingLin/ImageHosting@master/img/1917068-20200416122039044-909212316.png" width="70%"/>
+![](_images/april-11-1.png ':class=image-70')
 
 按左端点排序，遍历区间，将合并后的区间放到“合并数组”中：
 - 若“合并数组”为空，则把当前区间（排序后的第一个区间）加入“合并数组”
@@ -376,7 +376,7 @@ public static boolean canJump(int[] nums) {
 **移动较短的那根**  
 因为短指针限制了高度，如果移动长指针不可能增加整体的高度，而底在不断减少，所以移动短指针来**尝试**增加最大高度
 
-<img src="https://cdn.jsdelivr.net/gh/JingqingLin/ImageHosting@master/img/1718b05343351be3.gif" width="70%"/>
+![](_images/april-13-1.png)
 
 ## 14. ⭐ 统计重复个数
 
@@ -424,17 +424,17 @@ public static int getMaxRepetitions(String s1, int n1, String s2, int n2) {
 
 > S1 = [s1, n1]
 
-我们可以将不断循环的 `s2` 组成的字符串类比作上面小数部分，去找是否存在一个子串，即「循环节」，满足不断在 `s2` 中循环，且这个**循环节能对应固定数量的 `s1`**。如下图所示，在第一次出现后，`s2` 的子串 `bdadc` 构成一个循环节：之后 `bdadc` 的每次出现都需要有相应的两段 `s1`
+我们可以将不断循环的 `s2` 组成的字符串类比作上面小数部分，去找是否存在一个子串，即「循环节」，满足不断在 `s2` 中循环，且这个**循环节能对应固定数量的 `s1`**。如下图所示，在第一次出现后，`s2` 的子串 `bdadc` 构成一个循环节：之后 `bdadc` 的每次出现都需要有相应的两段 `s1`。
 
-<img src="https://cdn.jsdelivr.net/gh/JingqingLin/ImageHosting@master/img/1917068-20200419124501610-1792810743.png" width="70%"/>
+![](_images/april-14-1.png ':class=image-70')
 
 - 如何找出循环节？
   1. 以 `s1` 为单位循环遍历 `S1 = [s1,n1]`，同时维护为 `s2` 一个指针 `p`，记录现在指向 `s2` 中的哪个位置。若两字符串字符相等，则 `p++`（指向了 `s2` 的后一个位置）
   2. 我们记录每次结束遍历 `s1` 后 `p` 的位置，若 `p` 的位置之前和以前某一次一样，那么这两次 `p` 之间存在一个循环节
 
-以上方图片为例，在黄色箭头处记录 `p` 的位置，我们发现第一次和第三次遍历 `s1` 结束后 `p` 的位置相同，都指向了 `s2` 的第三个字符 `c`，因此 `bdadc` 构成一个循环节
+以上方图片为例，在黄色箭头处记录 `p` 的位置，我们发现第一次和第三次遍历 `s1` 结束后 `p` 的位置相同，都指向了 `s2` 的第三个字符 `c`，因此 `bdadc` 构成一个循环节。
 
-接着，我们只需求出一个**循环节**包括了几个 `s1` 和 `s2`，就可以根据循环节的个数（看<a href="https://github.com/JingqingLin/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20-%202020.04/466.%20%E7%BB%9F%E8%AE%A1%E9%87%8D%E5%A4%8D%E4%B8%AA%E6%95%B0/src/Solution.java" target="_blank">代码</a>）求出答案
+接着，我们只需求出一个**循环节**包括了几个 `s1` 和 `s2`，就可以根据循环节的个数（看<a href="https://github.com/JingqingLin/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20-%202020.04/466.%20%E7%BB%9F%E8%AE%A1%E9%87%8D%E5%A4%8D%E4%B8%AA%E6%95%B0/src/Solution.java" target="_blank">代码</a>）求出答案。
 
 - 如何处理开头和末尾的情况？
     - 最后一个 `s1` 不遍历，然后只需求出第一个循环节结束之前（上图第三个黄色箭头之前）遍历 `s2` 的次数
@@ -466,7 +466,7 @@ public static int getMaxRepetitions(String s1, int n1, String s2, int n2) {
 
 > 不能单条线递归，如下情况，5 不会被遍历进去
 
-<img src="https://cdn.jsdelivr.net/gh/JingqingLin/ImageHosting@master/img/1917068-20200422101831118-2042260186.png" width="30%"/>
+![](_images/april-16-1.png ':class=image-30')
 
 BFS，⭐ DFS 皆可。BFS 先把左子树入队，DFS 先递归右子树
 
@@ -557,7 +557,7 @@ if (nums[mid] <= nums[mid + 1]) {
 
 用时缩短：
 
-<img src="https://cdn.jsdelivr.net/gh/JingqingLin/ImageHosting@master/img/1917068-20200424131835707-200222903.png" width="70%"/>
+![](_images/april-18-1.png ':class=image-70')
 
 ## 19. 合并K个排序链表
 
