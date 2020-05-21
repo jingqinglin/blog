@@ -10,7 +10,7 @@ using namespace std;
 const int THRESHOLD_VALUE = 6;
 const int KEY_LENGTH = 400;
 
-// 读取 ciphertext.txt 中的密文
+// 读取密文
 void readText(string fileName, vector<string>& cip, string& targetCip)
 {
     ifstream inFile(fileName);
@@ -77,7 +77,7 @@ vector<vector<int>> findSpace(vector<string> ciphertext)
             int count = 0;
 
             // 位置 j 和 j + 1 上的字符与其余 9 条密文该位置的字符进行异或
-            for(vector<int>::size_type k = 0; k != ciphertext.size(); k++) {
+            for(vector<string>::size_type k = 0; k != ciphertext.size(); k++) {
                 string residueCipher = ciphertext[k];
 
                 if(i == k || j > residueCipher.length()) {
@@ -88,7 +88,7 @@ vector<vector<int>> findSpace(vector<string> ciphertext)
                 // 若异或结果为字母，则 count++
                 count += isAlphabet(tempI ^ tempK);
 
-                // 若超过 THRESHOLD_VALUE 条的异或结果为字母，那么可以认定这个位置对应的明文是空格
+                // 若超过 THRESHOLD_VALUE 条的异或结果为字母，那么我们可以认定这个位置对应的明文是空格
                 if(count >= THRESHOLD_VALUE) {
                     space.push_back(j);
                 }
@@ -106,7 +106,7 @@ vector<string> calculateKey(vector<string> ciphertext)
     vector<string> key(KEY_LENGTH);
     vector<vector<int>> spacePos = findSpace(ciphertext);
 
-    for(vector<int>::size_type i = 0; i != ciphertext.size(); i++) {
+    for(vector<string>::size_type i = 0; i != ciphertext.size(); i++) {
         string cipher = ciphertext[i];
         vector<int> space = spacePos[i];
 
