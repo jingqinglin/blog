@@ -2,23 +2,24 @@
 
 作业要求
 
-<img src="https://cdn.jsdelivr.net/gh/JingqingLin/ImageHosting@master/img/20200316162134.png" width="70%"/>
+![](_images/task-2-1.png ':class=image-80')
 
 ## VS Code 运行 lab5-1.tar.gz
 
-> 附件 [lab5-1.tar.gz](https://pan.baidu.com/s/1pJ0qAIv)
+> [!TIP]
+> 附件地址： [lab5-1.tar.gz](https://pan.baidu.com/s/1pJ0qAIv)
 
 安装、配置 MinGW
 
 终端执行 `gcc -o menu linktable.c menu.c`，对 menu.c 进行编译和链接，输出警告
 
-<img src="https://cdn.jsdelivr.net/gh/JingqingLin/ImageHosting@master/img/20200316173751.png" />
+![](_images/task-2-2.png)
 
 为 menu.c 添加头文件 `#include <string.h>`
 
 再次编译和链接，打开 menu.exe 可以输入三个参数 `help`、`version` 和 `quit`，其中 `quit` 无法运行
 
-<img src="https://cdn.jsdelivr.net/gh/JingqingLin/ImageHosting@master/img/20200316174816.png" />
+![](_images/task-2-3.png)
 
 ## 找出 quit 命令无法运行的原因
 找到输出 `This is a wrong cmd!` 的代码段，可知错误由 `p == null` 引起的，
@@ -101,13 +102,15 @@ int InitMenuData(tLinkTable** ppLinktable)
 }
 ```
 
-修改后的 quit 输出如下：  
-<img src="https://cdn.jsdelivr.net/gh/JingqingLin/ImageHosting@master/img/20200316202447.png" />
+修改后的 quit 输出如下：
+
+![](_images/task-2-4.png)
 
 ## 分析 callback 函数
 如果你把**函数的指针（地址）** 作为**参数**传递给另一个函数，当这个指针（地址）被用来调用其所指向的函数时，我们就说这是回调函数
 
 上述例子中 `*Condition` 作为参数，指针指向函数 `SearchCondition()`。因此，这个地址是被用来调用 `SearchCondition()` 的。我们称函数 `SearchCondition()` 为回调函数
 
-维基的图示：  
-<img src="https://cdn.jsdelivr.net/gh/JingqingLin/ImageHosting@master/img/20200316204216.png" />
+维基百科中的图示：
+
+![](_images/task-2-5.png)
