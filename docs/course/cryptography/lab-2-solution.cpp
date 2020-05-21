@@ -5,7 +5,7 @@
 
 using namespace std;
 
-int main()
+void solve()
 {
     mpz_class p("134078079299425970995740249982058461274793658205923933777235614437217640300735469768018742981669034276"
                 "90031858186486050853753882811946569946433649006084171");
@@ -15,7 +15,7 @@ int main()
                 "2878928001494706097394108577585732452307673444020333");
     // B = sqrt(p) + 1 向上取整
     mpz_class B("1048576");
-    mpz_class x0("-1"), x1("-1"), x("-2");
+    mpz_class x0("0"), x1("0"), x("-1");
     unordered_map<string, int> hashMap;
 
     // x1 = 0, 1, 2...。将等式右边的结果 h * g^x1 存入哈希表，key = h * g^x1，value = x1
@@ -24,7 +24,6 @@ int main()
         hashMap[productRight.get_str()] = i;
         productRight = productRight * g % p;
     }
-
     cout << "Hash map is saved!" << endl;
 
     // 等式左边的底数 baseLeft = g^B
@@ -35,7 +34,7 @@ int main()
 
     // x0 = 0, 1, 2...。判断等式左边的结果 (g^B)^x0 是否在哈希表中
     mpz_class productLeft("1");
-    for(int i = 1; i <= B + 1; i++) {
+    for(int i = 1; i <= B; i++) {
         productLeft = productLeft * baseLeft % p;
         if(hashMap.find(productLeft.get_str()) != hashMap.end()) {
             x0 = i;
@@ -45,9 +44,18 @@ int main()
     }
 
     x = B * x0 - x1;
+    if(x == -1) {
+        cout << "There is no solution!" << endl;
+        return;
+    }
     cout << "x0:\t" << x0 << endl;
     cout << "x1:\t" << x1 << endl;
     cout << "x:\t" << x << endl;
+    return;
+}
 
+int main()
+{
+    solve();
     return 0;
 }
