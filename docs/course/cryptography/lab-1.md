@@ -163,7 +163,7 @@ vector<vector<int>> findSpace(vector<string> ciphertext)
             int tempI = hexToDecimal(cipher.substr(j, 2));
             int count = 0;
 
-            // 位置 j 和 j + 1 上的字符与其余 9 条密文该位置的字符进行异或
+            // 位置 j 和 j + 1 上的字符与其余 10 条密文（包括待解密密文）该位置的字符进行异或
             for(vector<string>::size_type k = 0; k != ciphertext.size(); k++) {
                 string residueCipher = ciphertext[k];
 
@@ -206,7 +206,6 @@ vector<string> calculateKey(vector<string> ciphertext)
                 // 该位置密文与空格进行异或，计算该位置的密钥
                 // 32 是空格的 ASCII 码
                 int k = 32 ^ hexToDecimal(cipher.substr(pos, 2));
-                // 会存在密钥覆盖的问题
                 key[pos] = decimalToHex(k);
             }
         }
