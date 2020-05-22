@@ -226,9 +226,9 @@ int main(int argc, char** argv)
 
     // 解密目标密文
     for(string::size_type i = 0; i < targetCiphertext.length(); i = i + 2) {
-        // 若对应位置上无密钥，则该位置统一放置 ' '
+        // 若对应位置上无密钥，则该位置统一放置 '0'
         if(key[i].empty()) {
-            message.push_back(' ');
+            message.push_back('0');
         } else {
             char m = hexToDecimal(targetCiphertext.substr(i, 2)) ^ hexToDecimal(key[i]);
             message.push_back(m);
