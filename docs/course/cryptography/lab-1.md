@@ -177,7 +177,8 @@ vector<vector<int>> findSpace(vector<string> ciphertext)
             // 若超过 THRESHOLD_VALUE 条的异或结果为字母，那么我们可以认定这个位置对应的明文是空格
             if(count > THRESHOLD_VALUE) {
                 space.push_back(j);
-                // count 值越大，空格的可能性越大。存入最大的 count 和密文的序号，因为 j + 1 位置是空的，刚好可以存密文的序号
+                // count 值越大，空格的可能性越大。存入位置 j 上最大的 count 和对应密文的序号，因为 j + 1
+                // 位置是空的，刚好可以存密文的序号
                 if(countArray[j] < count) {
                     countArray[j] = count;
                     countArray[j + 1] = i;
@@ -201,7 +202,7 @@ vector<string> calculateKey(vector<string> ciphertext)
         vector<int> space = spacePos[i];
 
         for(auto pos : space) {
-            if(countArray[pos + 1] == (int) i) {
+            if(countArray[pos + 1] == (int)i) {
                 // 该位置密文与空格进行异或，计算该位置的密钥
                 // 32 是空格的 ASCII 码
                 int k = 32 ^ hexToDecimal(cipher.substr(pos, 2));
