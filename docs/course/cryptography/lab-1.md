@@ -249,7 +249,7 @@ int main(int argc, char** argv)
 <br>
 
 > [!NOTE]
-> 我们发现，第 8 个字符 `secret` 中的 `r` 被解析成了 `u`。
+> 我们发现，第 8 个字符 `r`（`secret`）被解析成了 `u`。
 >
 > ![](_images/lab-1-1.png ':class=image-80')
 >
