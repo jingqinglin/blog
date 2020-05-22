@@ -50,7 +50,7 @@ def strxor(a, b):
 
 比如 `'a' ^ ' ' = 'A'`。
 
-因此，对于消息 $m$，对位置 $i$，$j$ 上的字符 $m_i$, $m_j$ 进行异或，如果异或结果为英文字母，那么 $i$，$j$ 两个位置上的字符**很可能**一个是空格，另一个是英文字母（但也有其他可能，比如 `'!' ^ 'B' = 'c'`）。
+因此，对于消息 $m$，对位置 $i$，$j$ 上的字符 $m_i$, $m_j$ 进行异或，如果异或结果为英文字母，那么 $i$，$j$ 两个位置上的字符**很可能**一个是空格，另一个是英文字母（但也有其他可能，比如 `'!' ^ 'B' = 'c'`，实验最后进行了举例）。
 
 ### 线索 2
 
@@ -245,3 +245,18 @@ int main(int argc, char** argv)
 `The secuet message is: Whtn using aastream cipher, never use the key more than once`
 
 可以猜出，原文为：`The secret message is: When using a stream cipher, never use the key more than once`
+
+> [!NOTE]
+> 我们发现，第 8 个字符 `secret` 中的 `r` 被解析成了 `u`。以下截图为每条密文被**假定**为空格的位置对待解密文的解密结果。
+>
+> ![](_images/lab-1-1.png ':class=image-80')
+>
+> 可以看出，只有第 5 条密文的第 8 个位置被**假定**为空格，但是最终第 8 个字符却解错了，由此说明第 5 条密文的第 8 个位置实际上并不是空格，它被误判了。那这个位置的正确明文是什么呢？[这篇文章](https://blog.csdn.net/liuweiran900217/article/details/19933549)给出了正确率更高的明文，下图：
+>
+> ![](_images/lab-1-2.png ':class=image-70')
+>
+> 可以看到该位置是一个单引号 `'`，把单引号和所有字母进行异或：
+>
+> ![](_images/lab-1-3.png ':class=image-50')
+>
+> 大多数都是字母，所以单引号被误判了（因为判断空格的依据是异或出来的结果是否为字母）。
