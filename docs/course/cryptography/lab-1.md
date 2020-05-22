@@ -77,6 +77,9 @@ def strxor(a, b):
 ## 代码
 以下代码片段通过计算出密钥的方法（而非直接对目标密文进行异或）来解密，并对关键部分进行注释。
 
+> [!TIP]
+> 计算空格的时候，可以把待解密密文也一起放进去异或，增加样本
+
 ```cpp
 #include <fstream>
 #include <iostream>
@@ -87,8 +90,10 @@ def strxor(a, b):
 using namespace std;
 
 // 判断空格的门限值，可根据结果进行修改调整
-const int THRESHOLD_VALUE = 6;
+const int THRESHOLD_VALUE = 5;
 const int KEY_LENGTH = 400;
+// 存储各条密文同一个位置的最大 count 值
+vector<int> countArray(KEY_LENGTH);
 
 // 读取密文
 void readText(string fileName, vector<string>& cip, string& targetCip)
@@ -110,6 +115,8 @@ void readText(string fileName, vector<string>& cip, string& targetCip)
             flag = true;
         }
     }
+    // 最后一条待解密的密文也放入 cip
+    cip.push_back(temp);
     targetCip = temp;
 }
 
@@ -167,10 +174,14 @@ vector<vector<int>> findSpace(vector<string> ciphertext)
                 int tempK = hexToDecimal(residueCipher.substr(j, 2));
                 // 若异或结果为字母，则 count++
                 count += isAlphabet(tempI ^ tempK);
-
-                // 若超过 THRESHOLD_VALUE 条的异或结果为字母，那么我们可以认定这个位置对应的明文是空格
-                if(count >= THRESHOLD_VALUE) {
-                    space.push_back(j);
+            }
+            // 若超过 THRESHOLD_VALUE 条的异或结果为字母，那么我们可以认定这个位置对应的明文是空格
+            if(count > THRESHOLD_VALUE) {
+                space.push_back(j);
+                // count 值越大，空格的可能性越大。存入最大的 count 和密文的序号，因为 j + 1 位置是空的，刚好可以存密文的序号
+                if(countArray[j] < count) {
+                    countArray[j] = count;
+                    countArray[j + 1] = i;
                 }
             }
         }
@@ -191,11 +202,13 @@ vector<string> calculateKey(vector<string> ciphertext)
         vector<int> space = spacePos[i];
 
         for(auto pos : space) {
-            // 该位置密文与空格进行异或，计算该位置的密钥
-            // 32 是空格的 ASCII 码
-            int k = 32 ^ hexToDecimal(cipher.substr(pos, 2));
-            // 会存在密钥覆盖的问题
-            key[pos] = decimalToHex(k);
+            if(countArray[pos + 1] == (int) i) {
+                // 该位置密文与空格进行异或，计算该位置的密钥
+                // 32 是空格的 ASCII 码
+                int k = 32 ^ hexToDecimal(cipher.substr(pos, 2));
+                // 会存在密钥覆盖的问题
+                key[pos] = decimalToHex(k);
+            }
         }
     }
     return key;
@@ -213,9 +226,9 @@ int main(int argc, char** argv)
 
     // 解密目标密文
     for(string::size_type i = 0; i < targetCiphertext.length(); i = i + 2) {
-        // 若对应位置上无密钥，则该位置统一放置 '0'
+        // 若对应位置上无密钥，则该位置统一放置 ' '
         if(key[i].empty()) {
-            message.push_back('0');
+            message.push_back(' ');
         } else {
             char m = hexToDecimal(targetCiphertext.substr(i, 2)) ^ hexToDecimal(key[i]);
             message.push_back(m);
@@ -230,6 +243,6 @@ int main(int argc, char** argv)
 
 ## 实验结果
 运行上述代码，输出：
-`The secuet-mes0age0is: Whtn usi|g0wsstream cipher, never0use the key more than once`
+`The secuet message is: Whtn using aastream cipher, never use the key more than once`
 
 可以猜出，原文为：`The secret message is: When using a stream cipher, never use the key more than once`
