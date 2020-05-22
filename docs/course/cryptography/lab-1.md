@@ -246,12 +246,14 @@ int main(int argc, char** argv)
 
 可以猜出，原文为：`The secret message is: When using a stream cipher, never use the key more than once`
 
+<br>
+
 > [!NOTE]
-> 我们发现，第 8 个字符 `secret` 中的 `r` 被解析成了 `u`。以下截图为每条密文被**假定**为空格的位置对待解密文的解密结果。
+> 我们发现，第 8 个字符 `secret` 中的 `r` 被解析成了 `u`。
 >
 > ![](_images/lab-1-1.png ':class=image-80')
 >
-> 可以看出，只有第 5 条密文的第 8 个位置被**假定**为空格，但是最终第 8 个字符却解错了，由此说明第 5 条密文的第 8 个位置实际上并不是空格，它被误判了。那这个位置的正确明文是什么呢？[这篇文章](https://blog.csdn.net/liuweiran900217/article/details/19933549)给出了正确率更高的明文，下图：
+> 从上图可以看出，只有第 5 条密文的第 8 个位置被**假定**为空格，但是最终第 8 个字符却解错了，由此说明第 5 条密文的第 8 个位置实际上并不是空格，它被误判了。那这个位置的正确明文是什么呢？[这篇文章](https://blog.csdn.net/liuweiran900217/article/details/19933549)给出了正确率更高的明文，下图：
 >
 > ![](_images/lab-1-2.png ':class=image-70')
 >
