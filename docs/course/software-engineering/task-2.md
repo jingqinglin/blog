@@ -76,11 +76,11 @@ tLinkTableNode *SearchLinkTableNode(tLinkTable *pLinkTable, int (*Conditon)(tLin
 - `while` 循环遍历命令链表，`Conditon` 指向的函数用于字符串判等（判断命令链表中的字符串与输入字符串是否相等），若 `输入的字符串存在于命令链表`，返回 `与输入字串相等的这个结点`
 - 否则返回 `NULL`
 
-由上面分析可得，链表不为空 且 回调函数存在，所以错误出现在 `while` 循环。`while` 的终止条件为 `pNode == pLinkTable->pTail`（`pNode` 等于链表最后一个结点时终止），而从链表[初始化函数（下方）](#initFunc)中可看出，quit 刚好为链表最后一个结点，因此链表内的 quit 还没机会与输入命令进行比较就已经终止循环了
+由上面分析可得，链表不为空 且 回调函数存在，所以错误出现在 `while` 循环。`while` 的终止条件为 `pNode == pLinkTable->pTail`（`pNode` 等于链表最后一个结点时终止），而从链表初始化函数（下方）中可看出，quit 刚好为链表最后一个结点，因此链表内的 quit 还没机会与输入命令进行比较就已经终止循环了
 
 因此，修改循环条件为 `pNode != NULL`
 
-<span id="initFunc">初始化函数：</span>
+
 ```c
 int InitMenuData(tLinkTable** ppLinktable)
 {
