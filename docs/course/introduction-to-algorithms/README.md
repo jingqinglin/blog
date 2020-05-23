@@ -69,6 +69,20 @@
 
 </details>
 
+- [实验报告](course/introduction-to-algorithms/lab-4.md)
+
+#### 🔬 实验五
+
+?> 0-1 背包问题的算法设计
+
+<details>
+<summary>实验内容</summary>
+
+> ```pdf
+> course/introduction-to-algorithms/lab-5-0-1-背包问题的算法设计.pdf
+> ```
+
+</details>
 
 ### ** 📝 作业 **
 
