@@ -108,4 +108,6 @@
 
 - [作业九](course/introduction-to-algorithms/task-9.md)：15.4-3、15.5-2、15.5-3
 
+- [作业十](course/introduction-to-algorithms/task-10.md)：16.1-2、16.2-4、16.3-3
+
 <!-- tabs:end -->
