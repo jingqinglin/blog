@@ -4,6 +4,7 @@
     - [实验二](course/introduction-to-algorithms/lab-2.md "典型排序算法训练 - 算法设计与分析")
     - [实验三](course/introduction-to-algorithms/lab-3.md "二叉查找树、红黑树的基本操作实现 - 算法设计与分析")
     - [实验四](course/introduction-to-algorithms/lab-4.md "贪心算法实现最佳任务调度实验 - 算法设计与分析")
+    - [实验五](course/introduction-to-algorithms/lab-5.md "0-1 背包问题的算法设计 - 算法设计与分析")
 
   - 📝 作业
     - [作业五](course/introduction-to-algorithms/task-5.md "作业五 - 算法设计与分析")

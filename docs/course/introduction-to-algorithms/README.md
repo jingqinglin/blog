@@ -84,6 +84,8 @@
 
 </details>
 
+- [实验报告](course/introduction-to-algorithms/lab-5.md)
+
 ### ** 📝 作业 **
 
 > 张曙老师上课使用的教材是《算法导论》第二版，布置的作业也来自第二版。此笔记的答案摘自 [walkccc](https://walkccc.github.io/CLRS/)，为第三版中对应的题目（第三版删去了第二版的某些题目，如果老师刚好布置了那些题，就不在此记录）
