@@ -1,3 +1,4 @@
 - [现代密码学与应用](course/cryptography/)
   - [实验一](course/cryptography/lab-1.md "Many Time Pad - 现代密码学与应用")
   - [实验二](course/cryptography/lab-2.md "离散对数求解 - 现代密码学与应用")
+  - [实验三](course/cryptography/lab-3.md "CBC 和 CTR 模式下的 AES - 现代密码学与应用")

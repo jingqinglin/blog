@@ -1,4 +1,4 @@
-本课程的参考教材为《密码编码学与网络安全：原理与实践》，由于中文版只能找到扫描版，这里提供网络上的[英文影印版](course/cryptography/cryptography-and-network-security_principles-and-practice-7th-global-edition.pdf ':ignore')（第七版）。
+本课程的参考教材为《密码编码学与网络安全：原理与实践》，👉 [英文影印版](course/cryptography/cryptography-and-network-security_principles-and-practice-7th-global-edition.pdf ':ignore')（第七版）。
 
 
 #### 🔬 实验一
@@ -64,3 +64,37 @@
 </details>
 
 - [实验报告](course/cryptography/lab-2.md)
+
+#### 实验三
+
+?> CBC 和 CTR 模式下的 AES
+
+<details>
+<summary>实验内容</summary>
+
+> 【时间】6 月 6 号（周六）晚上
+> 
+> 【地点】待定
+> 
+> 【编程语言】Python（推荐）或者 C/C++
+> 
+> 【实验目的】
+> 1. 了解分组密码的结构特点；
+> 2. 掌握传统分组密码结构 AES，以及 AES 在两种工作模式 CBC 和 CTR 下的实现；
+> 3. 通过使用 Python（推荐）或者 C，编程分别实现 CBC 和 CTR 模式下的 AES 加密解密。
+> 
+> 【实验内容】
+> 
+> 在本次实验中，需要实现两个加密/解密系统，一个在密文分组链接模式（CBC）下使用 AES，另一个在计数器模式（CTR）中使用 AES。
+> 
+> 完成程序后，使用附件的 [test.txt](course/cryptography/lab-3-test.txt ':ignore') 中给出的四组密钥和密文（十六进制形式）来验证你的代码。
+> 
+> 【要求】：
+> 1. 在两种模式下，16 字节的加密 IV 都要求是随机生成的，并被添加到密文前面；
+> 2. 对于 CBC 加密，要求使用 PKCS5 填充方案；
+> 3. 对于 AES 的基本实现，你可以使用现有的加密库，如 PyCrypto（Python），Crypto++（C++）或任何其他语言和库；
+> 4. 要求自己实现 CBC 和 CTR 模式，而不是直接调用 AES 库的内置功能；
+
+</details>
+
+- [实验报告](course/cryptography/lab-3.md)
