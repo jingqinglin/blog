@@ -1,5 +1,15 @@
 算法导论的作业答案摘自 [walkccc](https://walkccc.github.io/CLRS/)
 
+> [!NOTE]
+> 我们可以按如下步骤设计贪心算法:
+> 1. 将最优化问题转化为这样的形式：对其做出一次选择后，只剩下一个子问题需要求解。
+> 2. 证明做出贪心选择后，原问题总是存在最优解，即贪心选择总是安全的。
+> 3. 证明做出贪心选择后，剩余的子问题满足性质：其最优解与贪心选择组合即可得到原问题的最优解，这样就得到了最优子结构。
+
+> [!TIP]
+> 贪心算法的正确性证明不太会
+
+
 ## 16.1-2
 
 > Suppose that instead of always selecting the first activity to finish, we instead select the last activity to start that is compatible with all previously selected activities. Describe how this approach is a greedy algorithm, and prove that it yields an optimal solution.
@@ -15,7 +25,7 @@ This becomes exactly the same as the original problem if we imagine time running
 >
 > The professor's goal is to minimize the number of water stops along his route across the state. Give an efficient method by which he can determine which water stops he should make. Prove that your strategy yields an optimal solution, and give its running time.
 >
-> Gekko教授一直梦想用直排轮滑的方式横穿北达科他州。他计划沿 U.S. 2 号高速公路横穿，这条高速公路从明尼苏达州东部边境的大福克斯市到靠近蒙大拿州西部边境的威利斯顿市。教授计划带两公升水，在喝光水之前能滑行 $m$ 英里（由于北达科他州地势相对平坦，教授无需担心在上坡路段喝水速度比平地或下坡路段快）。教授从大福克斯市出发时带整整两公升水。他携带的北达科他州官方地图显示了 U.S. 2 号公路上所有可以补充水的地点，以及这些地点间的距离。
+> Gekko 教授一直梦想用直排轮滑的方式横穿北达科他州。他计划沿 U.S. 2 号高速公路横穿，这条高速公路从明尼苏达州东部边境的大福克斯市到靠近蒙大拿州西部边境的威利斯顿市。教授计划带两公升水，在喝光水之前能滑行 $m$ 英里（由于北达科他州地势相对平坦，教授无需担心在上坡路段喝水速度比平地或下坡路段快）。教授从大福克斯市出发时带整整两公升水。他携带的北达科他州官方地图显示了 U.S. 2 号公路上所有可以补充水的地点，以及这些地点间的距离。
 >
 > 教授的目标是最小化横穿途中补充水的次数。设计一个高效的方法，以帮助教授确定应该在哪些地点补充水。证明你的策略会生成最优解，分析其运行时间。
 
@@ -46,5 +56,18 @@ e & 1110 \\\\
 f & 110 \\\\
 g & 10 \\\\
 h & 0
+\end{array}
+$$
+
+
+推广：
+
+设前 $n$ 个斐波那契数为 $f(0) = 1, f(1) = 1, ... , f(n - 1) = f(n - 2) + f(n - 3)$，其对应的赫夫曼编码为 $H(0), H(1), ... , H(n - 1)$，则由上图可归纳出：
+
+$$
+\begin{array}{l}
+H(n - 1) = 0 \\
+H(k) \quad \ \ \ = H(k + 1) + 2^{n - k - 1} \quad (0 < k < n - 1) \\
+H(0) \quad \ \ \ = H(1) + 1
 \end{array}
 $$
