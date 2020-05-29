@@ -45,11 +45,11 @@
 
 ![](_images/lab-3-4.png ':class=image-70')
 
-最后，在属性页的
+最后，在属性页的 `C/C++ - 代码生成 - 运行库` 中选择 `多线程调试（/MTD）`。
 
 ![](_images/lab-3-5.png ':class=image-60')
 
-运行测试代码：`C/C++ - 代码生成 - 运行库` 中选择 `多线程调试（/MTD）`
+运行测试代码：
 
 ```cpp
 #include <iostream>
