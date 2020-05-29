@@ -227,22 +227,21 @@ CTR 相较于 CBC 少了填充的过程。另外，CTR 需要维护一个自增�
 ```cpp
 string counterIncrement(string counter, int n)
 {
-	string res = counter;
-	int addend = n;
+    string res = counter;
+    int addend = n;
 
-	for (int i = counter.length() - 1; i >= 0; i--) {
-		unsigned char tempChar = counter[i];
-		if ((int)tempChar + addend > 255) {
-			tempChar = tempChar + addend;
-			addend = 1;
-		}
-		else {
-			tempChar = tempChar + addend;
-			addend = 0;
-		}
-		res[i] = tempChar;
-	}
-	return res;
+    for(int i = counter.length() - 1; i >= 0; i--) {
+        unsigned char tempChar = counter[i];
+        if((int)tempChar + addend > 255) {
+            tempChar = tempChar + addend;
+            addend = 1;
+        } else {
+            tempChar = tempChar + addend;
+            addend = 0;
+        }
+        res[i] = tempChar;
+    }
+    return res;
 }
 ```
 
@@ -311,7 +310,7 @@ string decrypt(string ciphertext, string key, string plaintext)
 测试 3 和测试 4，分别输出：`CTR mode lets you build a stream cipher from a block cipher.` 和 `Always avoid the two time pad!`。
 
 > [!TIP]
-> Crypto++ 中的 AES 库也内置了各种模式。调用库函数的实现 👉 [代码](course/cryptography/lab-3-aes-cbc-and-ctr.cpp ':ignore')。
+> Crypto++ 中的 AES 库也内置了包括 CBC 和 CTR 在内的各种模式。此处为直接调用库函数的实现[代码](course/cryptography/lab-3-aes-cbc-and-ctr.cpp ':ignore')。
 
 <br>
 

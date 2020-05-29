@@ -39,22 +39,21 @@ string hexToStr(string hexStr)
 // 计数器自增
 string counterIncrement(string counter, int n)
 {
-	string res = counter;
-	int addend = n;
+    string res = counter;
+    int addend = n;
 
-	for (int i = counter.length() - 1; i >= 0; i--) {
-		unsigned char tempChar = counter[i];
-		if ((int)tempChar + addend > 255) {
-			tempChar = tempChar + addend;
-			addend = 1;
-		}
-		else {
-			tempChar = tempChar + addend;
-			addend = 0;
-		}
-		res[i] = tempChar;
-	}
-	return res;
+    for(int i = counter.length() - 1; i >= 0; i--) {
+        unsigned char tempChar = counter[i];
+        if((int)tempChar + addend > 255) {
+            tempChar = tempChar + addend;
+            addend = 1;
+        } else {
+            tempChar = tempChar + addend;
+            addend = 0;
+        }
+        res[i] = tempChar;
+    }
+    return res;
 }
 
 string encrypt(string plaintext, string key, string counter, string ciphertext)
