@@ -1,3 +1,4 @@
+#include <iomanip>
 #include <iostream>
 #include <sstream>
 #include <string>
@@ -7,30 +8,26 @@
 using namespace std;
 using namespace CryptoPP;
 
-// https://www.cnblogs.com/YZFHKMS-X/p/11829021.html
 string strToHex(string str)
 {
-    const string hex = "0123456789abcdef";
     stringstream ss;
+    ss << hex << setfill('0');
 
-    for(string::size_type i = 0; i < str.length(); ++i) {
-        ss << hex[(unsigned char)str[i] >> 4] << hex[(unsigned char)str[i] & 0xf];
+    for(auto ch : str) {
+        ss << setw(2) << (int)(unsigned char)ch;
     }
 
     return ss.str();
 }
 
-string hexToStr(string hexStr)
+string hexToStr(string hex)
 {
     string str;
 
-    for(string::size_type i = 0; i < hexStr.length(); i = i + 2) {
-        stringstream ss;
-        string tempHexStr = hexStr.substr(i, 2);
-        int tempDecimal;
-        ss.str(tempHexStr);
-        ss >> hex >> tempDecimal;
-        str.push_back((char)tempDecimal);
+    for(string::size_type i = 0; i < hex.length(); i += 2) {
+        string tempStr = hex.substr(i, 2);
+        unsigned char ch = (unsigned char)stoi(tempStr, nullptr, 16);
+        str.push_back(ch);
     }
 
     return str;
@@ -75,7 +72,7 @@ string encrypt(string plaintext, string key, string counter, string ciphertext)
         aesEncryptor.ProcessBlock((byte*)counter.c_str(), outBlock);
 
         for(int j = 0; j < AES::BLOCKSIZE; j++) {
-            xorBlock.push_back(outBlock[j] ^ plaintextBlock[j]);
+            xorBlock.push_back(outBlock[j] ^ (unsigned char)plaintextBlock[j]);
         }
 
         ciphertext += strToHex(xorBlock);
@@ -91,7 +88,7 @@ string encrypt(string plaintext, string key, string counter, string ciphertext)
     aesEncryptor.ProcessBlock((byte*)counter.c_str(), outBlock);
 
     for(int j = 0; j < residueLen; j++) {
-        xorBlock.push_back(outBlock[j] ^ residuePlaintext[j]);
+        xorBlock.push_back(outBlock[j] ^ (unsigned char)residuePlaintext[j]);
     }
 
     ciphertext += strToHex(xorBlock);
@@ -122,7 +119,7 @@ string decrypt(string ciphertext, string key, string plaintext)
 
         // 密文和 AES 加密结果异或，得到明文
         for(int j = 0; j < AES::BLOCKSIZE; j++) {
-            xorBlock.push_back(outBlock[j] ^ ciphertextBlock[j]);
+            xorBlock.push_back(outBlock[j] ^ (unsigned char)ciphertextBlock[j]);
         }
 
         plaintext += xorBlock;
@@ -140,7 +137,7 @@ string decrypt(string ciphertext, string key, string plaintext)
     aesEncryptor.ProcessBlock((byte*)counter.c_str(), outBlock);
 
     for(int j = 0; j < residueLen; j++) {
-        xorBlock.push_back(outBlock[j] ^ residueCiphertext[j]);
+        xorBlock.push_back(outBlock[j] ^ (unsigned char)residueCiphertext[j]);
     }
 
     plaintext += xorBlock;
@@ -157,7 +154,6 @@ int main(int argc, char** argv)
     string counter = "";
 
     plaintext = decrypt(ciphertext, key, plaintext);
-
     cout << "plaintext: " << plaintext << endl;
 
     return 0;

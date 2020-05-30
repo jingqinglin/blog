@@ -1,3 +1,4 @@
+#include <iomanip>
 #include <iostream>
 #include <sstream>
 #include <string>
@@ -15,25 +16,24 @@ string strIv;
 string strToHex(string str)
 {
     stringstream ss;
+    ss << hex << setfill('0');
 
-    for(string::size_type i = 0; i < str.size(); i++) {
-        ss << hex << (int)(unsigned char)str[i];
+    for(auto ch : str) {
+        ss << setw(2) << (int)(unsigned char)ch;
     }
 
     return ss.str();
 }
 
-string hexToStr(string hexStr)
+string hexToStr(string hex)
 {
     string str;
 
-    for(string::size_type i = 0; i < hexStr.size(); i = i + 2) {
-        stringstream ss;
-        string tempHexStr = hexStr.substr(i, 2);
-        int tempDecimal;
-        ss.str(tempHexStr);
-        ss >> hex >> tempDecimal;
-        str.push_back((char)tempDecimal);
+    for(string::size_type i = 0; i < hex.length(); i += 2) {
+        string tempStr = hex.substr(i, 2);
+        // string to int
+        unsigned char ch = (unsigned char)stoi(tempStr, nullptr, 16);
+        str.push_back(ch);
     }
 
     return str;
@@ -169,10 +169,9 @@ int decryptAesCtr(const string& inData, const string& strKey, string& outData, s
 
 int main(int argc, char** argv)
 {
-    string strCipher =
-        hexToStr("770b80259ec33beb2561358a9f2dc617e46218c0a53cbeca695ae45faa8952aa0e311bde9d4e01726d3184c34451");
-    string strKey = hexToStr("36f18357be4dbd77f050515c73fcf9f2");
-    string strResult;
+    string strCipher = hexToStr("4ca00ff4c898d61e1edbf1800618fb2828a226d160dad07883d04e008a7897ee2e4b7465d5290d0c0e6c68"
+                                "22236e1daafb94ffe0c5da05d9476be028ad7c1d81");
+    string strKey = hexToStr("140b41b22a29beb4061bda66b6747e14");
     string strErrMsg;
     string strPlainText;
 
@@ -180,11 +179,13 @@ int main(int argc, char** argv)
     strIv = strCipher.substr(0, keyLen);
     strCipher = strCipher.substr(16, strCipher.length() - keyLen);
 
-    int statusCode = decryptAesCtr(strCipher, strKey, strPlainText, strErrMsg);
+    int statusCode = decryptAesCbc(strCipher, strKey, strPlainText, strErrMsg);
     if(statusCode) {
         cout << "Decrypt failed, errMsg: " << strErrMsg;
         return -2;
     }
 
-    cout << "PlainText: " << strPlainText << endl;
+    cout << strPlainText << endl;
+
+    return 0;
 }

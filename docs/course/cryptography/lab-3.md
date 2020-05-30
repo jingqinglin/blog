@@ -114,7 +114,9 @@ hello wo<0x08><0x08><0x08><0x08><0x08><0x08><0x08><0x08>    8
 
 实际上，PKCS5 为 PKCS7 的一个子集（PKCS7 并不限于 8 字节的分组）。由于 AES 按 16 字节大小分组，如果采用 PKCS5，实质上就是采用 PKCS7。
 
-而解密后**去掉填充**的过程可以看作填充的逆过程。首先我们获取字符串的最后一个字符作为 `paddingNum`，同时也说明最后的 `paddingNum` 个字符是被填充进去的。
+填充发生在明文加密之前，而解密之后的明文需要**去掉填充**，这个过程可以看作是填充的逆过程。
+
+**去填充过程**：首先我们获取字符串的最后一个字符 `paddingNum`，这个字符一定是填充的值。同时，说明有 `paddingNum` 个字符被填充进去了。我们只需循环地去掉末尾的 `paddingNum` 个字符即可。
 
 <details>
 <summary style="font-weight: 600;">加密前的填充代码</summary>
@@ -131,7 +133,7 @@ string padding(string plaintext)
     // 最后一组
     string lastBlock = plaintext.substr(AES::BLOCKSIZE * quotient, len % AES::BLOCKSIZE);
     for(int i = 0; i < AES::BLOCKSIZE - len % AES::BLOCKSIZE; i++) {
-        lastBlock.push_back((char)paddingNum);
+        lastBlock.push_back((unsigned char)paddingNum);
     }
 
     return plaintext.substr(0, AES::BLOCKSIZE * quotient) + lastBlock;
@@ -149,7 +151,7 @@ string padding(string plaintext)
 // 获取解密后的最后一组明文
 string lastBlock = plaintext.substr((multiple - 1) * AES::BLOCKSIZE, AES::BLOCKSIZE);
 // 从字符串最后一个字符获取填充字符
-int paddingNum = (char)lastBlock[AES::BLOCKSIZE - 1];
+int paddingNum = (unsigned char)lastBlock[AES::BLOCKSIZE - 1];
 // 把填充字符从明文中去掉
 for(int i = 0; i < paddingNum; i++) {
     // 若填充字符出现不同，则说明给定密文有误
@@ -191,14 +193,14 @@ string decrypt(string ciphertext, string key, string plaintext)
 
         // AES 输出结果与上组密文或 vi 异或，得到明文
         for(int j = 0; j < AES::BLOCKSIZE; j++) {
-            plaintext.push_back(outBlock[j] ^ vi[j]);
+            plaintext.push_back(outBlock[j] ^ (unsigned char)vi[j]);
         }
 
         vi = ciphertextBlock;
     }
 
     string lastBlock = plaintext.substr((multiple - 1) * AES::BLOCKSIZE, AES::BLOCKSIZE);
-    int paddingNum = (char)lastBlock[AES::BLOCKSIZE - 1];
+    int paddingNum = (unsigned char)lastBlock[AES::BLOCKSIZE - 1];
 
     for(int i = 0; i < paddingNum; i++) {
         if(plaintext.back() != paddingNum) {
@@ -275,7 +277,7 @@ string decrypt(string ciphertext, string key, string plaintext)
 
         // 密文和 AES 加密结果异或，得到明文
         for(int j = 0; j < AES::BLOCKSIZE; j++) {
-            xorBlock.push_back(outBlock[j] ^ ciphertextBlock[j]);
+            xorBlock.push_back(outBlock[j] ^ (unsigned char)ciphertextBlock[j]);
         }
 
         plaintext += xorBlock;
@@ -293,8 +295,9 @@ string decrypt(string ciphertext, string key, string plaintext)
     aesEncryptor.ProcessBlock((byte*)counter.c_str(), outBlock);
 
     for(int j = 0; j < residueLen; j++) {
-        xorBlock.push_back(outBlock[j] ^ residueCiphertext[j]);
+        xorBlock.push_back(outBlock[j] ^ (unsigned char)residueCiphertext[j]);
     }
+
     plaintext += xorBlock;
 
     return plaintext;
