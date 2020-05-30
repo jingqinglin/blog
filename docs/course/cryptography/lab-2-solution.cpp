@@ -24,7 +24,7 @@ void solve()
         hashMap[productRight.get_str()] = i;
         productRight = productRight * g % p;
     }
-    cout << "Hash map is saved!" << endl;
+    cout << "Hash map saved!" << endl;
 
     // 等式左边的底数 baseLeft = g^B
     mpz_class baseLeft = 1;

@@ -169,7 +169,7 @@ void solve()
         hashMap[productRight.get_str()] = i;
         productRight = productRight * g % p;
     }
-    cout << "Hash map is saved!" << endl;
+    cout << "Hash map saved!" << endl;
 
     // 等式左边的底数 baseLeft = g^B
     mpz_class baseLeft = 1;
@@ -210,7 +210,7 @@ int main()
 
 运行上述代码，输出：
 ```
-Hash map is saved!
+Hash map saved!
 x0:     357985
 x1:     261530
 x:      375374217830
