@@ -13,12 +13,11 @@ void solve()
                 "28594829675428279466566527115212748467589894601965568");
     mpz_class h("323947510405045044356526437872806578864909752095244952783479245297198197614329255807385693795855318053"
                 "2878928001494706097394108577585732452307673444020333");
-    // B = sqrt(p) + 1 向上取整
     mpz_class B("1048576");
     mpz_class x0("0"), x1("0"), x("-1");
     unordered_map<string, int> hashMap;
 
-    // x1 = 0, 1, 2...。将等式右边的结果 h * g^x1 存入哈希表，key = h * g^x1，value = x1
+    // x1 = 0, 1, 2...。将等式右边的结果 h * g^x1 % p 存入哈希表，key = h * g^x1 % p，value = x1
     mpz_class productRight = h;
     for(int i = 0; i < B; i++) {
         hashMap[productRight.get_str()] = i;
@@ -26,13 +25,13 @@ void solve()
     }
     cout << "Hash map saved!" << endl;
 
-    // 等式左边的底数 baseLeft = g^B
+    // 等式左边的底数 baseLeft = g^B % p
     mpz_class baseLeft = 1;
     for(int i = 0; i < B; i++) {
         baseLeft = baseLeft * g % p;
     }
 
-    // x0 = 0, 1, 2...。判断等式左边的结果 (g^B)^x0 是否在哈希表中
+    // x0 = 0, 1, 2...。判断等式左边的结果 (g^B % p)^x0 % p 是否在哈希表中
     mpz_class productLeft("1");
     for(int i = 1; i <= B; i++) {
         productLeft = productLeft * baseLeft % p;

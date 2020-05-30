@@ -103,11 +103,11 @@ int main()
 
 其中 $p$ 是一个素数，$g$ 是有限乘法群 $\mathbb{Z}_{p}^{*}$ 上的一个原根，然后给定一个 $\mathbb{Z}_{p}^{*}$ 上的 $h$ 满足 $h = g^x$，其中 $1 \leq x \leq 2^{40}$，目的是找到 $x$。也就是说，编写程序，以 $p$，$g$，$h$ 作为输入，然后输出 $x$。
 
-[test.txt](course/cryptography/lab-2-test.txt ':ignore') 中提供了三个输入，其中 $p$ 的数量级为 $2^{40}$。该问题最直接的算法就是对 $x$ 的 $2^{40}$ 个可能的值逐个进行尝试，直到找到正确的一个 $x$ 在 $\mathbb{Z}_{p}^{*}$ 上满足 $h = g^x$。这需要 $2^{40}$ 次乘法运算。而本次实验要求使用中间相遇攻击，将时间代价减少到约为 $\sqrt{2^{40}}=2^{20}$。
+[test.txt](course/cryptography/lab-2-test.txt ':ignore') 中提供了三个输入，其中 $x$ 的数量级为 $2^{40}$。该问题最直接的算法就是对 $x$ 的 $2^{40}$ 个可能的值逐个进行尝试，直到找到正确的一个 $x$ 在 $\mathbb{Z}_{p}^{*}$ 上满足 $h = g^x$。这需要 $2^{40}$ 次乘法运算。而本次实验要求使用中间相遇攻击，将时间代价减少到约为 $\sqrt{2^{40}}=2^{20}$。
 
 ### 思路
 
-按照附件中提供的思路，我们令 $B = \lceil\sqrt{p}\rceil = 2^{20}$，$x = x_0B + x_1$，其中 $x_0, x_1 \in [0, B)$。可以得到：
+按照附件中提供的思路，我们令 $B = \lceil\sqrt{x}\rceil = 2^{20}$，$x = x_0B + x_1$，其中 $x_0, x_1 \in [0, B)$。可以得到：
 $$
 g^{Bx_0 + x_1} = h \quad(\bmod\ p)
 $$
@@ -158,12 +158,11 @@ void solve()
                 "28594829675428279466566527115212748467589894601965568");
     mpz_class h("323947510405045044356526437872806578864909752095244952783479245297198197614329255807385693795855318053"
                 "2878928001494706097394108577585732452307673444020333");
-    // B = sqrt(p) + 1 向上取整
     mpz_class B("1048576");
     mpz_class x0("0"), x1("0"), x("-1");
     unordered_map<string, int> hashMap;
 
-    // x1 = 0, 1, 2...。将等式右边的结果 h * g^x1 存入哈希表，key = h * g^x1，value = x1
+    // x1 = 0, 1, 2...。将等式右边的结果 h * g^x1 % p 存入哈希表，key = h * g^x1 % p，value = x1
     mpz_class productRight = h;
     for(int i = 0; i < B; i++) {
         hashMap[productRight.get_str()] = i;
@@ -171,13 +170,13 @@ void solve()
     }
     cout << "Hash map saved!" << endl;
 
-    // 等式左边的底数 baseLeft = g^B
+    // 等式左边的底数 baseLeft = g^B % p
     mpz_class baseLeft = 1;
     for(int i = 0; i < B; i++) {
         baseLeft = baseLeft * g % p;
     }
 
-    // x0 = 0, 1, 2...。判断等式左边的结果 (g^B)^x0 是否在哈希表中
+    // x0 = 0, 1, 2...。判断等式左边的结果 (g^B % p)^x0 % p 是否在哈希表中
     mpz_class productLeft("1");
     for(int i = 1; i <= B; i++) {
         productLeft = productLeft * baseLeft % p;
