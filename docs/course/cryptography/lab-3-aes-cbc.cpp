@@ -102,12 +102,11 @@ string decrypt(string ciphertext, string key, string plaintext)
     aesDecryptor.SetKey((byte*)key.c_str(), key.length());
 
     for(int i = 0; i < multiple; i++) {
-        // 密文分组
+        // 分组密文
         string ciphertextBlock = ciphertext.substr(i * AES::BLOCKSIZE, AES::BLOCKSIZE);
         unsigned char outBlock[AES::BLOCKSIZE];
         memset(outBlock, 0, AES::BLOCKSIZE);
 
-        // AES 加密函数
         aesDecryptor.ProcessBlock((byte*)ciphertextBlock.c_str(), outBlock);
 
         // AES 输出结果与上组密文或 vi 异或，得到明文

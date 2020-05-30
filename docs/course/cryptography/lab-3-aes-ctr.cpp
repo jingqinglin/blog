@@ -111,7 +111,6 @@ string decrypt(string ciphertext, string key, string plaintext)
     for(int i = 0; i < multiple; i++) {
         string ciphertextBlock = ciphertext.substr(i * AES::BLOCKSIZE, AES::BLOCKSIZE);
         string xorBlock;
-        // 保存 AES 加密结果
         unsigned char outBlock[AES::BLOCKSIZE];
         memset(outBlock, 0, AES::BLOCKSIZE);
 
