@@ -151,7 +151,7 @@ vector<vector<int>> findSpace(vector<string> ciphertext)
 {
     vector<vector<int>> spacePos;
 
-    // 对于给出的 10 条密文，计算对应明文中可能为空格的位置
+    // 对于给出的 11 条密文，计算对应明文中可能为空格的位置
     for(vector<int>::size_type i = 0; i != ciphertext.size(); i++) {
         string cipher = ciphertext[i];
         string::size_type cipherLen = cipher.length();
