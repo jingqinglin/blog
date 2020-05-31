@@ -212,7 +212,7 @@ string decrypt(string ciphertext, string key, string plaintext)
 }
 ```
 
-加解密完整代码 👉 [传送门](course/cryptography/lab-3-aes-cbc)
+加解密完整代码 👉 [传送门](course/cryptography/lab-3-aes-cbc ':target=_blank')
 
 ### 计数器模式（CTR）
 
@@ -302,7 +302,7 @@ string decrypt(string ciphertext, string key, string plaintext)
 }
 ```
 
-加解密完整代码 👉 [传送门](course/cryptography/lab-3-aes-ctr)
+加解密完整代码 👉 [传送门](course/cryptography/lab-3-aes-ctr ':target=_blank')
 
 ## 实验结果
 
@@ -311,7 +311,7 @@ string decrypt(string ciphertext, string key, string plaintext)
 测试 3 和测试 4，分别输出：`CTR mode lets you build a stream cipher from a block cipher.` 和 `Always avoid the two time pad!`。
 
 > [!TIP]
-> Crypto++ 中的 AES 库也内置了包括 CBC 和 CTR 在内的各种模式。此处为直接调用库函数的实现[代码](course/cryptography/lab-3-aes-cbc-and-ctr)。
+> Crypto++ 中的 AES 库也内置了包括 CBC 和 CTR 在内的各种模式。此处为直接调用库函数的实现[代码](course/cryptography/lab-3-aes-cbc-and-ctr ':target=_blank')。
 
 <br>
 
