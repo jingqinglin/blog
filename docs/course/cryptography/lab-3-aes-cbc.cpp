@@ -1,4 +1,4 @@
-#include <iomanip>
+ï»¿#include <iomanip>
 #include <iostream>
 #include <sstream>
 #include <string>
@@ -15,7 +15,7 @@ string strToHex(string str)
     ss << hex << setfill('0');
 
     for(auto ch : str) {
-        // setw(2) Õ¼Á½Î»£¬setfill('0') ¿ÕÎ»Ìî³ä 0
+        // setw(2) å ä¸¤ä½ï¼Œsetfill('0') ç©ºä½å¡«å…… 0
         ss << setw(2) << (int)(unsigned char)ch;
     }
 
@@ -37,7 +37,7 @@ string hexToStr(string hex)
     return str;
 }
 
-// Ìî³ä
+// å¡«å……
 string padding(string plaintext)
 {
     string lastBlock;
@@ -77,7 +77,7 @@ string encrypt(string plaintext, string key, string vi, string ciphertext)
         aesEncryptor.ProcessBlock((byte*)xorBlock.c_str(), outBlock);
         vi = "";
 
-        // unsigned char[] ×ª string ²»ÒªÍ¨¹ýÕâ¸ö·½Ê½£ºvi = (char *) outBlock
+        // unsigned char[] è½¬ string ä¸è¦é€šè¿‡è¿™ä¸ªæ–¹å¼ï¼švi = (char *) outBlock
         for(int j = 0; j < AES::BLOCKSIZE; j++) {
             vi.push_back(outBlock[j]);
         }
@@ -90,10 +90,10 @@ string encrypt(string plaintext, string key, string vi, string ciphertext)
 
 string decrypt(string ciphertext, string key, string plaintext)
 {
-    // Ô­Ê¼ key Îª 16 ½øÖÆÐÎÊ½£¬Ðè°´×Ö½Ú×ª»»Îª char
+    // åŽŸå§‹ key ä¸º 16 è¿›åˆ¶å½¢å¼ï¼Œéœ€æŒ‰å­—èŠ‚è½¬æ¢ä¸º char
     key = hexToStr(key);
     ciphertext = hexToStr(ciphertext);
-    // ÃÜÎÄµÄÇ° 16 ¸ö×Ö½ÚÎª vi
+    // å¯†æ–‡çš„å‰ 16 ä¸ªå­—èŠ‚ä¸º vi
     string vi = ciphertext.substr(0, AES::BLOCKSIZE);
     ciphertext = ciphertext.substr(AES::BLOCKSIZE, ciphertext.length() - AES::BLOCKSIZE);
     int multiple = ciphertext.length() / AES::BLOCKSIZE;
@@ -102,14 +102,14 @@ string decrypt(string ciphertext, string key, string plaintext)
     aesDecryptor.SetKey((byte*)key.c_str(), key.length());
 
     for(int i = 0; i < multiple; i++) {
-        // ·Ö×éÃÜÎÄ
+        // åˆ†ç»„å¯†æ–‡
         string ciphertextBlock = ciphertext.substr(i * AES::BLOCKSIZE, AES::BLOCKSIZE);
         unsigned char outBlock[AES::BLOCKSIZE];
         memset(outBlock, 0, AES::BLOCKSIZE);
 
         aesDecryptor.ProcessBlock((byte*)ciphertextBlock.c_str(), outBlock);
 
-        // AES Êä³ö½á¹ûÓëÉÏ×éÃÜÎÄ»ò vi Òì»ò£¬µÃµ½Ã÷ÎÄ
+        // AES è¾“å‡ºç»“æžœä¸Žä¸Šç»„å¯†æ–‡æˆ– vi å¼‚æˆ–ï¼Œå¾—åˆ°æ˜Žæ–‡
         for(int j = 0; j < AES::BLOCKSIZE; j++) {
             plaintext.push_back(outBlock[j] ^ (unsigned char)vi[j]);
         }
@@ -117,14 +117,14 @@ string decrypt(string ciphertext, string key, string plaintext)
         vi = ciphertextBlock;
     }
 
-    // ½âÃÜºó£¬×îºóÒ»×éÃ÷ÎÄµ¥¶À´¦Àí
+    // è§£å¯†åŽï¼Œæœ€åŽä¸€ç»„æ˜Žæ–‡å•ç‹¬å¤„ç†
     string lastBlock = plaintext.substr((multiple - 1) * AES::BLOCKSIZE, AES::BLOCKSIZE);
-    // ´Ó×Ö·û´®×îºóÒ»¸ö×Ö·û»ñÈ¡Ìî³ä×Ö·û
+    // ä»Žå­—ç¬¦ä¸²æœ€åŽä¸€ä¸ªå­—ç¬¦èŽ·å–å¡«å……å­—ç¬¦
     int paddingNum = (unsigned char)lastBlock[AES::BLOCKSIZE - 1];
 
-    // °ÑÌî³ä×Ö·û´ÓÃ÷ÎÄÖÐÈ¥µô
+    // æŠŠå¡«å……å­—ç¬¦ä»Žæ˜Žæ–‡ä¸­åŽ»æŽ‰
     for(int i = 0; i < paddingNum; i++) {
-        // ÈôÌî³ä×Ö·û³öÏÖ²»Í¬£¬ÔòËµÃ÷¸ø¶¨ÃÜÎÄÓÐÎó
+        // è‹¥å¡«å……å­—ç¬¦å‡ºçŽ°ä¸åŒï¼Œåˆ™è¯´æ˜Žç»™å®šå¯†æ–‡æœ‰è¯¯
         if(plaintext.back() != paddingNum) {
             return "Ciphertext is invalid!";
         }
