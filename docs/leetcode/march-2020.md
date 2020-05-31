@@ -2,7 +2,7 @@
 <img src="https://cdn.jsdelivr.net/gh/JingqingLin/Blog/docs/leetcode/_images/daily-challenges.png" alt="每日一题" width="70%"/>
 </center>
 
-力扣<a href="https://leetcode-cn.com/problemset/2020-03/" target="_blank">每日一题：3 月</a>（部分）。三月的题难度等级多为<font color=#009975>简单</font>，未作过多记录
+力扣<a href="https://leetcode-cn.com/problemset/2020-03/" target="_blank">每日一题：3 月</a>（部分）。三月的题难度等级多为<font color=#009975>简单</font>，未作过多记录。
 
 | 一                                | 二                                | 三                                | 四                                | 五                                | 六                                | 日                                |
 | --------------------------------- | --------------------------------- | --------------------------------- | --------------------------------- | --------------------------------- | --------------------------------- | --------------------------------- |

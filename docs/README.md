@@ -55,9 +55,10 @@
 
 > 2020 年三月开始，力扣推出了「每日 1 题」打卡刷题活动，👉 [传送门](https://datayi.cn/w/noqw6arR)
 
-- [三月](leetcode/march-2020.md)
-- [四月](leetcode/april-2020.md)
-- [五月](leetcode/may-2020.md)
+- [x] [三月](leetcode/march-2020.md)
+- [x] [四月](leetcode/april-2020.md)
+- [x] [五月](leetcode/may-2020.md)
+- [ ] [六月](leetcode/june-2020.md)
 
 <br>
 
