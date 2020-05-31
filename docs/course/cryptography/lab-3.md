@@ -148,6 +148,7 @@ string padding(string plaintext)
 <summary style="font-weight: 600;">解密后的去填充代码</summary>
 
 ```cpp
+// 密文/明文被分为 multiple 组
 // 获取解密后的最后一组明文
 string lastBlock = plaintext.substr((multiple - 1) * AES::BLOCKSIZE, AES::BLOCKSIZE);
 // 从字符串最后一个字符获取填充字符
