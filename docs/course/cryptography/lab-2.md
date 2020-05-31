@@ -123,21 +123,22 @@ $$
 1. 为等式右边 $hg^{-x_1}$ 的所有可能值创建一个哈希表，其中 $x_1 = 0, 1,..., 2^{20}$
 2. 对于每个 $x_0 = 0, 1,..., 2^{20}$，检查 $(g^B)^{x_0}$ 是否在哈希表中，如果是，便找到了解 $x_0$、$x_1$，即 $x = x_0B + x_1$
 
-为等式右边 $hg^{-x_1}$ 的可能值创建哈希表时，涉及到求逆运算。可以使用 gmp 中的  
-`int mpz_invert(mpz_t rop, const mpz_t op1, const mpz_t op2)`，其中 `rop` 为运算结果，`op1` 为 $g^{x_1}$，`op2` 为 $p$。代码如下：
-
-```cpp
-unordered_map<string, int> hashMap;
-for(int i = 0; i < B; i++) {
-    mpz_class x_1 = i;
-    mpz_class powm;
-    mpz_powm(powm.get_mpz_t(), g.get_mpz_t(), x_1.get_mpz_t(), p.get_mpz_t());
-    mpz_class inv;
-    mpz_invert(inv.get_mpz_t(), powm.get_mpz_t(), p.get_mpz_t());
-    mpz_class key = h * inv % p;
-    hashMap[key.get_str()] = i;
-}
-```
+> [!TIP]
+> 为等式右边 $hg^{-x_1}$ 的可能值创建哈希表时，涉及到求逆运算。可以使用 gmp 中的  
+> `int mpz_invert(mpz_t rop, const mpz_t op1, const mpz_t op2)`，其中 `rop` 为运算结果，`op1` 为 $g^{x_1}$，`op2` 为 $p$。代码如下：
+>
+> ```cpp
+> unordered_map<string, int> hashMap;
+> for(int i = 0; i < B; i++) {
+>     mpz_class x_1 = i;
+>     mpz_class powm;
+>     mpz_powm(powm.get_mpz_t(), g.get_mpz_t(), x_1.get_mpz_t(), p.get_mpz_t());
+>     mpz_class inv;
+>     mpz_invert(inv.get_mpz_t(), powm.get_mpz_t(), p.get_mpz_t());
+>     mpz_class key = h * inv % p;
+>     hashMap[key.get_str()] = i;
+> }
+> ```
 
 以上方法中，创建哈希表的时间代价为 $\sqrt{x}$，哈希表查找的时间复杂度为 $O(1)$。
 
