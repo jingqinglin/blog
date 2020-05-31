@@ -8,7 +8,7 @@
 <details>
 <summary>实验内容</summary>
 
-> 【时间】 暂定 5 月 23 号（周六）晚上
+> 【时间】 5 月 23 号（周六）晚上
 > 
 > 【编程语言】 Python（推荐）或者 C/C++
 > 
@@ -98,3 +98,32 @@
 </details>
 
 - [实验报告](course/cryptography/lab-3.md)
+
+#### 实验四
+
+?> RSA 中公开的模数 N
+
+<details>
+<summary>实验内容</summary>
+
+> 【时间】6 月 13 号（周六）晚上
+> 
+> 【地点】待定
+> 
+> 【编程语言】Python（推荐）或者 C/C++
+>
+> 【实验目的】
+> 1. 了解公钥加密方案的一般结构；
+> 2. 深入理解 RSA 加密原语的密钥生成；
+> 3. 通过使用 Python（推荐）或者 C，编程实现对没有正确生成密钥的RSA的破解，提醒大家不要尝试自己随意实现加密原语。
+>
+> 【实验内容】
+> 实验内容和要求请见附件 [EXP4-Doc.pdf](course/cryptography/lab-4-EXP4-Doc.pdf ':ignore')
+>
+> ```pdf
+> course/cryptography/lab-4-EXP4-Doc.pdf
+> ```
+
+</details>
+
+- [实验报告](course/cryptography/lab-4.md)
