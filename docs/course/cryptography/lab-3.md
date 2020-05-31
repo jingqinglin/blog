@@ -234,6 +234,7 @@ string counterIncrement(string counter, int n)
 
     for(int i = counter.length() - 1; i >= 0; i--) {
         unsigned char tempChar = counter[i];
+        // 出现进位
         if((int)tempChar + addend > 255) {
             tempChar = tempChar + addend;
             addend = 1;
