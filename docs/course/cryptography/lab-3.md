@@ -93,6 +93,10 @@ CBC 的加解密过程如下：
 
 ![](_images/lab-3-1.png ':class=image-45')![](_images/lab-3-2.png ':class=image-49')
 
+加密：$C_{i}=E_{K}(P_{i} \oplus C_{i-1}), C_{0}=IV$
+
+解密：$P_{i}=D_{K}(C_{i}) \oplus C_{i-1}, C_{0}=IV$
+
 #### 填充
 
 CBC 是分组密码的一种工作模式，在加密前要对最后一块明文进行填充，实验要求使用 PKCS#5 填充方案。
