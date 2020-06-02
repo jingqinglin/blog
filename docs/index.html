@@ -58,17 +58,17 @@
         errorText: '错误',
         successText: '已复制',
       },
-      plugins: [
-        function (hook, vm) {
-          hook.beforeEach(function (html) {
-            return (
-              '<div align="right" style="font-size:13px">上次更新：<font color="gray">{docsify-updated}</font></div>' +
-              '\n\n' +
-              html
-            );
-          });
-        }
-      ],
+      // plugins: [
+      //   function (hook, vm) {
+      //     hook.beforeEach(function (html) {
+      //       return (
+      //         '<div align="right" style="font-size:13px">上次更新：<font color="gray">{docsify-updated}</font></div>' +
+      //         '\n\n' +
+      //         html
+      //       );
+      //     });
+      //   }
+      // ],
     }
   </script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
