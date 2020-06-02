@@ -230,3 +230,40 @@ https://leetcode-cn.com/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/soluti
 从题解中的递推图理解递推关系，截图备份：
 
 <img src="https://cdn.jsdelivr.net/gh/JingqingLin/ImageHosting@master/img/20200330112806.png" />
+
+## 面试题64. 求1+2+…+n
+
+!> [面试题64](https://leetcode-cn.com/problems/qiu-12n-lcof/). 求1+2+…+n
+
+> 题目要求不能使用乘除法、for、while、if、else、switch、case 等关键字及条件判断语句（A?B:C）。
+
+这是很有意思的一道题目。若无上述限制，要完成这道题可以有三种做法：等差数列求和，迭代和递归。然而题目规定不能使用乘除和循环语句，因此剩下递归可用，但题目又规定不能使用条件判断语句，那么如何判停呢？
+
+利用逻辑运算符的**短路效应**，
+- 「与 `&&`」。`if(A && B)`，若 A 为 false ，则 B 的判断不会执行，直接判定 A && B 为 false
+- 「或 `||`」。`if(A || B)`，若 A 为 true ，则 B 的判断不会执行，直接判定 A || B 为 true
+
+我们需要在 `n == 1` 时终止递归，那判停语句为：`boolean b = (n > 1) && ((sum = n + sumNums(n - 1)) > 0)`，为构成语句，需要添加一个 `boolean b`；由于 `&&` 右边本身为 `int` 所以需要一个加一个判断条件变为 `boolean`。
+
+```java
+public int sumNums(int n) {
+    int sum = n;
+    boolean b = (n > 1) && ((sum = n + sumNums(n - 1)) > 0);
+    return sum;
+}
+```
+
+评论区看到另一种递归做法：
+
+```java
+int[] test = new int[]{0};
+public int sumNums(int n) {
+    try {
+        return test[n];
+    } catch(Exception e) {
+        return n + sumNums(n - 1);
+    }
+}
+```
+
+[官方题解](https://leetcode-cn.com/problems/qiu-12n-lcof/solution/qiu-12n-by-leetcode-solution/)中还有一种「快速乘」的解法。
