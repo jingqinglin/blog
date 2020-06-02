@@ -5,7 +5,7 @@
 </div> 
 <br>
 
-> <span style="font-weight: 400;color: #000"><b style="font-size: 30px;color: #42b983;">Hi</b>，这是我的个人博客，我在这个网站记录我的学习心得。受 [Huihut](https://interview.huihut.com) 的启发 💡，用 [docsify](https://docsify.js.org/#/) 生成了这个网站。</span>
+> <span style="font-weight: 400;color: #000"><b style="font-size: 30px;color: #42b983;">Hi</b>，这是我的个人博客，我在这个网站记录我的学习心得。受 [Huihut](https://interview.huihut.com) 的启发 💡，用 [docsify](https://docsify.js.org/#/) 生成了这个网站</span>
 
 ## 📃 目录
 
