@@ -1,5 +1,5 @@
 <style>
-    .app-nav, .search {
+    .app-nav, .search, .crisp-client {
         display: none;
     }
     #main {
