@@ -2,8 +2,11 @@
     .app-nav, .search, .crisp-client {
         display: none;
     }
+    #简历 {
+        display: none;
+    }
     #main {
-        margin-top: -130px;
+        margin-top: -30px;
     }
 </style>
 
