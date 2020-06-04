@@ -112,4 +112,6 @@
 
 - [作业十一](course/introduction-to-algorithms/task-11.md)：16.3-5、16.4-1
 
+- [作业十二](course/introduction-to-algorithms/task-12.md)：16.5-1、16.5-2
+
 <!-- tabs:end -->
