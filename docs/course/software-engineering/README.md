@@ -1,4 +1,4 @@
-#### 📝 作业一
+### 📝 作业一
 
 ?> 码农的自我修养之必备技能
 
@@ -11,7 +11,7 @@
 
 - [作业报告](course/software-engineering/task-1.md)
 
-#### 📝 作业二
+### 📝 作业二
 
 ?> 工程化编程实战 callback 接口
 
@@ -26,13 +26,13 @@
 
 - [作业报告](course/software-engineering/task-2.md)
 
-#### 📝 作业三
+### 📝 作业三
 
 ?> Windows 下基于 VS Code 的 C++ 编程语言的构建调试环境搭建指南
 
 - [作业报告](course/software-engineering/task-3.md)
 
-#### 📝 作业四
+### 📝 作业四
 
 ?> 交互式多媒体图书平台的设计与实现
 

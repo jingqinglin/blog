@@ -1,1 +1,1 @@
-- [剑指 Offer](lcof/lcof.md)
+- [<span class="page-title">剑指 Offer</span>](lcof/lcof.md)
