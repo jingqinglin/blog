@@ -1,7 +1,7 @@
 本课程的参考教材为《密码编码学与网络安全：原理与实践》，👉 [英文影印版](course/cryptography/cryptography-and-network-security_principles-and-practice-7th-global-edition.pdf ':ignore')（第七版）。
 
 
-### 🔬 实验一
+### 🔬 实验一 {docsify-ignore}
 
 ?> Many Time Pad
 
@@ -36,7 +36,7 @@
 
 - [实验报告](course/cryptography/lab-1.md)
 
-### 🔬 实验二
+### 🔬 实验二 {docsify-ignore}
 
 ?> 离散对数求解
 
@@ -65,7 +65,7 @@
 
 - [实验报告](course/cryptography/lab-2.md)
 
-### 实验三
+### 🔬 实验三 {docsify-ignore}
 
 ?> CBC 和 CTR 模式下的 AES
 
@@ -99,7 +99,7 @@
 
 - [实验报告](course/cryptography/lab-3.md)
 
-### 实验四
+### 🔬 实验四 {docsify-ignore}
 
 ?> RSA 中公开的模数 N
 
