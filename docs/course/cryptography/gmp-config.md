@@ -1,5 +1,5 @@
 <style>
-    h1, .app-nav, .crisp-client, .sidebar-toggle {
+    h1, .app-nav, .crisp-client {
         display: none;
     }
     #main {

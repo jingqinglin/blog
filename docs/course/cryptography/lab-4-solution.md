@@ -1,0 +1,1 @@
+[lab-4-solution](lab-4-solution.cpp ':include')
