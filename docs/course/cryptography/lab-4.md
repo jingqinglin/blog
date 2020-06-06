@@ -30,12 +30,119 @@
 
 假设给定一个合数 $N$ 并知道 $N$ 是两个彼此很接近的素数 $p$ 和 $q$ 的乘积，我们的任务是分解 $N$。
 
-- **任务 1**：模数 $N$ 是两个素数 $p$ 和 $q$ 的乘积，满足$|p-q|<2 N^{1/4}$。（模数 $N$ 请见附件 [task.txt](course/cryptography/lab-4-task.txt ':ignore')）
-- **任务 2**：模数 $N$ 是两个素数 $p$ 和 $q$ 的乘积，满足$|p-q|<2^{11} N^{1/4}$。（模数 $N$ 请见附件 [task.txt](course/cryptography/lab-4-task.txt ':ignore')）。*提示*：在 $A-\sqrt{N}<2^{20}$ 的情况下，尝试从 $\sqrt{N}$ 向上搜索 $A$，直到成功地分解 $N$。
+- **任务 1**：模数 $N$ 是两个素数 $p$ 和 $q$ 的乘积，满足 $|p-q|<2 N^{1/4}$。（模数 $N$ 请见附件 [task.txt](course/cryptography/lab-4-task.txt ':ignore')）
+- **任务 2**：模数 $N$ 是两个素数 $p$ 和 $q$ 的乘积，满足 $|p-q|<2^{11} N^{1/4}$。（模数 $N$ 请见附件 [task.txt](course/cryptography/lab-4-task.txt ':ignore')）。*提示：在 $A-\sqrt{N}<2^{20}$ 的情况下，尝试从 $\sqrt{N}$ 向上搜索 $A$，直到成功地分解 $N$*。
 
 ### 任务 1
 
+> 以下思路来源于附件 [EXP4-Doc.pdf](course/cryptography/lab-4-EXP4-Doc.pdf ':ignore')
+
+> [!NOTE]
+> 对模数 $N$ 和素数 $p$，$q$ 满足，
+>
+> $$|p-q|<2N^{1/4} \tag{1.1}$$
+
+我们令 $A$ 是两个素数的算术平均值，即 $A=\frac{p+q}{2}$。由于 $p$ 和 $q$ 都是奇数，所以 $A$ 一定是一个整数。为了分解 $N$，我们需要了解，在条件 $(1.1)$ 下 $\sqrt{N}$ 是非常接近 $A$ 的。具体来讲，有
+
+$$0<A-\sqrt{N}<1 \tag{1.2}$$
+
+由于 $A$ 是一个整数，将 $\sqrt{N}$ 凑成最接近的整数便能获取 $A$ 的值，即 $A = \lceil\sqrt{N}\rceil$。
+
+因为 $A$ 是 $p$ 和 $q$ 的中点，所以有 $x$ 使得 $p=A-x$ 以及 $q=A+x$。又因为 $N=pq=(A-x)(A+x)=A^{2}-x^{2}$，因此 $x=\sqrt{A^{2}-N}$。那么我们就可以得到通过计算 $A-x$ 和 $A+x$ 得到 $p$ 和 $q$ 的值了。
+
+```cpp
+void solve1()
+{
+    mpz_class N(
+        "17976931348623159077293051907890247336179769789423065727343008115773267580550562068698537944921298295958550138"
+        "75371640157101398586478337786069255834975410851965916151280575759407526350074759352887108236499499407718956170"
+        "54361149474865046711015101563940680527540071584560878577663743040086340742855278549092581");
+    mpz_class p, q;
+    mpz_class A, x;
+
+    mpz_sqrt(A.get_mpz_t(), N.get_mpz_t());
+    // 向上取整
+    A++;
+    mpz_class temp = A * A - N;
+    mpz_sqrt(x.get_mpz_t(), temp.get_mpz_t());
+    p = A - x;q = A + x;
+    cout << "p: " << p << "\nq: " << q << endl;
+
+    return;
+}
+```
+
+> [!TIP]
+> <span style="font-size: 1.1rem;font-weight: 600;">对不等式 $0<A-\sqrt{N}<1$ 的证明</span>
+>
+> <span style="font-weight: 600;">左边部分 $A-\sqrt{N}>0$：</span>
+>
+> 由基本不等式 $\sqrt{ab} \leq \frac{a+b}{2}$ 可以得到 $\sqrt{pq} < \frac{p+q}{2}$（因为 $p \not= q$，所以无法取到等号），即 $\sqrt{N} < A$。
+>
+> <br>
+> <span style="font-weight: 600;">右边部分 $A-\sqrt{N}<1$：</span>
+>
+> 首先，
+>
+> $$
+> \begin{aligned}
+> & \because A=\frac{p+q}{2}, N=pq \\
+> & \therefore A^{2}-N=\left(\frac{p+q}{2}\right)^{2}-N=\frac{p^{2}+2N+q^{2}}{4}-N=\frac{p^{2}-2 N+q^{2}}{4}=(p-q)^{2}/4 \tag{1.3}
+> \end{aligned}
+$$
+>
+> 那么对于左式 $A-\sqrt{N}$，有：
+>
+> $$A-\sqrt{N}=\frac{(A-\sqrt{N})(A+\sqrt{N})}{A+\sqrt{N}}=\frac{A^{2}-N}{A+\sqrt{N}}\stackrel{(1.3)}=\frac{(p-q)^{2}/4}{A+\sqrt{N}} \tag{1.4}$$
+>
+> 由于 $\sqrt{N} < A$，那么，
+>
+> $$A-\sqrt{N}\stackrel{(1.4)}=\frac{(p-q)^{2}/4}{A+\sqrt{N}} < \frac{(p-q)^{2}/4}{\sqrt{N}+\sqrt{N}}=\frac{(p-q)^{2}}{8\sqrt{N}} \tag{1.5}$$
+>
+> 由于任务 1 满足 $|p-q|<2N^{1/4}$，即 $(p-q)^{2}<4\sqrt{N}$。最后得到，
+> 
+> $$A-\sqrt{N} \stackrel{(1.5)}< \frac{(p-q)^{2}}{8\sqrt{N}} \stackrel{(1.1)}< \frac{4\sqrt{N}}{8\sqrt{N}}=1/2 < 1 \tag{1.6}$$
+
 ### 任务 2
+
+> [!NOTE]
+> 对模数 $N$ 和素数 $p$，$q$ 满足，
+>
+> $$|p-q|<2^{11}N^{1/4} \tag{2.1}$$
+
+和任务 1 一样，令 $A$ 是两个素数的算术平均值。由于任务 2 满足 $|p-q|<2^{11}N^{1/4}$，即 $(p-q)^{2}<2^{22}\sqrt{N}$，代入式 $(1.5)$ 可以得到：$A-\sqrt{N} \stackrel{(1.5)}< \frac{(p-q)^{2}}{8\sqrt{N}} \stackrel{(2.1)}< \frac{2^{22}\sqrt{N}}{8\sqrt{N}}=2^{19}$，所以，有
+
+$$
+0<A-\sqrt{N}<2^{19} \tag{2.2}
+$$
+
+所以，整数 $A$ 的范围为 $\lceil\sqrt{N}\rceil \leq A \leq \lfloor\sqrt{N}\rfloor + 2^{19}$。我们只需枚举范围内的值，找到整数 $A$ 满足 $N=pq$ 即可，具体做法同任务 1。
+
+```cpp
+void solve2()
+{
+    mpz_class N(
+        "64845584280807166966282426534677227872634372070697626306043907037879730861808111646271401527606141756919558732"
+        "18402545206554249067198924288448418393532819729885313105117386489659625828215025049902644521008852816733037111"
+        "42296421027840289307657458645233683357077834689715838646088239640236866252211790085787877");
+    mpz_class p, q;
+    mpz_class A, x;
+
+    for(int i = 1; i < 524288; i++) {
+        mpz_sqrt(A.get_mpz_t(), N.get_mpz_t());
+        A += i;
+        mpz_class temp = A * A - N;
+        mpz_sqrt(x.get_mpz_t(), temp.get_mpz_t());
+        p = A - x;q = A + x;
+        if(p * q == N) {
+            cout << "p: " << p << "\nq: " << q << endl;
+            break;
+        }
+    }
+
+    return;
+}
+```
 
 完整代码 👉 [传送门](course/cryptography/lab-4-solution ':target=_blank')
 

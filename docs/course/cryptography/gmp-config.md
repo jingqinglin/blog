@@ -3,12 +3,12 @@
         display: none;
     }
     #main {
-        margin-top: -70px;
+        margin-top: -50px;
         max-width: 95%;
     }
 </style>
 
-### Windows 下配置 GMP
+<p style="font-size: 1.5rem;font-weight: 600">Windows 下配置 GMP</p>
 
 在 Windows 上安装 C++ 编译器和 GMP 比较方便的方法是通过 MinGW Installer 安装，MinGW 是 Windows 版本的 GCC 和 GNU Binutils。
 
