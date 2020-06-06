@@ -22,6 +22,6 @@ We begin by just greedily constructing the matroid, adding the most costly to le
 
 > Show how to use property 2 of Lemma 16.12 to determine in time $O(|A|)$ whether or not a given set $A$ of tasks is independent.
 >
-> 说明如何利用引理 16.12 的性质 2 在 $O(|A|)$ 时间内确定-一个给定任务集合 $A$ 是独立的。
+> 说明如何利用引理 16.12 的性质 2 在 $O(|A|)$ 时间内确定一个给定任务集合 $A$ 是独立的。
 
 Create an array $B$ of length $n$ containing zeros in each entry. For each element $a \in A$, add $1$ to $B[a.deadline]$. If $B[a.deadline] > a.deadline$, return that the set is not independent. Otherwise, continue. If successfully examine every element of $A$, return that the set is independent.
