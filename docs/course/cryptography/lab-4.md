@@ -82,14 +82,9 @@ void solve1()
 > <br>
 > <span style="font-weight: 600;">右边部分 $A-\sqrt{N}<1$：</span>
 >
-> 首先，
+> 首先，因为 $A=\frac{p+q}{2}, N=pq$，
 >
-> $$
-> \begin{aligned}
-> & \because A=\frac{p+q}{2}, N=pq \\
-> & \therefore A^{2}-N=\left(\frac{p+q}{2}\right)^{2}-N=\frac{p^{2}+2N+q^{2}}{4}-N=\frac{p^{2}-2 N+q^{2}}{4}=(p-q)^{2}/4 \tag{1.3}
-> \end{aligned}
-$$
+> $$A^{2}-N=\left(\frac{p+q}{2}\right)^{2}-N=\frac{p^{2}+2N+q^{2}}{4}-N=\frac{p^{2}-2 N+q^{2}}{4}=(p-q)^{2}/4 \tag{1.3}$$
 >
 > 那么对于左式 $A-\sqrt{N}$，有：
 >
