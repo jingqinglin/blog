@@ -31,7 +31,7 @@
 假设给定一个合数 $N$ 并知道 $N$ 是两个彼此很接近的素数 $p$ 和 $q$ 的乘积，我们的任务是分解 $N$。
 
 - **任务 1**：模数 $N$ 是两个素数 $p$ 和 $q$ 的乘积，满足 $|p-q|<2 N^{1/4}$。（模数 $N$ 请见附件 [task.txt](course/cryptography/lab-4-task.txt ':ignore')）
-- **任务 2**：模数 $N$ 是两个素数 $p$ 和 $q$ 的乘积，满足 $|p-q|<2^{11} N^{1/4}$。（模数 $N$ 请见附件 [task.txt](course/cryptography/lab-4-task.txt ':ignore')）。*提示：在 $A-\sqrt{N}<2^{20}$ 的情况下，尝试从 $\sqrt{N}$ 向上搜索 $A$，直到成功地分解 $N$*。
+- **任务 2**：模数 $N$ 是两个素数 $p$ 和 $q$ 的乘积，满足 $|p-q|<2^{11} N^{1/4}$。（模数 $N$ 请见附件 [task.txt](course/cryptography/lab-4-task.txt ':ignore')）。
 
 ### 任务 1
 
