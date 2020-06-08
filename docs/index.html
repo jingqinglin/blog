@@ -22,6 +22,13 @@
       overflow: hidden;
     }
 
+    .docsify-copy-code-button {
+      background-color: transparent !important;
+      top: 15px !important;
+      font-size: 1.3em !important;
+      padding: 0.6em 0.5em !important;
+    }
+
     summary {
       cursor: pointer;
     }
@@ -57,9 +64,9 @@
         noData: '😞 找不到结果',
       },
       copyCode: {
-        buttonText: '点击复制',
-        errorText: '错误',
-        successText: '已复制',
+        buttonText: '<svg class="icon" style="color: #34495e !important;" aria-hidden="true""><use xlink:href="#icon-fuzhi"></use></svg>',
+        errorText: '<svg class="icon" style="color: red !important;" aria-hidden="true""><use xlink:href="#icon-error"></use></svg>',
+        successText: '<svg class="icon" style="color: var(--theme-color, #42b983) !important;" aria-hidden="true""><use xlink:href="#icon-fuzhichenggong"></use></svg>',
       },
       // plugins: [
       //   function (hook, vm) {
@@ -91,7 +98,7 @@
   <script src="//cdn.jsdelivr.net/npm/docsify-pdf-embed-plugin/src/docsify-pdf-embed.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-tabs"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-gifcontrol/dist/docsify-gifcontrol.js"></script>
-  <script src="//at.alicdn.com/t/font_1827840_8f7t84c4cmb.js"></script>
+  <script src="//at.alicdn.com/t/font_1827840_pkhhis9l73q.js"></script>
   <script src="./_style/docsify-plugin-flexible-alerts.js"></script>
 </body>
 
