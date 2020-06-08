@@ -1,3 +1,9 @@
+<style>
+    .crisp-client {
+        display: none;
+    }
+</style>
+
 <div align="center">
 <svg class="icon" aria-hidden="true"><use xlink:href="#icon-githubblack"></use></svg> <a href="https://github.com/JingqingLin/Blog" target="_blank">Github</a>
 &emsp; | &emsp;

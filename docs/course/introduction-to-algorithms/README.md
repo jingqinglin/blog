@@ -1,3 +1,9 @@
+<style>
+    .crisp-client {
+        display: none;
+    }
+</style>
+
 本课程使用《算法导论》作为教材，张曙老师上课使用第二版。由于中文版只能找到扫描版，这里提供网络上的[英文影印版](course/introduction-to-algorithms/introduction-to-algorithms-3rd.pdf ':ignore')（第三版）。
 
 

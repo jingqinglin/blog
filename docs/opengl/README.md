@@ -1,3 +1,9 @@
+<style>
+    .crisp-client {
+        display: none;
+    }
+</style>
+
 > 这部分是 OpenGL 学习笔记
 
 ### 📖 LearnOpenGL

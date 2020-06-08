@@ -1,3 +1,9 @@
+<style>
+    .crisp-client {
+        display: none;
+    }
+</style>
+
 ### 📝 作业一  {docsify-ignore}
 
 ?> 码农的自我修养之必备技能
