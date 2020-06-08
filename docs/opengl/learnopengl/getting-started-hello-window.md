@@ -100,7 +100,7 @@ while(!glfwWindowShouldClose(window))
 
 ![](_images/learnopengl-getting-started-7.png ':class=image-45')
 
-程序的完整源代码可以在[这里](https://learnopengl.com/code_viewer_gh.php?code=src/1.getting_started/1.2.hello_window_clear/hello_window_clear.cpp)找到。
+程序的完整源代码可以在[这里](https://learnopengl.com/code_viewer_gh.php?code=src/1.getting_started/1.1.hello_window/hello_window.cpp)找到。
 
 ### 输入
 
