@@ -137,6 +137,53 @@ for (int pushIndex = 0, popIndex = 0;pushIndex < n; pushIndex++) {
 }
 ```
 
+## 面试题46. 把数字翻译成字符串
+
+!> [面试题46](https://leetcode-cn.com/problems/ba-shu-zi-fan-yi-cheng-zi-fu-chuan-lcof/). 把数字翻译成字符串
+
+> DFS 或动态规划都可以。本题和「[91](https://leetcode-cn.com/problems/decode-ways/). 解码方法」相似，略有不同的是， 91 题的 $1$ 代表 $A$，而本题的 $0$ 代表 $a$
+
+### DFS
+
+DFS 的思路很直观：每次有两种选择，选择一位数字翻译或两位数字翻译，具体情况如代码所示。
+
+```java
+if (headNum == '0' || headNum > '2') {
+    DFS(str.substring(1, len));
+} else {
+    DFS(str.substring(1, len));
+    if (str.length() > 1) {
+        if (!(headNum == '2' && str.charAt(1) > '5')) {
+            DFS(str.substring(2, len));
+        }
+    }
+}
+```
+
+无备忘录的 DFS 会存在重复的计算，时间复杂度并不理想。如下图：
+
+![](_images/46-1.png ':class=image-80')<font size="2" color="#c0c0c0">图片来自[力扣](https://leetcode-cn.com/problems/ba-shu-zi-fan-yi-cheng-zi-fu-chuan-lcof/solution/shou-hui-tu-jie-dfsdi-gui-ji-yi-hua-di-gui-dong-ta/)</font>
+
+### 动态规划
+
+若当前数字和前一个数字可以合并翻译（说明既可以单独翻译，又可以合并翻译），那么：$dp[i] = dp[i - 1] + dp[i - 2]$；否则，$dp[i] = dp[i - 1]$。
+
+```java
+int[] dp = new int[len + 1];
+dp[0] = dp[1] = 1;
+for (int i = 2; i <= len; i++) {
+    char preChar = str.charAt(i - 2);
+    char curChar = str.charAt(i - 1);
+    if (preChar == '1' || (preChar == '2' && curChar >= '0' && curChar <= '5')) {
+        dp[i] = dp[i - 1] + dp[i - 2];
+    } else {
+        dp[i] = dp[i - 1];
+    }
+}
+```
+
+「[91](https://leetcode-cn.com/problems/decode-ways/). 解码方法」情况更复杂，👉 [思路](leetcode/动态规划?id=_3-💣-解码方法)。
+
 ## 面试题51. 💣 数组中的逆序对
 
 !> [面试题51](https://leetcode-cn.com/problems/shu-zu-zhong-de-ni-xu-dui-lcof/). 数组中的逆序对
