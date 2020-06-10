@@ -30,9 +30,11 @@ OpenGL 中，任何事物都在 3D 空间中，而屏幕和窗口却是 2D 像�
 
 ### 顶点输入
 
-开始绘制图形之前，我们必须先给 OpenGL 输入一些顶点数据。OpenGL 是一个 3D 图形库，所以我们在 OpenGL 中指定的所有坐标都是 3D 坐标（x、y 和 z）。OpenGL 仅当 3D 坐标在 3 个轴（x、y 和 z）上都为 - 1.0 到 1.0 的范围内时才处理它。所有在所谓的标准化设备坐标（Normalized Device Coordinates）范围内的坐标才会最终呈现在屏幕上。
+> 关键词：标准化设备坐标、顶点缓冲对象
 
-由于我们希望渲染一个三角形，所以要指定三个顶点，每个顶点都有一个 3D 位置。我们会将它们以标准化设备坐标的形式（OpenGL 的可见区域）定义为一个 `float` 数组。
+开始绘制图形之前，我们必须先给 OpenGL 输入一些顶点数据。在 OpenGL 中指定的所有坐标都是 3D 坐标（x、y 和 z），且仅当 3D 坐标在 3 个轴（x、y 和 z）上都为 - 1.0 到 1.0 的范围内时才处理它。所有**标准化设备坐标**（Normalized Device Coordinates）范围内的坐标才会最终呈现在屏幕上。
+
+由于我们希望渲染一个三角形，所以要指定三个顶点，每个顶点都有一个 3D 位置。我们会将它们以标准化设备坐标的形式定义为一个 `float` 数组。
 
 ```c
 float vertices[] = {
@@ -54,7 +56,7 @@ float vertices[] = {
 
 <font size="2">注<sup>[1]</sup>：我们通过**顶点缓冲对象**（Vertex Buffer Objects, VBO）管理这个内存，它会在 GPU 内存（通常被称为显存）中储存大量顶点。使用这些缓冲对象的好处是我们可以一次性的发送一大批数据到显卡上。</font>
 
-顶点缓冲对象是我们在 OpenGL 教程中第一个出现的 OpenGL 对象。就像 OpenGL 中的其它对象一样，这个缓冲有一个独一无二的 ID，所以我们可以使用 `glGenBuffers` 函数和一个缓冲 ID 生成一个 VBO 对象：
+顶点缓冲对象是我们在 OpenGL 教程中第一个出现的 OpenGL 对象。就像 OpenGL 中的其它对象一样，这个缓冲有一个独一无二的 ID，所以我们可以使用 `glGenBuffers` 函数和一个缓冲 ID（`unsigned int VBO`）生成一个 VBO 对象：
 
 ```c
 unsigned int VBO;
@@ -62,7 +64,7 @@ unsigned int VBO;
 glGenBuffers(1, &VBO);
 ```
 
-OpenGL 有很多缓冲对象类型，顶点缓冲对象的缓冲类型是 `GL_ARRAY_BUFFER`。OpenGL 允许我们同时绑定多个缓冲，只要它们是不同的缓冲类型。我们可以使用 `glBindBuffer` 函数把新创建的缓冲绑定到 `GL_ARRAY_BUFFER` 目标上。此后使用的任何（在 `GL_ARRAY_BUFFER` 目标上的）缓冲调用都会用来配置当前绑定的缓冲（VBO）
+OpenGL 有很多缓冲对象类型，顶点缓冲对象的缓冲类型是 `GL_ARRAY_BUFFER`。OpenGL 允许我们同时绑定多个缓冲，只要它们是不同的缓冲类型。我们可以使用 `glBindBuffer` 函数把新创建的缓冲绑定到 `GL_ARRAY_BUFFER` 目标上。此后使用的任何（在 `GL_ARRAY_BUFFER` 目标上的）缓冲调用都会用来配置当前绑定的缓冲（`VBO`）。
 
 ```c
 glBindBuffer(GL_ARRAY_BUFFER, VBO);
@@ -75,9 +77,60 @@ glBindBuffer(GL_ARRAY_BUFFER, VBO);
 // GL_DYNAMIC_DRAW：数据会被改变很多；GL_STREAM_DRAW ：数据每次绘制时都会改变。
 glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 ```
+三角形的位置数据不会改变，每次渲染调用时都保持原样，所以它的使用类型最好是 `GL_STATIC_DRAW`。现在我们已经把顶点数据储存在显卡的内存中，用 `VBO` 这个顶点缓冲对象管理。下面我们会创建一个顶点和片段着色器来真正处理这些数据。
 
 ### 顶点着色器
 
-### 编译着色器
+现代 OpenGL 需要我们至少设置一个顶点和一个片段着色器。
+
+我们需要做的第一件事是用着色器语言 GLSL (OpenGL Shading Language）编写顶点着色器，然后编译这个着色器，这样我们就可以在程序中使用它了。下面是一个非常基础的 GLSL 顶点着色器的代码：
+
+```glsl
+#version 330 core
+layout (location = 0) in vec3 aPos;
+
+void main()
+{
+    gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);
+}
+```
+
+GLSL 看起来很像 C 语言。我们使用 `in` 关键字声明顶点着色器中的所有输入顶点属性（Input Vertex Attribute）。由于每个顶点都有一个 3D 坐标，我们就创建一个 `vec3` 输入变量 `aPos`。我们同样也通过 `layout (location = 0)`设定了输入变量的位置值（Location）你后面会看到为什么我们会需要这个位置值。
+
+为了设置顶点着色器的输出，我们必须把位置数据赋值给预定义的 `gl_Position` 变量，它是 `vec4` 类型的。由于我们的输入是一个 3 分量的向量，我们必须把它转换为 4 分量的。（后面会解释为什么把 `w` 分量设置为 `1.0f`）。
+
+> [!NOTE|label:向量（vector）]
+> 在 GLSL 中一个向量有最多 4 个分量，每个分量值都代表空间中的一个坐标，它们可以通过 `vec.x`、`vec.y`、`vec.z` 和 `vec.w` 来获取。注意 `vec.w` 分量不是用作表达空间中的位置的，而是用在所谓透视除法（Perspective Division）上。
+
+当前这个顶点着色器可能是我们能想到的最简单的顶点着色器了，因为我们对输入数据什么都没有处理就把它传到着色器的输出了。但在真实的程序里输入数据通常都不是标准化设备坐标，所以我们必须先把它们转换至 OpenGL 的可视区域内。
+
+
+### 编译顶点着色器
+
+我们已经写了一个顶点着色器代码，并暂时将其存储在 C 言语代码文件顶部的字符串常量中：
+
+```c
+const char *vertexShaderSource = "#version 330 core\n"
+    "layout (location = 0) in vec3 aPos;\n"
+    "void main()\n"
+    "{\n"
+    "   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
+    "}\0";
+```
+
+但是为了能够让 OpenGL 使用它，我们必须在运行时动态编译它。
+
+```c
+// 创建一个着色器对象来存储顶点着色器，还是用 ID 来引用
+unsigned int vertexShader;
+// 把着色器类型以参数形式提供给 glCreateShader 以创建着色器
+vertexShader = glCreateShader(GL_VERTEX_SHADER);
+// 把着色器源码附加到着色器对象上，然后编译它
+// 第二参数指定了传递的源码字符串数量，第三个参数是顶点着色器源码
+glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
+glCompileShader(vertexShader);
+```
+
+关于如何检查编译时错误：https://learnopengl-cn.github.io/01%20Getting%20started/04%20Hello%20Triangle/#_4
 
 ### 片段着色器
