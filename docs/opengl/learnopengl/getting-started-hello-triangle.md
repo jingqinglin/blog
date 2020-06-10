@@ -14,7 +14,7 @@ OpenGL 中，任何事物都在 3D 空间中，而屏幕和窗口却是 2D 像�
 
 按照上图，我们概括性地解释一下渲染管线的每个部分：
 
-1. 首先，我们以数组的形式传递 3 个 3D 坐标作为图形渲染管线的输入，用来表示一个三角形，这个数组叫做顶点数据（Vertex Data）；顶点数据是一系列顶点的集合。一个**顶点**（Vertex）是一个 3D 坐标的数据的集合。而顶点数据是用**顶点属性**（Vertex Attribute）表示的，它可以包含任何我们想用的数据，但是简单起见，我们假定每个顶点的顶点属性只由一个 3D 位置和一些颜色值组成。
+1. 首先，我们以数组的形式传递 3 个 3D 坐标作为图形渲染管线的输入，用来表示一个三角形，这个数组叫做顶点数据（Vertex Data）；顶点数据是一系列顶点的集合。一个**顶点**（Vertex）是一个 3D 坐标的数据的集合。而顶点的数据是用**顶点属性**（Vertex Attribute）表示的，它可以包含任何我们想用的数据，但是简单起见，我们假定每个顶点的顶点属性只由一个 3D 位置和一些颜色值组成。
 
 > [!NOTE]
 > 为了让 OpenGL 知道我们的坐标和颜色值构成的到底是什么，OpenGL 需要你去指定这些数据所表示的渲染类型。我们是希望把这些数据渲染成一系列的点？一系列的三角形？还是仅仅是一条长长的线？做出的这些提示叫做**图元**（Primitive），任何一个绘制指令的调用都将把图元传递给 OpenGL。这是其中的几个：`GL_POINTS`、`GL_TRIANGLES`、`GL_LINE_STRIP`。
@@ -28,7 +28,7 @@ OpenGL 中，任何事物都在 3D 空间中，而屏幕和窗口却是 2D 像�
 
 对于大多数场合，我们只需要配置顶点和片段着色器就行了。几何着色器是可选的，通常使用它默认的着色器就行了。
 
-### 顶点输入
+## 顶点输入
 
 > 关键词：标准化设备坐标、顶点缓冲对象
 
@@ -56,11 +56,11 @@ float vertices[] = {
 
 <font size="2">注<sup>[1]</sup>：我们通过**顶点缓冲对象**（Vertex Buffer Objects, VBO）管理这个内存，它会在 GPU 内存（通常被称为显存）中储存大量顶点。使用这些缓冲对象的好处是我们可以一次性的发送一大批数据到显卡上。</font>
 
-顶点缓冲对象是我们在 OpenGL 教程中第一个出现的 OpenGL 对象。就像 OpenGL 中的其它对象一样，这个缓冲有一个独一无二的 ID，所以我们可以使用 `glGenBuffers` 函数和一个缓冲 ID（`unsigned int VBO`）生成一个 VBO 对象：
+顶点缓冲对象是我们在 OpenGL 教程中第一个出现的 OpenGL 对象。就像 OpenGL 中的其它对象一样，这个缓冲有一个独一无二的 ID，所以我们可以使用 `glGenBuffers` 函数和一个缓冲对象 ID（`unsigned int VBO`）生成一个 VBO 对象：
 
 ```c
 unsigned int VBO;
-// 第一个参数指定缓冲对象的数量，第二个参数存储缓冲对象名称
+// 第一个参数指定缓冲对象的数量，第二个参数存储缓冲对象 ID
 glGenBuffers(1, &VBO);
 ```
 
@@ -79,7 +79,7 @@ glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 ```
 三角形的位置数据不会改变，每次渲染调用时都保持原样，所以它的使用类型最好是 `GL_STATIC_DRAW`。现在我们已经把顶点数据储存在显卡的内存中，用 `VBO` 这个顶点缓冲对象管理。下面我们会创建一个顶点和片段着色器来真正处理这些数据。
 
-### 顶点着色器
+## 顶点着色器
 
 现代 OpenGL 需要我们至少设置一个顶点和一个片段着色器。
 
@@ -95,7 +95,16 @@ void main()
 }
 ```
 
-GLSL 看起来很像 C 语言。我们使用 `in` 关键字声明顶点着色器中的所有输入顶点属性（Input Vertex Attribute）。由于每个顶点都有一个 3D 坐标，我们就创建一个 `vec3` 输入变量 `aPos`。我们同样也通过 `layout (location = 0)`设定了输入变量的位置值（Location）你后面会看到为什么我们会需要这个位置值。
+GLSL 看起来很像 C 语言。我们使用 `in` 关键字声明顶点着色器中的所有输入顶点属性（Input Vertex Attribute）（我们这里只用到了一个顶点属性，即 `position` 属性）。由于每个顶点都有一个 3D 坐标，我们就创建一个 `vec3` 输入变量 `aPos`。我们通过 `layout (location = 0)` 设定了输入变量的位置值（Location），即输入数据的位置 0 代表顶点的 `position` 属性。
+
+> [!TIP]
+> 我们也可以定义多个顶点属性，如位置、颜色、纹理坐标，如下代码：
+>
+> ```glsl
+> layout (location = 0) in vec3 aPos;
+> layout (location = 1) in vec4 aCol;
+> layout (location = 2) in vec2 aCoord;
+> ```
 
 为了设置顶点着色器的输出，我们必须把位置数据赋值给预定义的 `gl_Position` 变量，它是 `vec4` 类型的。由于我们的输入是一个 3 分量的向量，我们必须把它转换为 4 分量的。（后面会解释为什么把 `w` 分量设置为 `1.0f`）。
 
@@ -105,7 +114,7 @@ GLSL 看起来很像 C 语言。我们使用 `in` 关键字声明顶点着色器
 当前这个顶点着色器可能是我们能想到的最简单的顶点着色器了，因为我们对输入数据什么都没有处理就把它传到着色器的输出了。但在真实的程序里输入数据通常都不是标准化设备坐标，所以我们必须先把它们转换至 OpenGL 的可视区域内。
 
 
-### 编译顶点着色器
+## 编译顶点着色器
 
 我们已经写了一个顶点着色器代码，并暂时将其存储在 C 言语代码文件顶部的字符串常量中：
 
@@ -133,4 +142,246 @@ glCompileShader(vertexShader);
 
 关于如何检查编译时错误：https://learnopengl-cn.github.io/01%20Getting%20started/04%20Hello%20Triangle/#_4
 
-### 片段着色器
+## 片段着色器
+
+片段着色器所做的是计算像素最后的颜色输出。
+
+片段着色器只需要一个输出变量，这个变量是一个 4 分量向量（第四个变量是 alpha 值），它表示的是最终的输出颜色，代码如下：
+
+```glsl
+#version 330 core
+out vec4 FragColor;
+
+void main()
+{
+    FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);
+}
+```
+
+编译片段着色器的过程与顶点着色器类似：
+
+```c
+unsigned int fragmentShader;
+fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
+glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
+glCompileShader(fragmentShader);
+```
+
+两个着色器都编译了，剩下的事情是把两个着色器对象链接到一个用来渲染的**着色器程序**（Shader Program）中。
+
+### 着色器程序
+
+> 区分：着色器对象、着色器程序对象
+
+**着色器程序对象**（Shader Program Object）是多个着色器合并之后的最终链接版本。如果要使用刚才编译的着色器我们必须把它们**链接**（Link）为一个着色器程序对象，然后在渲染对象的时候激活这个着色器程序。
+
+```c
+unsigned int shaderProgram;
+// 创建一个着色器程序，并返回程序对象 ID 引用
+shaderProgram = glCreateProgram();
+// 把编译后的着色器附加到程序对象上，并链接它们
+glAttachShader(shaderProgram, vertexShader);
+glAttachShader(shaderProgram, fragmentShader);
+glLinkProgram(shaderProgram);
+// 激活这个程序对象
+glUseProgram(shaderProgram);
+// 把着色器对象链接到程序对象以后，删除着色器对象
+glDeleteShader(vertexShader);
+glDeleteShader(fragmentShader);
+```
+
+> [!WARNING|label:进度|icon:fas fa-percentage]
+> 我们已经把输入顶点数据发送给了 GPU，并指示了 GPU 如何在顶点和片段着色器中处理它。但 OpenGL 还不知道它该如何解释内存中的顶点数据，以及它该如何将顶点数据链接到顶点着色器的属性上。我们需要告诉 OpenGL 怎么做。
+
+## 链接顶点属性
+
+我们必须手动指定输入数据的哪一个部分对应顶点着色器的哪一个顶点属性。所以，在渲染前我们要指定 OpenGL 该如何解释顶点数据。
+
+我们的顶点缓冲数据会被解析为下面这样子：
+
+![](_images/learnopengl-getting-started-10.png)
+
+```c
+// 函数告诉 OpenGL 该如何解析顶点数据
+glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+// 以顶点属性位置值作为参数，启用顶点属性
+glEnableVertexAttribArray(0);
+```
+
+`glVertexAttribPointer` 函数的参数非常多：
+- 第一个参数指定我们要配置的顶点属性。我们在顶点着色器中使用 `layout (location = 0)` 定义了顶点属性 `position` 的位置值（Location），它可以把顶点属性的位置值设置为 `0`。因为我们希望把数据传递到这一个顶点属性中，所以这里我们传入 `0`。
+- 第二个参数指定顶点属性的大小。顶点属性是一个 `vec3`，它由 3 个值组成，所以大小是 3。
+- 第三个参数指定数据的类型，这里是 `GL_FLOAT`（GLSL 中 `vec*` 都是由浮点数值组成的）。
+- 下个参数定义我们是否希望数据被标准化。如果我们设置为 `GL_TRUE`，所有数据都会被映射到 0 到 1 之间。我们把它设置为 `GL_FALSE`。
+- 第五个参数叫做步长，它告诉我们在连续的顶点属性组之间的间隔。由于下个组位置数据在 3 个 float 之后，我们把步长设置为 `3 * sizeof (float)`。我们也可以设置为 0 来让 OpenGL 决定具体步长是多少（只有当数值是紧密排列时才可用）。一旦我们有更多的顶点属性，我们就必须更小心地定义每个顶点属性之间的间隔。
+- 最后一个参数的类型是 `void*`，它表示位置数据在缓冲中起始位置的偏移量。由于位置数据在数组的开头，所以这里是 0。我们会在后面详细解释这个参数。
+
+自此，所有东西都已经设置好了。在 OpenGL 中绘制一个物体，代码会像是这样：
+
+```c
+// 0. 复制顶点数组到缓冲中供 OpenGL 使用
+glBindBuffer(GL_ARRAY_BUFFER, VBO);
+glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+// 1. 设置顶点属性指针
+glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+glEnableVertexAttribArray(0);
+// 2. 当我们渲染一个物体时要使用着色器程序
+glUseProgram(shaderProgram);
+// 3. 绘制物体
+someOpenGLFunctionThatDrawsOurTriangle();
+```
+
+每当我们绘制一个物体的时候都必须重复这一过程。但是如果有超过 5 个顶点属性，上百个不同物体，那么绑定缓冲对象、为每个物体配置所有顶点属性就变得很麻烦。
+
+### 顶点数组对象
+
+!> 比较难理解
+
+**顶点数组对象**（Vertex Array Object, VAO）可以像顶点缓冲对象那样被绑定，任何随后的顶点属性调用都会储存在这个 VAO 中。这样的好处就是，当配置顶点属性指针时，你只需要将那些调用执行一次，之后再绘制物体的时候只需要绑定相应的 VAO 就行了。这使在不同顶点数据和属性配置之间切换变得非常简单，只需要绑定不同的 VAO 就行了。
+
+![](_images/learnopengl-getting-started-11.png)
+
+一个顶点数组对象会储存以下这些内容：
+- `glEnableVertexAttribArray` 和 `glDisableVertexAttribArray` 的调用
+- 通过 `glVertexAttribPointer` 设置的顶点属性配置
+- 通过 `glVertexAttribPointer` 调用与顶点属性关联的顶点缓冲对象
+
+
+创建一个 VAO：
+
+```c
+unsigned int VAO;
+glGenVertexArrays(1, &VAO);
+```
+
+要想使用 VAO，需要使用 `glBindVertexArray` 绑定 VAO。接着我们应该绑定/配置相应的 VBO 和属性指针...（这个过程可以通过看完整代码来熟悉）
+
+```c
+// ..:: 初始化代码（只运行一次 (除非你的物体频繁改变)） :: ..
+// 1. 绑定 VAO
+glBindVertexArray(VAO);
+// 2. 把顶点数组复制到缓冲中供 OpenGL 使用
+glBindBuffer(GL_ARRAY_BUFFER, VBO);
+glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+// 3. 设置顶点属性指针
+glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+glEnableVertexAttribArray(0);
+
+[...]
+
+// ..:: 绘制代码（渲染循环中） :: ..
+// 4. 绘制物体
+glUseProgram(shaderProgram);
+glBindVertexArray(VAO);
+someOpenGLFunctionThatDrawsOurTriangle();
+```
+
+VAO 存储了顶点属性配置和应使用哪个 VBO。一般当我们打算绘制多个物体时，首先要生成/配置所有的 VAO（和所需的 VBO 及属性指针），然后储存它们供后面使用。当我们打算绘制物体的时候就拿出相应的 VAO，绑定它，绘制完物体后，再解绑 VAO。
+
+### 我们一直期待的三角形
+
+OpenGL 给我们提供了 `glDrawArrays` 函数，它使用当前激活的着色器，之前定义的顶点属性配置，和 VBO 的顶点数据（通过 VAO 间接绑定）来绘制图元。
+
+```c
+glUseProgram(shaderProgram);
+glBindVertexArray(VAO);
+// 第二个参数指定了顶点数组的起始索引，最后一个参数指定绘制多少个顶点
+glDrawArrays(GL_TRIANGLES, 0, 3);
+```
+
+编译后，是这样的：
+
+![](_images/learnopengl-getting-started-12.png ':class=image-45')
+
+完整的程序源码可以在[这里](https://learnopengl.com/code_viewer_gh.php?code=src/1.getting_started/2.1.hello_triangle/hello_triangle.cpp)找到。
+
+## 索引缓冲对象
+
+假设我们不再绘制一个三角形而是绘制一个矩形。我们可以绘制两个三角形来组成一个矩形。然而一个矩形只有 4 个而不是 6 个顶点，这样就产生 50% 的额外开销。
+
+```c
+float vertices[] = {
+    // 第一个三角形
+    0.5f, 0.5f, 0.0f,   // 右上角
+    0.5f, -0.5f, 0.0f,  // 右下角
+    -0.5f, 0.5f, 0.0f,  // 左上角
+    // 第二个三角形
+    0.5f, -0.5f, 0.0f,  // 右下角
+    -0.5f, -0.5f, 0.0f, // 左下角
+    -0.5f, 0.5f, 0.0f   // 左上角
+};
+```
+
+解决方案是只储存不同的顶点，并设定绘制这些顶点的顺序，这样子我们只要储存 4 个顶点就能绘制矩形了。而**索引缓冲对象**的工作方式正是这样的。和顶点缓冲对象一样，EBO 也是一个缓冲，它专门储存索引，OpenGL 调用这些顶点的索引来决定该绘制哪个顶点。我们定义顶点和绘制出矩形所需的索引：
+
+```c
+float vertices[] = {
+    0.5f, 0.5f, 0.0f,   // 右上角
+    0.5f, -0.5f, 0.0f,  // 右下角
+    -0.5f, -0.5f, 0.0f, // 左下角
+    -0.5f, 0.5f, 0.0f   // 左上角
+};
+
+unsigned int indices[] = { // 注意索引从0开始! 
+    0, 1, 3, // 第一个三角形
+    1, 2, 3  // 第二个三角形
+};
+```
+
+```c
+unsigned int EBO;
+// 创建索引缓冲对象
+glGenBuffers(1, &EBO);
+// 传递了 GL_ELEMENT_ARRAY_BUFFER 当作缓冲目标
+// 并把 EBO 绑定到 GL_ELEMENT_ARRAY_BUFFER 目标上
+glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+// 把索引复制到缓冲里
+glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+```
+
+要注意的是，我们传递了 `GL_ELEMENT_ARRAY_BUFFER` 当作缓冲目标。最后一件要做的事是用 `glDrawElements` 来替换 `glDrawArrays` 函数，来指明我们从索引缓冲渲染：
+
+```c
+// 第一个参数指定绘制模式，第二个参数打算绘制顶点的个数
+// 第三个参数是索引的类型，最后一个参数可以指定 EBO 中的偏移量
+glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+```
+
+`glDrawElements` 从当前绑定到 `GL_ELEMENT_ARRAY_BUFFER` 目标的 EBO 中获取索引。这意味着我们必须在每次要用索引渲染一个物体时绑定相应的 EBO，这还是有点麻烦。不过顶点数组对象（VAO）同样可以保存索引缓冲对象的绑定状态。VAO 绑定时正在绑定的索引缓冲对象会被保存为 VAO 的元素缓冲对象。绑定 VAO 的同时也会自动绑定 EBO。
+
+![](_images/learnopengl-getting-started-13.png)
+
+最后的初始化和绘制代码现在看起来像这样：
+
+```c
+// ..:: 初始化代码 :: ..
+// 1. 绑定顶点数组对象
+glBindVertexArray(VAO);
+// 2. 把我们的顶点数组复制到一个顶点缓冲中，供 OpenGL 使用
+glBindBuffer(GL_ARRAY_BUFFER, VBO);
+glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+// 3. 复制我们的索引数组到一个索引缓冲中，供 OpenGL 使用
+glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+// 4. 设定顶点属性指针
+glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+glEnableVertexAttribArray(0);
+
+[...]
+
+// ..:: 绘制代码（渲染循环中） :: ..
+glUseProgram(shaderProgram);
+glBindVertexArray(VAO);
+glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0)
+glBindVertexArray(0);
+```
+
+源码在[这里](https://learnopengl.com/code_viewer_gh.php?code=src/1.getting_started/2.2.hello_triangle_indexed/hello_triangle_indexed.cpp)。
+
+## 练习
+
+值得一做的练习：
+
+1. 添加更多顶点到数据中，使用 `glDrawArrays`，尝试绘制两个彼此相连的三角形：[参考解答](https://learnopengl.com/code_viewer_gh.php?code=src/1.getting_started/2.3.hello_triangle_exercise1/hello_triangle_exercise1.cpp)
+2. 创建相同的两个三角形，但对它们的数据使用不同的 VAO 和 VBO：[参考解答](https://learnopengl.com/code_viewer_gh.php?code=src/1.getting_started/2.4.hello_triangle_exercise2/hello_triangle_exercise2.cpp)
+3. 创建两个着色器程序，第二个程序使用一个不同的片段着色器，输出黄色；再次绘制这两个三角形，让其中一个输出为黄色：[参考解答](https://learnopengl.com/code_viewer_gh.php?code=src/1.getting_started/2.5.hello_triangle_exercise3/hello_triangle_exercise3.cpp)

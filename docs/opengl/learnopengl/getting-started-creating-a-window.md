@@ -1,6 +1,6 @@
 本节的内容是教我们如何配置 OpenGL。**OpenGL 自身并不包含任何执行窗口任务或者处理用户输入的函数**，但有许多库提供给我们一个窗口和上下文用来渲染，最流行的几个库有 GLUT，SDL，SFML 和 GLFW，教程里使用 GLFW。
 
-### GLFW
+## GLFW
 
 GLFW 是一个专门针对 OpenGL 的 C 语言库，它提供了一些渲染物体所需的最低限度的接口。它允许用户**创建 OpenGL 上下文**，**定义窗口参数**以及**处理用户输入**，这正是我们需要的。
 
@@ -8,7 +8,7 @@ GLFW 是一个专门针对 OpenGL 的 C 语言库，它提供了一些渲染物�
 
 ![](_images/learnopengl-getting-started-1.png ':class=image-40')
 
-### 链接
+## 链接
 
 教程使用 Visual Studio，由于 VS 过于庞大，此处选择 CodeLite + MinGW 作为 C 语言环境。
 
@@ -23,7 +23,7 @@ GLFW 是一个专门针对 OpenGL 的 C 语言库，它提供了一些渲染物�
 
 ![](_images/learnopengl-getting-started-4.png ':class=image-70')
 
-### GLAD
+## GLAD
 
 我们仍然还有一件事要做。因为 OpenGL 只是一个标准/规范，具体的实现是由驱动开发商针对特定显卡实现的。由于 OpenGL 驱动版本众多，它大多数函数的位置都无法在编译时确定下来，需要在运行时查询。所以任务就落在了开发者身上，开发者需要在运行时获取函数地址并将其保存在一个函数指针中供以后使用。取得地址的方法因平台而异，在 Windows 上会是类似这样：
 
