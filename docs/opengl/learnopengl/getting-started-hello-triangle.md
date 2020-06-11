@@ -173,7 +173,7 @@ glCompileShader(fragmentShader);
 
 > 区分：着色器对象、着色器程序对象
 
-**着色器程序对象**（Shader Program Object）是多个着色器合并之后的最终链接版本。如果要使用刚才编译的着色器我们必须把它们**链接**（Link）为一个着色器程序对象，然后在渲染对象的时候激活这个着色器程序。
+**着色器程序对象**（Shader Program Object）是多个着色器合并之后的最终链接版本。如果要使用刚才编译的着色器我们必须把它们**链接**（Link）为一个着色器程序对象：
 
 ```c
 unsigned int shaderProgram;
@@ -183,12 +183,12 @@ shaderProgram = glCreateProgram();
 glAttachShader(shaderProgram, vertexShader);
 glAttachShader(shaderProgram, fragmentShader);
 glLinkProgram(shaderProgram);
-// 激活这个程序对象
-glUseProgram(shaderProgram);
 // 把着色器对象链接到程序对象以后，删除着色器对象
 glDeleteShader(vertexShader);
 glDeleteShader(fragmentShader);
 ```
+
+然后在渲染循环中渲染对象的时候用 `glUseProgram(shaderProgram)` 激活这个着色器程序。
 
 > [!WARNING|label:进度|icon:fas fa-percentage]
 > 我们已经把输入顶点数据发送给了 GPU，并指示了 GPU 如何在顶点和片段着色器中处理它。但 OpenGL 还不知道它该如何解释内存中的顶点数据，以及它该如何将顶点数据链接到顶点着色器的属性上。我们需要告诉 OpenGL 怎么做。
@@ -232,6 +232,9 @@ someOpenGLFunctionThatDrawsOurTriangle();
 ```
 
 每当我们绘制一个物体的时候都必须重复这一过程。但是如果有超过 5 个顶点属性，上百个不同物体，那么绑定缓冲对象、为每个物体配置所有顶点属性就变得很麻烦。
+
+> [!TIP]
+> 对 `glVertexAttribPointer` 的调用将变量 VBO 注册为顶点属性的绑定顶点缓冲对象，因此调用之后我们可以安全地取消绑定。即在 `glVertexAttribPointer` 函数后加 `glBindBuffer(GL_ARRAY_BUFFER, 0)`
 
 ### 顶点数组对象
 
@@ -377,6 +380,9 @@ glBindVertexArray(0);
 ```
 
 源码在[这里](https://learnopengl.com/code_viewer_gh.php?code=src/1.getting_started/2.2.hello_triangle_indexed/hello_triangle_indexed.cpp)。
+
+> [!TIP]
+> 当 VAO 激活时不要解绑 EBO
 
 ## 练习
 
