@@ -17,7 +17,7 @@ OpenGL 自身是一个巨大的状态机（State Machine）：一系列的变量
 
 在 OpenGL 中一个对象是指一些选项的集合，它代表 OpenGL 状态的一个子集。比如，我们可以用一个对象来代表绘图窗口的设置，之后我们就可以设置它的大小、支持的颜色位数等等。可以把对象看做一个 C 风格的结构体（Struct）：
 
-```c
+```cpp
 struct object_name {
     float  option1;
     int    option2;

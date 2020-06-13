@@ -8,4 +8,3 @@
 - 其他
   - [面试相关](interview/)
   - [课程相关](course/)
-  - [OpenGL](opengl/)

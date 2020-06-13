@@ -128,7 +128,7 @@ void main()
 
 接着，为 `ourColor` 赋值：
 
-```c
+```cpp
 // 获取运行的秒数
 float timeValue = glfwGetTime();
 // 使用 sin 函数让颜色在 0.0 到 1.0 之间改变
@@ -141,3 +141,74 @@ glUseProgram(shaderProgram);
 glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
 ```
 
+在循环渲染中更新 uniform 的值，可以看到三角形会逐渐由绿变黑再变回绿色。源码在[这里](https://learnopengl.com/code_viewer_gh.php?code=src/1.getting_started/3.1.shaders_uniform/shaders_uniform.cpp)。
+
+> [!NOTE]
+> 因为 OpenGL 是一个 C 库，所以它不支持函数重载，在函数参数不同的时候就要为其定义新的函数。`glUniform` 是一个典型的例子，它可能的后缀有：
+>
+>   | 后缀 | 含义                                 |
+>   | ---- | ------------------------------------ |
+>   | f  | 函数需要一个 `float` 作为它的值          |
+>   | i  | 函数需要一个 in`t 作为它的值            |
+>   | ui | 函数需要一个 `unsigned int` 作为它的值   |
+>   | 3f | 函数需要 3 个 `float` 作为它的值           |
+>   | fv | 函数需要一个 `float` 向量/数组作为它的值 |
+
+## 更多顶点属性
+
+我们了解了如何填充 VBO、配置顶点属性指针以及如何把它们都储存到一个 VAO 里。这次，我们同样打算把颜色数据加进顶点数据中，我们将把三角形的三个角分别指定为红色、绿色和蓝色：
+
+```cpp
+float vertices[] = {
+    // 位置              // 颜色
+     0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f,   // 右下
+    -0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,   // 左下
+     0.0f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f    // 顶部
+};
+```
+
+由于现在有更多的数据要发送到顶点着色器，我们有必要去调整一下顶点着色器，使它能够接收颜色值：
+
+```cpp
+#version 330 core
+layout (location = 0) in vec3 aPos;   // 位置变量的属性位置值为 0
+layout (location = 1) in vec3 aColor; // 颜色变量的属性位置值为 1
+
+out vec3 ourColor; // 向片段着色器输出一个颜色
+
+void main()
+{
+    gl_Position = vec4(aPos, 1.0);
+    ourColor = aColor; // 将 ourColor 设置为我们从顶点数据那里得到的输入颜色
+}
+```
+
+因为我们添加了另一个顶点属性，并且更新了 VBO 的内存，我们就必须重新配置顶点属性指针。更新后的 VBO 内存中的数据现在看起来像这样：
+
+![](_images/learnopengl-getting-started-15.png)
+
+知道了现在使用的布局，我们可以更新顶点格式：
+
+```cpp
+// 位置属性
+glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
+glEnableVertexAttribArray(0);
+// 颜色属性
+// 参数一：颜色属性位置值为 1；参数五：步长；参数六：偏移量
+glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3* sizeof(float)));
+glEnableVertexAttribArray(1);
+```
+
+![](_images/learnopengl-getting-started-16.png ':class=image-45')
+
+这是在片段着色器中进行的**片段插值**（Fragment Interpolation）的结果。当渲染一个三角形时，光栅化（Rasterization）阶段通常会造成比原指定顶点更多的片段。光栅会根据每个片段在三角形形状上所处相对位置决定这些片段（屏幕上）的位置。
+基于这些位置，它会插值（Interpolate）所有片段着色器的输入变量。比如说，我们有一个线段，上面的端点是绿色的，下面的端点是蓝色的。如果一个片段着色器在线段的 70% 的位置运行，它的颜色输入属性就会是一个绿色和蓝色的线性结合；更精确地说就是 30% 蓝 + 70% 绿。
+
+源代码在[这里](https://learnopengl.com/code_viewer_gh.php?code=src/1.getting_started/3.2.shaders_interpolation/shaders_interpolation.cpp)。
+
+## 我们自己的着色器类
+
+https://learnopengl-cn.github.io/01%20Getting%20started/05%20Shaders/#_6
+
+
+[自定义一个着色器类](https://learnopengl-cn.github.io/01%20Getting%20started/05%20Shaders/#_6 ':include :type=iframe width=100% height=600px')

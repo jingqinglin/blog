@@ -39,7 +39,7 @@ GLAD 提供了一个 zip 压缩文件，包含两个头文件目录，和一个 
 
 接着，我们将头文件添加到项目里，再编译，应该不会出现错误了。
 
-```c
+```cpp
 // 头文件顺序不能变，glad.h 要放在顶部
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>

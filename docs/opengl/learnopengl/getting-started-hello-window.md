@@ -2,7 +2,7 @@
 
 首先创建 `main` 函数。
 
-```c
+```cpp
 int main()
 {
     // 初始化 GLFW
@@ -20,7 +20,7 @@ int main()
 
 接下来我们创建一个窗口对象，这个窗口对象存放了所有和窗口相关的数据，而且会被 GLFW 的其他函数频繁地用到。
 
-```c
+```cpp
 // 窗口的宽、高、标题名称
 GLFWwindow* window = glfwCreateWindow(800, 600, "LearnOpenGL", NULL, NULL);
 if (window == NULL)
@@ -37,7 +37,7 @@ glfwMakeContextCurrent(window);
 
 GLAD 是用来管理 OpenGL 的函数指针的，所以在调用任何 OpenGL 的函数之前我们需要初始化 GLAD。
 
-```c
+```cpp
 // 给 GLAD 传入用来加载系统相关的 OpenGL 函数指针地址的函数 glfwGetProcAddress
 if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
 {
@@ -50,14 +50,14 @@ if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
 
 在我们开始渲染之前还有一件重要的事情要做，我们必须告诉 OpenGL 渲染窗口的尺寸大小，即视口（Viewport，<font size="2" color="#c0c0c0">就是窗口中用来显示图形的一块矩形区域，它可以和窗口等大，也可以比窗口大或者小</font>），这样 OpenGL 才只能知道怎样根据窗口大小显示数据和坐标。我们可以通过调用 glViewport 函数来设置窗口的维度。
 
-```c
+```cpp
 // 前两个参数控制视口左下角的位置，第三个和第四个参数控制视口的宽度和高度
 glViewport(0, 0, 800, 600);
 ```
 
 然而，当用户改变窗口的大小的时候，视口也应该被调整。我们可以对窗口注册一个回调函数（Callback Function），它会在每次窗口大小被调整的时候被调用。回调函数如下：
 
-```c
+```cpp
 // 这个帧缓冲大小函数需要一个 GLFWwindow 作为它的第一个参数，以及两个整数表示窗口的新维度
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 {
@@ -67,7 +67,7 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 
 我们还需要注册这个回调函数，告诉 GLFW 我们希望每当窗口调整大小的时候调用这个函数：
 
-```c
+```cpp
 glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 ```
 
@@ -77,7 +77,7 @@ glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
 我们不希望只绘制一个图像之后应用程序就立即退出并关闭窗口。我们希望程序在我们主动关闭它之前不断绘制图像并能够接受用户输入。因此，需要在程序中添加一个 while 循环，我们可以把它称之为**渲染循环**（Render Loop），它能在我们让 GLFW 退出前一直保持运行。下面几行的代码就实现了一个简单的渲染循环：
 
-```c
+```cpp
 // 循环开始前检查 GLFW 是否被要求退出
 while(!glfwWindowShouldClose(window))
 {
@@ -104,7 +104,7 @@ while(!glfwWindowShouldClose(window))
 
 我们希望能在 GLFW 中实现一些输入控制，这可以通过使用 GLFW 的几个输入函数来完成。我们将会使用 GLFW 的 `glfwGetKey` 函数，它需要一个窗口以及一个按键作为输入。这个函数将会返回这个按键是否正在被按下。
 
-```c
+```cpp
 void processInput(GLFWwindow *window)
 {
     // 检查用户是否按下了 escape 键，若没有按下返回 GLFW_RELEASE
@@ -115,7 +115,7 @@ void processInput(GLFWwindow *window)
 
 接着在渲染循环中调用 `processInput`：
 
-```c
+```cpp
 while (!glfwWindowShouldClose(window))
 {
     processInput(window);
@@ -129,7 +129,7 @@ while (!glfwWindowShouldClose(window))
 
 我们要把所有的渲染（Rendering）操作放到渲染循环中，因为我们想让这些渲染指令在每次渲染循环迭代的时候都能被执行。代码将会是这样的：
 
-```c
+```cpp
 // 渲染循环
 while(!glfwWindowShouldClose(window))
 {
@@ -147,7 +147,7 @@ while(!glfwWindowShouldClose(window))
 
 我们用以下代码测试渲染指令：
 
-```c
+```cpp
 // 设置清空屏幕所用的颜色
 glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 // 清除颜色缓冲，之后整个颜色缓冲都会被填充为 glClearColor 里所设置的颜色

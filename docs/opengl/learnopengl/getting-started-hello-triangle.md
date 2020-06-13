@@ -36,7 +36,7 @@ OpenGL 中，任何事物都在 3D 空间中，而屏幕和窗口却是 2D 像�
 
 由于我们希望渲染一个三角形，所以要指定三个顶点，每个顶点都有一个 3D 位置。我们会将它们以标准化设备坐标的形式定义为一个 `float` 数组。
 
-```c
+```cpp
 float vertices[] = {
     // z 坐标设置为 0.0，这样三角形每一点的深度都是一样的，从而使它看上去像是 2D 的
     -0.5f, -0.5f, 0.0f,
@@ -58,7 +58,7 @@ float vertices[] = {
 
 顶点缓冲对象是我们在 OpenGL 教程中第一个出现的 OpenGL 对象。就像 OpenGL 中的其它对象一样，这个缓冲有一个独一无二的 ID，所以我们可以使用 `glGenBuffers` 函数和一个缓冲对象 ID（`unsigned int VBO`）生成一个 VBO 对象：
 
-```c
+```cpp
 unsigned int VBO;
 // 第一个参数指定缓冲对象的数量，第二个参数存储缓冲对象 ID
 glGenBuffers(1, &VBO);
@@ -66,12 +66,12 @@ glGenBuffers(1, &VBO);
 
 OpenGL 有很多缓冲对象类型，顶点缓冲对象的缓冲类型是 `GL_ARRAY_BUFFER`。OpenGL 允许我们同时绑定多个缓冲，只要它们是不同的缓冲类型。我们可以使用 `glBindBuffer` 函数把新创建的缓冲绑定到 `GL_ARRAY_BUFFER` 目标上。此后使用的任何（在 `GL_ARRAY_BUFFER` 目标上的）缓冲调用都会用来配置当前绑定的缓冲（`VBO`）。
 
-```c
+```cpp
 glBindBuffer(GL_ARRAY_BUFFER, VBO);
 ```
 然后我们可以调用 `glBufferData` 函数，它会把之前定义的顶点数据复制到缓冲的内存中：
 
-```c
+```cpp
 // 第二个参数指定传输数据的大小（以字节为单位），第三个参数是发送的数据
 // 第四个参数指定了显卡如何管理给定的数据。GL_STATIC_DRAW ：数据不会或几乎不会改变；
 // GL_DYNAMIC_DRAW：数据会被改变很多；GL_STREAM_DRAW ：数据每次绘制时都会改变。
@@ -118,7 +118,7 @@ GLSL 看起来很像 C 语言。我们使用 `in` 关键字声明顶点着色器
 
 我们已经写了一个顶点着色器代码，并暂时将其存储在 C 言语代码文件顶部的字符串常量中：
 
-```c
+```cpp
 const char *vertexShaderSource = "#version 330 core\n"
     "layout (location = 0) in vec3 aPos;\n"
     "void main()\n"
@@ -129,7 +129,7 @@ const char *vertexShaderSource = "#version 330 core\n"
 
 但是为了能够让 OpenGL 使用它，我们必须在运行时动态编译它。
 
-```c
+```cpp
 // 创建一个着色器对象来存储顶点着色器，还是用 ID 来引用
 unsigned int vertexShader;
 // 把着色器类型以参数形式提供给 glCreateShader 以创建着色器
@@ -160,7 +160,7 @@ void main()
 
 编译片段着色器的过程与顶点着色器类似：
 
-```c
+```cpp
 unsigned int fragmentShader;
 fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
 glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
@@ -175,7 +175,7 @@ glCompileShader(fragmentShader);
 
 **着色器程序对象**（Shader Program Object）是多个着色器合并之后的最终链接版本。如果要使用刚才编译的着色器我们必须把它们**链接**（Link）为一个着色器程序对象：
 
-```c
+```cpp
 unsigned int shaderProgram;
 // 创建一个着色器程序，并返回程序对象 ID 引用
 shaderProgram = glCreateProgram();
@@ -201,7 +201,7 @@ glDeleteShader(fragmentShader);
 
 ![](_images/learnopengl-getting-started-10.png)
 
-```c
+```cpp
 // 函数告诉 OpenGL 该如何解析顶点数据
 glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 // 以顶点属性位置值作为参数，启用顶点属性
@@ -218,7 +218,7 @@ glEnableVertexAttribArray(0);
 
 自此，所有东西都已经设置好了。在 OpenGL 中绘制一个物体，代码会像是这样：
 
-```c
+```cpp
 // 0. 复制顶点数组到缓冲中供 OpenGL 使用
 glBindBuffer(GL_ARRAY_BUFFER, VBO);
 glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
@@ -252,14 +252,14 @@ someOpenGLFunctionThatDrawsOurTriangle();
 
 创建一个 VAO：
 
-```c
+```cpp
 unsigned int VAO;
 glGenVertexArrays(1, &VAO);
 ```
 
 要想使用 VAO，需要使用 `glBindVertexArray` 绑定 VAO。接着我们应该绑定/配置相应的 VBO 和属性指针...（这个过程可以通过看完整代码来熟悉）
 
-```c
+```cpp
 // ..:: 初始化代码（只运行一次 (除非你的物体频繁改变)） :: ..
 // 1. 绑定 VAO
 glBindVertexArray(VAO);
@@ -285,7 +285,7 @@ VAO 存储了顶点属性配置和应使用哪个 VBO。一般当我们打算绘
 
 OpenGL 给我们提供了 `glDrawArrays` 函数，它使用当前激活的着色器，之前定义的顶点属性配置，和 VBO 的顶点数据（通过 VAO 间接绑定）来绘制图元。
 
-```c
+```cpp
 glUseProgram(shaderProgram);
 glBindVertexArray(VAO);
 // 第二个参数指定了顶点数组的起始索引，最后一个参数指定绘制多少个顶点
@@ -302,7 +302,7 @@ glDrawArrays(GL_TRIANGLES, 0, 3);
 
 假设我们不再绘制一个三角形而是绘制一个矩形。我们可以绘制两个三角形来组成一个矩形。然而一个矩形只有 4 个而不是 6 个顶点，这样就产生 50% 的额外开销。
 
-```c
+```cpp
 float vertices[] = {
     // 第一个三角形
     0.5f, 0.5f, 0.0f,   // 右上角
@@ -317,7 +317,7 @@ float vertices[] = {
 
 解决方案是只储存不同的顶点，并设定绘制这些顶点的顺序，这样子我们只要储存 4 个顶点就能绘制矩形了。而**索引缓冲对象**的工作方式正是这样的。和顶点缓冲对象一样，EBO 也是一个缓冲，它专门储存索引，OpenGL 调用这些顶点的索引来决定该绘制哪个顶点。我们定义顶点和绘制出矩形所需的索引：
 
-```c
+```cpp
 float vertices[] = {
     0.5f, 0.5f, 0.0f,   // 右上角
     0.5f, -0.5f, 0.0f,  // 右下角
@@ -331,7 +331,7 @@ unsigned int indices[] = { // 注意索引从0开始!
 };
 ```
 
-```c
+```cpp
 unsigned int EBO;
 // 创建索引缓冲对象
 glGenBuffers(1, &EBO);
@@ -344,7 +344,7 @@ glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
 要注意的是，我们传递了 `GL_ELEMENT_ARRAY_BUFFER` 当作缓冲目标。最后一件要做的事是用 `glDrawElements` 来替换 `glDrawArrays` 函数，来指明我们从索引缓冲渲染：
 
-```c
+```cpp
 // 第一个参数指定绘制模式，第二个参数打算绘制顶点的个数
 // 第三个参数是索引的类型，最后一个参数可以指定 EBO 中的偏移量
 glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
@@ -356,7 +356,7 @@ glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
 最后的初始化和绘制代码现在看起来像这样：
 
-```c
+```cpp
 // ..:: 初始化代码 :: ..
 // 1. 绑定顶点数组对象
 glBindVertexArray(VAO);
