@@ -133,3 +133,32 @@
 </details>
 
 - [实验报告](course/cryptography/lab-4.md)
+
+### 🔬 实验五 {docsify-ignore}
+
+?> 视频大文件验证
+
+<details>
+<summary>实验内容</summary>
+
+> 【时间】6 月 20 号（周六）晚上
+> 
+> 【地点】待定
+> 
+> 【编程语言】Python（推荐）或者 C/C++
+>
+> 【实验目的】
+> 1. 掌握数据完整性、哈希函数、MAC 等概念；
+> 2. 了解如何使用 MAC 来确保数据的完整性；
+> 3. 通过使用 Python（推荐）或者 C，利用 SHA-256 对视频大文件进行认证，学习如何使用哈希链来的实现大文件的分块认证。
+>
+> 【实验内容】
+> 实验内容和要求请见附件 [EXP5-Doc.pdf](course/cryptography/lab-5-EXP5-Doc.pdf ':ignore')
+>
+> ```pdf
+> course/cryptography/lab-5-EXP5-Doc.pdf
+> ```
+
+</details>
+
+- [实验报告](course/cryptography/lab-5.md)

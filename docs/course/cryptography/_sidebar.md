@@ -3,3 +3,4 @@
   - [实验二](course/cryptography/lab-2.md "离散对数求解 - 现代密码学与应用")
   - [实验三](course/cryptography/lab-3.md "CBC 和 CTR 模式下的 AES - 现代密码学与应用")
   - [实验四](course/cryptography/lab-4.md "RSA 中公开的模数 N - 现代密码学与应用")
+  - [实验五](course/cryptography/lab-5.md "视频大文件验证 - 现代密码学与应用")
