@@ -75,11 +75,11 @@ string encrypt(string plaintext, string key, string vi, string ciphertext)
         }
 
         aesEncryptor.ProcessBlock((byte*)xorBlock.c_str(), outBlock);
-        vi = "";
 
         // unsigned char[] 转 string 不要这样：vi = (char *) outBlock
         vi = string((char*)outBlock, AES::BLOCKSIZE);
         // 以下方式也可以
+        // vi.clear();
         // for(int j = 0; j < AES::BLOCKSIZE; j++) {
         //     vi.push_back(outBlock[j]);
         // }
