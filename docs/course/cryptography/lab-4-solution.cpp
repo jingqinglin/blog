@@ -34,9 +34,10 @@ void solve2()
     mpz_class p, q;
     mpz_class A, x;
 
+    mpz_sqrt(A.get_mpz_t(), N.get_mpz_t());
+    
     for(int i = 1; i < 524288; i++) {
-        mpz_sqrt(A.get_mpz_t(), N.get_mpz_t());
-        A += i;
+        A++;
         mpz_class temp = A * A - N;
         mpz_sqrt(x.get_mpz_t(), temp.get_mpz_t());
         p = A - x;

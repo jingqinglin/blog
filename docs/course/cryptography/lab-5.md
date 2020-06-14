@@ -85,7 +85,7 @@ vector<string> calculateHash(string fileName)
 ```
 
 > [!NOTE]
-> 在按照正确的思路编码后，一直没有算对 [test.mp4](course/cryptography/lab-5-test.mp4 ':ignore') 的 $h_0$。调试后发现源文件没有被正确地输到变量中，原因是没有以二进制模式打开文件。默认情况下，文件以文本模式被打开，这种情况下可能会发生字符转换，例如将回车转换为新的一行。但是，在二进制模式下不会发生这样的字符转换。因此定义输入文件流时需要加上参数 `ios::binary`。
+> 在按照正确的思路编码后，一直没有算对 [test.mp4](course/cryptography/lab-5-test.mp4 ':ignore') 的 $h_0$。调试后发现源文件没有被正确地输到变量中，原因是没有以二进制模式打开文件。默认情况下，文件以文本模式被打开，这种情况下可能会发生字符转换，例如将回车换行字符（`0d0a`）转换为新的一行。但是，在二进制模式下不会发生这样的字符转换。因此定义输入文件流时需要加上参数 `ios::binary`。
 
 完整代码 👉 [传送门](course/cryptography/lab-5-solution ':target=_blank')。
 
