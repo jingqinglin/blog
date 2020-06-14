@@ -321,8 +321,7 @@ string decrypt(string ciphertext, string key, string plaintext)
 
 <br>
 
-> [!NOTE]
-> 参考：
+> [!NOTE|label:参考]
 >
 > https://www.cnblogs.com/lit10050528/p/4081658.html  
 > https://www.cnblogs.com/YZFHKMS-X/p/11829021.html  
