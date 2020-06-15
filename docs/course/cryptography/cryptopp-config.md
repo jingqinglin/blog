@@ -3,7 +3,7 @@
         display: none;
     }
     #main {
-        margin-top: -50px;
+        margin-top: -30px;
         max-width: 95%;
     }
 </style>
