@@ -8,8 +8,6 @@
     }
 </style>
 
-本实验拟采用 C++ 作为编程语言，并调用 Crypto++ 对 AES 进行基本实现。
-
 > [!TIP]
 > Crypto++ 下载地址：https://www.cryptopp.com/#download
 
