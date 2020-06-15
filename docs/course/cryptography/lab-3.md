@@ -29,8 +29,8 @@
 
 本实验拟采用 C++ 作为编程语言，并调用 Crypto++ 对 AES 进行基本实现。
 
-> [!TIP]
-> Crypto++ 下载地址：https://www.cryptopp.com/#download
+> [!TIP|label:Cryptopp 下载地址]
+> https://www.cryptopp.com/#download
 
 
 由于 Crypto++ 的编译版本是使用 MSVC 构建的，我们用 Visual Studio 打开解决方案 cryptest.sln，并将 cryptlib 设为启动项目，然后按下 <kbd>Ctrl</kbd> + <kbd>B</kbd> 生成 cryptlib。此时路径 `./Win32/Output/Debug` 下会输出 cryptlib.lib 文件。
@@ -316,7 +316,7 @@ string decrypt(string ciphertext, string key, string plaintext)
 
 测试 3 和测试 4，分别输出：`CTR mode lets you build a stream cipher from a block cipher.` 和 `Always avoid the two time pad!`。
 
-> [!TIP]
+> [!TIP|label:调库实现 CBC 和 CTR]
 > Crypto++ 中的 AES 库也内置了包括 CBC 和 CTR 在内的各种模式。此处为直接调用库函数的实现[代码](course/cryptography/lab-3-aes-cbc-and-ctr ':target=_blank')。
 
 <br>

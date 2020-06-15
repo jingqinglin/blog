@@ -31,7 +31,7 @@
 >
 > ![](_images/lab-5-1.png ':class=image-60')
 
-按照 PDF 中给出的要求以及实现思路，写出以下代码片段：
+按照 [PDF](course/cryptography/lab-5-EXP5-Doc.pdf ':ignore') 中给出的要求以及实现思路，写出以下代码片段：
 
 ```cpp
 // 调用 Crypto++ 库实现 SHA-256
@@ -91,7 +91,7 @@ vector<string> calculateHash(string fileName)
 
 ## 实验结果
 
-运行完整代码，可得到 video.mp4 的 $h_0$ 为：
+运行完整代码，可得到 [video.mp4](course/cryptography/lab-5-video.mp4 ':ignore') 的 $h_0$ 为：
 
 ```
 5b96aece304a1422224f9a41b228416028f9ba26b0d1058f400200f06a589949

@@ -8,8 +8,8 @@
     }
 </style>
 
-> [!TIP]
-> Crypto++ 下载地址：https://www.cryptopp.com/#download
+> [!TIP|label:Cryptopp 下载地址]
+> https://www.cryptopp.com/#download
 
 
 由于 Crypto++ 的编译版本是使用 MSVC 构建的，我们用 Visual Studio 打开解决方案 cryptest.sln，并将 cryptlib 设为启动项目，然后按下 <kbd>Ctrl</kbd> + <kbd>B</kbd> 生成 cryptlib。此时路径 `./Win32/Output/Debug` 下会输出 cryptlib.lib 文件。

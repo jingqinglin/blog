@@ -37,7 +37,7 @@
 
 > 以下思路来源于附件 [EXP4-Doc.pdf](course/cryptography/lab-4-EXP4-Doc.pdf ':ignore')
 
-> [!NOTE]
+> [!NOTE|label:任务 1 条件]
 > 对模数 $N$ 和素数 $p$，$q$ 满足，
 >
 > $$|p-q|<2N^{1/4} \tag{1.1}$$
@@ -72,8 +72,8 @@ void solve1()
 }
 ```
 
-> [!TIP]
-> <span style="font-size: 1.1rem;font-weight: 600;">对不等式 $0<A-\sqrt{N}<1$ 的证明</span>
+> [!TIP|label:证明]
+> <center><span style="font-size: 1.1rem;font-weight: 600;">对不等式 $0<A-\sqrt{N}<1$ 的证明</span></center>
 >
 > <span style="font-weight: 600;">左边部分 $A-\sqrt{N}>0$：</span>
 >
@@ -100,7 +100,7 @@ void solve1()
 
 ### 任务 2
 
-> [!NOTE]
+> [!NOTE|label:任务 2 条件]
 > 对模数 $N$ 和素数 $p$，$q$ 满足，
 >
 > $$|p-q|<2^{11}N^{1/4} \tag{2.1}$$

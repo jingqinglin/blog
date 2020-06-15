@@ -12,8 +12,8 @@
 
 在 Windows 上安装 C++ 编译器和 GMP 比较方便的方法是通过 MinGW Installer 安装，MinGW 是 Windows 版本的 GCC 和 GNU Binutils。
 
-> [!TIP]
-> MinGW Installer 下载地址：https://osdn.net/projects/mingw/downloads/68260/mingw-get-setup.exe
+> [!TIP|label:MinGW Installer 下载地址]
+> https://osdn.net/projects/mingw/downloads/68260/mingw-get-setup.exe
 
 接着开始安装。需要注意的是，安装过程对网络环境要求较高（尽量避免使用中国移动宽带）。若网络连接失败，可以使用学校提供的 [VPN](http://openvpn.ustc.edu.cn/index.php) 或开启科学上网后再安装；若网络没有问题仍无法安装，可能是 MinGW Installer 的版本不是最新。
 

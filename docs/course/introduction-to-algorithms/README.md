@@ -120,4 +120,6 @@
 
 - [作业十二](course/introduction-to-algorithms/task-12.md)：16.5-1、16.5-2
 
+- [作业十三](course/introduction-to-algorithms/task-13.md)：17.1-1、17.1-2、17.2-1、17.3-1、17.3-3、17.3-4、17.4-2、17.4-3
+
 <!-- tabs:end -->
