@@ -114,7 +114,7 @@ which gives us the total cost of $O(n + (s_0 - s_n))$. If $s_n \ge s_0$, then th
 
 If $\alpha_{i - 1} \ge 1 / 2$, $\text{TABLE-DELETE}$ cannot **_contract_**, so $c_i = 1$ and $size_i = size_{i - 1}$.
 
-- **Case 1:** if $\alpha_{i - 1} \ge 1 / 2$,
+- **Case 1:** if $\alpha_i \ge 1 / 2$,
 
     $$
     \begin{aligned}
