@@ -6,6 +6,7 @@
     - [你好，三角形](opengl/learnopengl/getting-started-hello-triangle.md "你好，三角形 - 入门 - LearnOpenGL")
     - [着色器](opengl/learnopengl/getting-started-shaders.md "着色器 - 入门 - LearnOpenGL")
     - [纹理](/opengl/learnopengl/getting-started-textures.md "纹理 - 入门 - LearnOpenGL")
+    - [变换](/opengl/learnopengl/getting-started-transformations.md "变换 - 入门 - LearnOpenGL")
   
   - 光照
     - [颜色](/opengl/learnopengl/lighting-colors.md "颜色 - 光照 - LearnOpenGL")

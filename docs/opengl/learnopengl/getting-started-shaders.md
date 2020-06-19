@@ -149,7 +149,7 @@ glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
 >   | 后缀 | 含义                                 |
 >   | ---- | ------------------------------------ |
 >   | f  | 函数需要一个 `float` 作为它的值          |
->   | i  | 函数需要一个 in`t 作为它的值            |
+>   | i  | 函数需要一个 `int` 作为它的值            |
 >   | ui | 函数需要一个 `unsigned int` 作为它的值   |
 >   | 3f | 函数需要 3 个 `float` 作为它的值           |
 >   | fv | 函数需要一个 `float` 向量/数组作为它的值 |
@@ -194,8 +194,8 @@ void main()
 glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
 glEnableVertexAttribArray(0);
 // 颜色属性
-// 参数一：颜色属性位置值为 1；参数五：步长；参数六：偏移量
-glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3* sizeof(float)));
+// 参数一：颜色属性位置值为 1；参数二：顶点属性的大小；参数五：步长；参数六：偏移量
+glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
 glEnableVertexAttribArray(1);
 ```
 
