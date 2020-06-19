@@ -20,7 +20,7 @@
 
 本实验拟采用 C++ 作为编程语言。同实验三，本实验也需要配置 Crypto++ 库，详细配置过程见[实验三](course/cryptography/lab-3?id=实验准备)相应部分或以下网页片段。
 
-[实验二配置 GMP](https://jingqinglin.github.io/Blog/#/course/cryptography/cryptopp-config ':include :type=iframe width=100% height=600px')
+[实验二配置 GMP](https://jingqinglin.gitee.io/blog/#/course/cryptography/cryptopp-config ':include :type=iframe width=100% height=600px')
 
 ## 实验分析
 
@@ -48,22 +48,22 @@ vector<string> calculateHash(string fileName)
 {
     // 二进制模式读取
     ifstream file(fileName, ios::binary);
-    int len;
+    streampos len;
     int blockNum;
 
     // 定位到文件末尾并得到文件长度
     file.seekg(0, ios::end);
     len = file.tellg();
-    blockNum = len / 1024;
+    blockNum = (int)len / 1024;
     vector<string> hash(blockNum + 1);
 
     if(file.is_open()) {
         // 最后一个块单独处理
-        int lastBlockLen = len - blockNum * 1024;
+        int lastBlockLen = (int)len - blockNum * 1024;
         string block;
         block.resize(lastBlockLen);
         // 定位到最后一块的起始位置并输入到 block
-        file.seekg(len - lastBlockLen);
+        file.seekg((int)len - lastBlockLen);
         file.read(&block[0], lastBlockLen);
         hash[blockNum] = SHA256Hash(block);
 

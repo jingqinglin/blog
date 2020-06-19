@@ -43,26 +43,26 @@ string SHA256Hash(string data)
 
 bool verifyBlock(string blockTransferred, int blockNum, vector<string> hash)
 {
-    // blockTransferred（验证时传输的块）：尾部带哈希
+    // blockTransferred 尾部带哈希
     return hash[blockNum] == SHA256Hash(blockTransferred);
 }
 
 vector<string> calculateHash(string fileName)
 {
     ifstream file(fileName, ios::binary);
-    int len;
+    streampos len;
     int blockNum;
 
     file.seekg(0, ios::end);
     len = file.tellg();
-    blockNum = len / 1024;
+    blockNum = (int)len / 1024;
     vector<string> hash(blockNum + 1);
 
     if(file.is_open()) {
-        int lastBlockLen = len - blockNum * 1024;
+        int lastBlockLen = (int)len - blockNum * 1024;
         string block;
         block.resize(lastBlockLen);
-        file.seekg(len - lastBlockLen);
+        file.seekg((int)len - lastBlockLen);
         file.read(&block[0], lastBlockLen);
         hash[blockNum] = SHA256Hash(block);
 
@@ -88,7 +88,7 @@ string getH0(string fileName)
 
 int main()
 {
-    string fileName = "video.mp4";
+    string fileName = "lab-5-test.mp4";
     string h0 = getH0(fileName);
     cout << h0 << endl;
     return 0;
