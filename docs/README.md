@@ -8,7 +8,7 @@
 <svg class="icon" aria-hidden="true"><use xlink:href="#icon-githubblack"></use></svg> <a href="https://github.com/JingqingLin/Blog" target="_blank">Github</a>
 &emsp; | &emsp;
 <embed class="icon" src="_media/docsify.svg" type="image/svg+xml" style="width: 1.3em;height: 1.3em;" /> Docsify
-</div> 
+</div>
 <br>
 
 > <span style="font-weight: 400;color: #34495e"><b style="font-size: 30px;color: #42b983;">Hi</b>，我是 Jingqing，我在这个网站记录我的学习心得。受 [Huihut](https://interview.huihut.com) 的启发 💡，用 [docsify](https://docsify.js.org/#/) 生成了这个网站</span>
@@ -26,7 +26,6 @@
 ---
 
 ## <svg class="icon" aria-hidden="true"><use xlink:href="#icon-LeetCode"></use></svg> **LeetCode**
-
 
 > 此部分记录我所做的力扣题，按照 [CS-Notes](https://cyc2018.github.io/CS-Notes/#/notes/Leetcode%20%E9%A2%98%E8%A7%A3%20-%20%E7%9B%AE%E5%BD%951) 的分类进行做题
 
