@@ -9,10 +9,10 @@
   <meta name="viewport"
     content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/vue.css">
-  <link rel="icon" href="./_media/emoji-book.png">
+  <link rel="icon" href="//cdn.jsdelivr.net/gh/JingqingLin/Blog/docs/_media/emoji-book.png">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css" />
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-gifcontrol/dist/docsify-gifcontrol.css">
-  <link rel="stylesheet" href="_style/image-size.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/JingqingLin/Blog/docs/_style/image-size.css">
   <style type="text/css">
     .icon {
       width: 1.2em;
@@ -85,17 +85,19 @@
         errorText: '<svg class="icon" style="color: red !important;" aria-hidden="true""><use xlink:href="#icon-error"></use></svg>',
         successText: '<svg class="icon" style="color: var(--theme-color, #42b983) !important;" aria-hidden="true""><use xlink:href="#icon-fuzhichenggong"></use></svg>',
       },
-      // plugins: [
-      //   function (hook, vm) {
-      //     hook.beforeEach(function (html) {
-      //       return (
-      //         '<div align="right" style="font-size:13px">上次更新：<font color="gray">{docsify-updated}</font></div>' +
-      //         '\n\n' +
-      //         html
-      //       );
-      //     });
-      //   }
-      // ],
+      plugins: [
+        function (hook, vm) {
+          hook.beforeEach(function (html) {
+            var url = 'https://github.com/JingqingLin/Blog/blob/master/docs/' + vm.route.file;
+            return (
+              // '<div align="right" style="font-size:13px">上次更新：<font color="gray">{docsify-updated}</font></div>' +
+              '<div style="font-size: 14px;" align="right">✏️ <a style="font-weight: 400" href=' + url + ' target="_blank">编辑文档</a></div>' +
+              '\n\n' +
+              html
+            );
+          });
+        }
+      ],
     }
   </script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
@@ -116,8 +118,8 @@
   <script src="//cdn.jsdelivr.net/npm/docsify-pdf-embed-plugin/src/docsify-pdf-embed.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-tabs"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-gifcontrol/dist/docsify-gifcontrol.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/JingqingLin/Blog/docs/_style/flexible-alerts.js"></script>
   <script src="//at.alicdn.com/t/font_1827840_pkhhis9l73q.js"></script>
-  <script src="./_style/docsify-plugin-flexible-alerts.js"></script>
 </body>
 
 </html>
