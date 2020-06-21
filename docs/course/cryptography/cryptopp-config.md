@@ -1,5 +1,5 @@
 <style>
-    h1, .app-nav, .crisp-client {
+    h1, .app-nav, .crisp-client, .edit-document {
         display: none;
     }
     #main {
