@@ -1,16 +1,15 @@
 :root {
-  --black: #34495e;
+  --black: #2c3e50;
   --white: #fff;
   --green: #2ccf6d;
 }
 
-html,
-body {
+#body {
   height: 100%;
   font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
 }
 
-body {
+#body {
   display: -webkit-box;
   display: flex;
   -webkit-box-align: center;
@@ -21,18 +20,30 @@ body {
   font-size: 1em;
 }
 
+.col-md-6 {
+  -ms-flex: 0 0 50%;
+  flex: 0 0 50%;
+  max-width: 50%;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
 svg {
   width: 100%;
   visibility: hidden;
 }
 
-h1 {
-  font-size: 7em;
-  font-weight: normal;
+.h1-404 {
+  font-size: 7em !important;
+  font-weight: normal !important;
 }
 
-h2 {
-  font-weight: normal;
+.h2-404 {
+  margin: 5px 0 0.8rem !important;
+  font-weight: normal !important;
 }
 
 .btn {
@@ -47,7 +58,10 @@ h2 {
   -webkit-transition: 0.2s ease;
   transition: 0.2s ease;
   margin: 5px 0px;
+  font-size: 1rem;
+  line-height: 1.5;
 }
+
 .btn.green {
   border: 3px solid var(--green);
   color: var(--black);
