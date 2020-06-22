@@ -7,9 +7,9 @@
 > 此部分记录我所做的力扣题，按照 [CS-Notes](https://cyc2018.github.io/CS-Notes/#/notes/Leetcode%20%E9%A2%98%E8%A7%A3%20-%20%E7%9B%AE%E5%BD%951) 的分类进行做题
 
 <div align="center">
-<img src="https://img.shields.io/badge/-%E5%B7%B2%E8%A7%A3%E5%86%B3%20236%2F1685-337ab7?style=flat-square" />
+<img src="https://img.shields.io/badge/-%E5%B7%B2%E8%A7%A3%E5%86%B3%20237%2F1685-337ab7?style=flat-square" />
 <img src="https://img.shields.io/badge/-%E7%AE%80%E5%8D%95%2077-5cb85c?style=flat-square" />
-<img src="https://img.shields.io/badge/-%E4%B8%AD%E7%AD%89%20130-f0ad4e?style=flat-square" />
+<img src="https://img.shields.io/badge/-%E4%B8%AD%E7%AD%89%20131-f0ad4e?style=flat-square" />
 <img src="https://img.shields.io/badge/-%E5%9B%B0%E9%9A%BE%2029-d9534f?style=flat-square" />
 </div>
 
