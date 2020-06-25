@@ -122,4 +122,6 @@
 
 - [作业十三](course/introduction-to-algorithms/task-13.md)：17.1-1、17.1-2、17.2-1、17.3-1、17.3-3、17.3-4、17.4-2、17.4-3
 
+- [作业十四](course/introduction-to-algorithms/task-14.md)：<font color=#C0C0C0>19.1-1、19.1-2、19.2-3、19.2-6（以上均为第二版题号）</font>、19.2-1、19-2.d（思考题）
+
 <!-- tabs:end -->
