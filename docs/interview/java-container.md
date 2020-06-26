@@ -98,7 +98,7 @@ JDK 1.8:
 
 **ConcurrentHashMap 是由 Segment 数组结构和 HashEntry 数组结构组成**
 
-一个 ConcurrentHashMap 里包含一个 Segment 数组。Segment 的结构和 HashMap 类似，是一种数组和链表结构，一个 Segment 包含一个 HashEntry 数组，每个 HashEntry 是一个链表结构的元素，每个 Segment 守护着一个HashEntry数组里的元素，当对 HashEntry 数组的数据进行修改时，必须首先获得对应的 Segment的锁
+一个 ConcurrentHashMap 里包含一个 Segment 数组。Segment 的结构和 HashMap 类似，是一种数组和链表结构，一个 Segment 包含一个 HashEntry 数组，每个 HashEntry 是一个链表结构的元素，每个 Segment 守护着一个HashEntry数组里的元素，当对 HashEntry 数组的数据进行修改时，必须首先获得对应的 Segment 的锁
 
 #### JDK1.8
 ConcurrentHashMap 取消了 Segment 分段锁，采用 <a href="https://www.jianshu.com/p/d10256f0ebea" target="_blank" style="font-weight: bold;">CAS 和  synchronized</a> 来保证并发安全。数据结构跟 HashMap1.8 的结构类似，数组+链表/红黑树
