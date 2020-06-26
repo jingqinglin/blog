@@ -41,10 +41,47 @@ string SHA256Hash(string data)
     return string((char*)digest, SHA256::DIGESTSIZE);
 }
 
-bool verifyBlock(string blockTransferred, int blockNum, vector<string> hash)
+// 本地读取文件代替文件下载过程
+bool verifyVideo(string fileTransferred, vector<string> hash)
 {
-    // blockTransferred 尾部带哈希
-    return hash[blockNum] == SHA256Hash(blockTransferred);
+    ifstream file(fileTransferred, ios::binary);
+    streampos len;
+    int blockNum;
+
+    file.seekg(0, ios::end);
+    len = file.tellg();
+    blockNum = (int)len / 1024;
+
+    if(file.is_open()) {
+        string blockTransferred;
+        blockTransferred.resize(1024);
+
+        for(int i = 0; i < blockNum; i++) {
+            int blockStart = i * 1024;
+            file.seekg(blockStart);
+            file.read(&blockTransferred[0], 1024);
+            // 验证 h[i] == sha256(block[i] + h[i + 1])
+            if(hash[i] != SHA256Hash(blockTransferred + hash[i + 1])) {
+                cout << "Block " << i << " transmission error." << endl;
+                return false;
+            }
+        }
+
+        int lastBlockLen = (int)len - blockNum * 1024;
+        blockTransferred.resize(lastBlockLen);
+        file.seekg((int)len - lastBlockLen);
+        file.read(&blockTransferred[0], lastBlockLen);
+        if(hash[blockNum] != SHA256Hash(blockTransferred)) {
+            cout << "Block " << blockNum << " transmission error." << endl;
+            return false;
+        }
+    } else {
+        cout << "Can't open the file\n";
+        exit(EXIT_FAILURE);
+    }
+
+    cout << "Transmission complete." << endl;
+    return true;
 }
 
 vector<string> calculateHash(string fileName)
@@ -81,15 +118,18 @@ vector<string> calculateHash(string fileName)
     return hash;
 }
 
-string getH0(string fileName)
+string getH0(string fileName, vector<string>& hash)
 {
-    return strToHex(calculateHash(fileName)[0]);
+    hash = calculateHash(fileName);
+    return strToHex(hash[0]);
 }
 
 int main()
 {
-    string fileName = "lab-5-test.mp4";
-    string h0 = getH0(fileName);
+    string fileName = "lab-5-video.mp4";
+    vector<string> hash;
+    string h0 = getH0(fileName, hash);
     cout << h0 << endl;
+    verifyVideo(fileName, hash);
     return 0;
 }
