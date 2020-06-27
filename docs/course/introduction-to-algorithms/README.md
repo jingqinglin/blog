@@ -1,5 +1,5 @@
 <style>
-    .crisp-client {
+    .crisp-client, #vcomments {
         display: none;
     }
 </style>
@@ -124,6 +124,6 @@
 
 - [作业十四](course/introduction-to-algorithms/task-14.md)：<font color=#C0C0C0>19.1-1、19.1-2、19.2-3、19.2-6（以上均为第二版题号）</font>、19.2-1、19-2.d（思考题）
 
-- 作业十五：<font color=#C0C0C0>26.1-1、26.1-2、26.1-5（以上均为第二版题号）</font>
+- [作业十五](course/introduction-to-algorithms/task-15.md)：<font color=#C0C0C0>26.1-1、26.1-2、26.1-5（以上均为第二版题号）</font>
 
 <!-- tabs:end -->

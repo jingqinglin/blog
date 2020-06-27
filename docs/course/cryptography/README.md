@@ -1,5 +1,5 @@
 <style>
-    .crisp-client {
+    .crisp-client, #vcomments {
         display: none;
     }
 </style>
