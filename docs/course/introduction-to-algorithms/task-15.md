@@ -15,3 +15,9 @@
 > Prove that for any vertex $v$ other than the source or sink, the total positive flow entering $v$ must equal the total positive flow leaving $v$.
 >
 > 证明：对于任意非源点非汇点的顶点 $v$，进入 $v$ 的总正向流必定等于离开 $v$ 的总正向流。
+
+## 26.1-5
+
+> For the flow network $G = (V, E)$ and flow $f$ shown in Figure 26.1(b), find a pair of subsets $X, Y \in V$ for which $f(X, Y) = −f(V − X, Y)$. Then, find a pair of subsets $X, Y \in V$ for which $f(X, Y) = −f(V − X, Y)$.
+>
+> ![](_images/task-15-1.png)
