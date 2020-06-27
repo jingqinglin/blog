@@ -1,5 +1,5 @@
 <style>
-    .app-nav, .search, .crisp-client {
+    .app-nav, .search, .crisp-client, .edit-document {
         display: none;
     }
     #简历 {

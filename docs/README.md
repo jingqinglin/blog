@@ -1,5 +1,5 @@
 <style>
-    .crisp-client {
+    .crisp-client, .edit-document {
         display: none;
     }
 </style>
