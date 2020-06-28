@@ -55,7 +55,7 @@ Collections.sort 方法底层就是调用的 Arrays.sort 方法，而 Arrays.sor
 4. **初始容量大小和每次扩充容量大小的不同：** ①创建时如果不指定容量初始值，HashTable 默认的初始大小为 11，之后每次扩充，容量变为原来的 2n+1。HashMap 默认的初始化大小为 16。之后每次扩充，容量变为原来的 2 倍。②创建时如果给定了容量初始值，那么 HashTable 会直接使用你给定的大小，而 HashMap 会将其扩充为 2 的幂次方大小。也就是说 HashMap 总是使用 2 的幂作为哈希表的大小，<a class="esa-anchor" href="#HashMap" style="opacity: 1">后面</a>会介绍到为什么是 2 的幂次方
 5. **底层数据结构：** JDK1.8 以后的 HashMap 在解决哈希冲突时有了较大的变化，当链表长度大于阈值（默认为 8）时，将链表转化为红黑树，以减少搜索时间。Hashtable 没有这样的机制
 
-### HashMap 和 HashSet区别
+### HashMap 和 HashSet 区别
 HashSet 底层是基于 HashMap 实现的
 
 |                HashMap                 |                 HashSet                 |
