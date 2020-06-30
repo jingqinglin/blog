@@ -17,7 +17,7 @@
   - [链表](leetcode/链表.md "链表 - LeetCode")
   - [树](leetcode/树.md "树 - LeetCode")
 
-- 🌞 每日一题
+- 📅 每日一题
   
   - [三月](leetcode/march-2020.md "三月 - LeetCode 每日一题")
   - [四月](leetcode/april-2020.md "四月 - LeetCode 每日一题")
