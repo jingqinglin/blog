@@ -45,7 +45,7 @@
 - [x] [三月](leetcode/march-2020.md)
 - [x] [四月](leetcode/april-2020.md)
 - [x] [五月](leetcode/may-2020.md)
-- [ ] [六月](leetcode/june-2020.md)
+- [x] [六月](leetcode/june-2020.md)
 
 <br>
 
