@@ -39,7 +39,7 @@ $$
 所以，
 
 $$
-\sum_{\substack{u \in V \\ f(u, v) > 0}} f(u, v) = \sum_{\substack{u \in V \\ f(u, v) <> 0}} f(v, u)
+\sum_{\substack{u \in V \\ f(u, v) > 0}} f(u, v) = \sum_{\substack{u \in V \\ f(u, v) < 0}} f(v, u)
 $$
 
 ## 26.1-5
