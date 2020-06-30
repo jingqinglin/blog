@@ -17,9 +17,9 @@
   - [链表](leetcode/链表.md "链表 - LeetCode")
   - [树](leetcode/树.md "树 - LeetCode")
 
-- 📅 每日一题
+- 📅 每日 1 题
   
-  - [三月](leetcode/march-2020.md "三月 - LeetCode 每日一题")
-  - [四月](leetcode/april-2020.md "四月 - LeetCode 每日一题")
-  - [五月](leetcode/may-2020.md "五月 - LeetCode 每日一题")
-  - [六月](leetcode/june-2020.md "六月 - LeetCode 每日一题")
+  - [三月](leetcode/march-2020.md "三月 - LeetCode 每日 1 题")
+  - [四月](leetcode/april-2020.md "四月 - LeetCode 每日 1 题")
+  - [五月](leetcode/may-2020.md "五月 - LeetCode 每日 1 题")
+  - [六月](leetcode/june-2020.md "六月 - LeetCode 每日 1 题")
