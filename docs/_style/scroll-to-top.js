@@ -14,7 +14,7 @@ var install = function (hook, vm) {
         if (!CONFIG.auto) {
             return
         }
-        var offset = window.document.documentElement.scrollTop || window.document.body.scrollTop;
+        var offset = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
         CONFIG.offset <= offset ? $(".scroll-to-top").fadeIn() : $(".scroll-to-top").fadeOut()
     };
     hook.mounted(function () {
