@@ -14,9 +14,8 @@ var install = function (hook, vm) {
         if (!CONFIG.auto) {
             return
         }
-        var offset = window.document.documentElement.scrollTop;
-        var $scrollBtn = Docsify.dom.find("span.scroll-to-top");
-        $scrollBtn.style.display = offset >= CONFIG.offset ? "block" : "none"
+        var offset = window.document.documentElement.scrollTop || window.document.body.scrollTop;
+        CONFIG.offset <= offset ? $(".scroll-to-top").fadeIn() : $(".scroll-to-top").fadeOut()
     };
     hook.mounted(function () {
         var scrollBtn = document.createElement("span");
@@ -49,10 +48,7 @@ var install = function (hook, vm) {
         window.addEventListener("scroll", onScroll);
         scrollBtn.onclick = function (e) {
             e.stopPropagation();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+            $("html,body").animate({ scrollTop: 0 }, 800);
         }
     })
 };
