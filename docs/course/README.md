@@ -8,7 +8,7 @@
 
 ### 🔑 现代密码学与应用
 
-- 实验：[传送门](course/cryptography/)
+- 实验和复习：[传送门](course/cryptography/)
 
 - 课程资料：[传送门](https://github.com/JingqingLin/Cryptography)
 

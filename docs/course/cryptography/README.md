@@ -6,8 +6,13 @@
 
 本课程的参考教材为《密码编码学与网络安全：原理与实践》，👉 [英文影印版](course/cryptography/cryptography-and-network-security_principles-and-practice-7th-global-edition.pdf ':ignore')（第七版）。
 
+<!-- tabs:start -->
 
-### 🔬 实验一 {docsify-ignore}
+### ** 🔬 实验 **
+
+> 实验每周一次，QQ 屏幕共享给老师进行验收
+
+#### 🔬 实验一
 
 ?> Many Time Pad
 
@@ -42,7 +47,7 @@
 
 - [实验报告](course/cryptography/lab-1.md)
 
-### 🔬 实验二 {docsify-ignore}
+#### 🔬 实验二
 
 ?> 离散对数求解
 
@@ -71,7 +76,7 @@
 
 - [实验报告](course/cryptography/lab-2.md)
 
-### 🔬 实验三 {docsify-ignore}
+#### 🔬 实验三
 
 ?> CBC 和 CTR 模式下的 AES
 
@@ -105,7 +110,7 @@
 
 - [实验报告](course/cryptography/lab-3.md)
 
-### 🔬 实验四 {docsify-ignore}
+#### 🔬 实验四
 
 ?> RSA 中公开的模数 N
 
@@ -134,7 +139,7 @@
 
 - [实验报告](course/cryptography/lab-4.md)
 
-### 🔬 实验五 {docsify-ignore}
+#### 🔬 实验五
 
 ?> 视频大文件验证
 
@@ -162,3 +167,24 @@
 </details>
 
 - [实验报告](course/cryptography/lab-5.md)
+
+### ** 💯 复习 **
+
+> 目录是余老师的[各课件](https://github.com/JingqingLin/cryptography)的标题。70% 的期末考试问题来自于课后题，最后一节课的视频在[这里](https://www.eeo.cn/live.php?lessonKey=d19fdb204aa038fe)
+
+课程从”实现四类安全服务“为话题展开讨论：
+
+```mermaid
+graph TB
+id(安全服务) --- id1(数据保密性)
+id(安全服务) --- id2(数据完整性)
+id(安全服务) --- id3(认证)
+id3(认证) --- id3.1(消息认证)
+id3(认证) --- id3.2(实体认证)
+id(安全服务) --- id4(不可否认性)
+```
+
+- [Introduction](course/cryptography/summary-introduction.md "Introduction - 复习 - 现代密码学与应用")
+- [Classical Encryption](course/cryptography/summary-classical-encryption.md "Classical Encryption - 复习 - 现代密码学与应用")
+
+<!-- tabs:end -->

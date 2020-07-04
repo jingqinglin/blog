@@ -1,6 +1,11 @@
 - [现代密码学与应用](course/cryptography/)
-  - [实验一](course/cryptography/lab-1.md "Many Time Pad - 现代密码学与应用")
-  - [实验二](course/cryptography/lab-2.md "离散对数求解 - 现代密码学与应用")
-  - [实验三](course/cryptography/lab-3.md "CBC 和 CTR 模式下的 AES - 现代密码学与应用")
-  - [实验四](course/cryptography/lab-4.md "RSA 中公开的模数 N - 现代密码学与应用")
-  - [实验五](course/cryptography/lab-5.md "视频大文件验证 - 现代密码学与应用")
+  - 🔬 实验
+    - [实验一](course/cryptography/lab-1.md "Many Time Pad - 实验 - 现代密码学与应用")
+    - [实验二](course/cryptography/lab-2.md "离散对数求解 - 实验 - 现代密码学与应用")
+    - [实验三](course/cryptography/lab-3.md "CBC 和 CTR 模式下的 AES - 实验 - 现代密码学与应用")
+    - [实验四](course/cryptography/lab-4.md "RSA 中公开的模数 N - 实验 - 现代密码学与应用")
+    - [实验五](course/cryptography/lab-5.md "视频大文件验证 - 实验 - 现代密码学与应用")
+
+  - 💯 复习
+    - [Introduction](course/cryptography/summary-introduction.md "Introduction - 复习 - 现代密码学与应用")
+    - [Classical Encryption](course/cryptography/summary-classical-encryption.md "Classical Encryption - 复习 - 现代密码学与应用")
