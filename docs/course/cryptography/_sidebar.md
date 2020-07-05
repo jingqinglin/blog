@@ -6,7 +6,8 @@
     - [实验四](course/cryptography/lab-4.md "RSA 中公开的模数 N - 实验 - 现代密码学与应用")
     - [实验五](course/cryptography/lab-5.md "视频大文件验证 - 实验 - 现代密码学与应用")
 
-  - 💯 复习
+  - <svg class="icon" aria-hidden="true"><use xlink:href="#icon-kaoshi-jigefen"></use></svg> 复习
     - [Introduction](course/cryptography/summary-introduction.md "Introduction - 复习 - 现代密码学与应用")
     - [Classical Encryption](course/cryptography/summary-classical-encryption.md "Classical Encryption - 复习 - 现代密码学与应用")
     - [DES](course/cryptography/summary-des.md "DES - 复习 - 现代密码学与应用")
+    - [AES](course/cryptography/summary-aes.md "AES - 复习 - 现代密码学与应用")

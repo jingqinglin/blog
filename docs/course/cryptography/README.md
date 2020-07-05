@@ -187,5 +187,6 @@ id(安全服务) --- id4(不可否认性)
 - [Introduction](course/cryptography/summary-introduction.md "Introduction - 复习 - 现代密码学与应用")
 - [Classical Encryption](course/cryptography/summary-classical-encryption.md "Classical Encryption - 复习 - 现代密码学与应用")
 - [DES](course/cryptography/summary-des.md "DES - 复习 - 现代密码学与应用")
+- [AES](course/cryptography/summary-aes.md "AES - 复习 - 现代密码学与应用")
 
 <!-- tabs:end -->
