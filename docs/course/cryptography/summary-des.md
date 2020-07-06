@@ -5,11 +5,11 @@
 - 都是对称加密范围内的
 - 流密码的加解密过程为异或，而分组密码的加解密过程比较复杂
 
-![](_images/summary-des-1.png ':class=image-60')
+![](_images/summary-des-1.png ':size=60%')
 
 课件中的问题：
 
-![](_images/summary-des-2.png ':class=image-60')
+![](_images/summary-des-2.png ':size=60%')
 
 1. 密钥空间如何计算？
    - $3! = 6$
@@ -20,8 +20,8 @@
 
 分组密码作用在 $n$ 位明文组上，而产生 $n$ 位密文组。共有 $2^n$ 个不同明文组，且由于加密是可逆的，每一个明文组将唯一对应一个密文组。这样的变换称为可逆变换，不同变换的总数（即密钥空间）是 $2^n!$ 个。下图为 $n=4$ 时的一个普通代替密码的结构，$4$ 位的输入有 $16$ 种可能的输入状态：
 
-![](_images/summary-des-3.png ':class=image-49')
-![](_images/summary-des-4.png ':class=image-50')
+![](_images/summary-des-3.png ':size=49%')
+![](_images/summary-des-4.png ':size=50%')
 
 Feistel 称这种密码为理想分组密码，因为它允许生成最大数量的加密映射来映射明文分组。**然而**在实现角度，这样的分组密码是不可行的。对于这样的变换，映射本身就是密钥。如上例，密钥长度为 $4$ 位 $\times 16$ 种 $ = 64$ 位。一般地，对于 $n$ 位的代替分组密码，密钥长度是 $n \times 2^n$ 位。一个 $64$ 位的分组密码，若分组有抵抗统计攻击的理想长度，其密钥大小将需要 $64 \times 2^{64} = 2^{70} ≈ 1021$ 位。考虑到这些困难（Feistel 密码结构的设计动机在此），在实践中只能使用理想分组密码体制的近似体制。
 
@@ -36,7 +36,7 @@ Feistel 称这种密码为理想分组密码，因为它允许生成最大数量
 
 Feistel 密码结构（Feistel 结构的对合性保证加解密可逆）：
 
-![](_images/summary-des-5.svg ':class=image-50')
+![](_images/summary-des-5.svg ':size=50%')
 
 Feistel 的具体实现依赖以下参数：分组长度、密钥长度、迭代次数、子密钥（$K_0, \cdots, K_n$）产生算法、轮函数（$F$）。
 

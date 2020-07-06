@@ -7,7 +7,7 @@
 
 ### 密码编码学（Cryptography）
 
-![](_images/summary-classical-encryption-1.png ':class=image-80')
+![](_images/summary-classical-encryption-1.png ':size=80%')
 
 ### 密码分析学（Cryptanalysis）和穷举攻击
 
@@ -36,7 +36,7 @@
   密文：LXFOPVEFRNHR
   ```
 
-![](_images/summary-classical-encryption-3.png ':class=image-80')
+![](_images/summary-classical-encryption-3.png ':size=80%')
 
 PlayFair 和 Vigenère 密码都保留了许多频率信息，而 Hill 密码完全隐藏了单字母频率特性。
 
@@ -48,7 +48,7 @@ PlayFair 和 Vigenère 密码都保留了许多频率信息，而 Hill 密码完
 
 ## 置换技术
 
-![](_images/summary-classical-encryption-4.png ':class=image-80')
+![](_images/summary-classical-encryption-4.png ':size=80%')
 
 ## 转轮机
 
