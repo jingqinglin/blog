@@ -6,7 +6,7 @@ GLFW 是一个专门针对 OpenGL 的 C 语言库，它提供了一些渲染物�
 
 教程里从编译 GLFW 开始写起，此处为了方便直接下载预编译版本。在 GLFW 的[下载页](https://www.glfw.org/download.html)中，下载 Windows pre-compiled binaries 下 32 位的版本。我们其中的会用到 include 和 lib。
 
-![](_images/learnopengl-getting-started-1.png ':class=image-40')
+![](_images/learnopengl-getting-started-1.png ':size=40%')
 
 ## 链接
 
@@ -16,12 +16,12 @@ GLFW 是一个专门针对 OpenGL 的 C 语言库，它提供了一些渲染物�
 
 将 GLFW 的 include 文件夹和 lib 文件夹（我使用 32 位的 MinGW）加进项目的 include 和 libraries 路径中：
 
-![](_images/learnopengl-getting-started-2.png ':class=image-70')
-![](_images/learnopengl-getting-started-3.png ':class=image-70')
+![](_images/learnopengl-getting-started-2.png ':size=70%')
+![](_images/learnopengl-getting-started-3.png ':size=70%')
 
 要链接一个库我们必须告诉链接器它的文件名，库名字是 glfw3.lib。在 GLFW 的[说明文档](https://www.glfw.org/docs/latest/build_guide.html#build_link_win32)中提到：When using MinGW to link an application with the static version of GLFW, you must also explicitly link with `gdi32`。因此我们还要把 gdi32.dll 加入链接器。
 
-![](_images/learnopengl-getting-started-4.png ':class=image-70')
+![](_images/learnopengl-getting-started-4.png ':size=70%')
 
 ## GLAD
 
@@ -31,11 +31,11 @@ GLFW 是一个专门针对 OpenGL 的 C 语言库，它提供了一些渲染物�
 
 GLAD 使用了一个在线服务。打开 GLAD 的在线服务，将语言（Language）设置为 C/C++，在 API 选项中，选择 3.3 以上的 OpenGL（gl）版本。之后将模式（Profile）设置为 Core，并且保证生成加载器（Generate a loader）的选项是选中的。现在可以先忽略拓展（Extensions）中的内容。都选择完之后，点击生成（Generate）按钮来生成库文件。
 
-![](_images/learnopengl-getting-started-5.png ':class=image-70')
+![](_images/learnopengl-getting-started-5.png ':size=70%')
 
 GLAD 提供了一个 zip 压缩文件，包含两个头文件目录，和一个 glad.c 文件。将头文件目录也添加到项目的 include 路径中，**并添加 glad.c 文件到你的工程中**。
 
-![](_images/learnopengl-getting-started-6.png ':class=image-20')
+![](_images/learnopengl-getting-started-6.png ':size=20%')
 
 接着，我们将头文件添加到项目里，再编译，应该不会出现错误了。
 

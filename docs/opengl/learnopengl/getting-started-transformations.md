@@ -14,13 +14,13 @@ $\vec{a} \cdot \vec{b}=\sum_{i=1}^{n} a_{i} b_{i}=a_{1} b_{1}+a_{2} b_{2}+\cdots
 
 $\vec{a} \cdot \vec{b}=|\vec{a}||\vec{b}| \cos \theta$
 
-![](_images/learnopengl-getting-started-20.png ':class=image-20')
+![](_images/learnopengl-getting-started-20.png ':size=20%')
 
 ### 叉积
 
 叉积 $\vec{a} \times \vec{b}$ 都垂直的向量 $\vec{c}$ 。其方向由右手定则决定，模长等于以两个向量为边的平行四边形的面积。
 
-![](_images/learnopengl-getting-started-21.png ':class=image-20')
+![](_images/learnopengl-getting-started-21.png ':size=20%')
 
 叉积可以定义为：
 

@@ -43,11 +43,11 @@
 
 然后在属性页的 `链接器 - 输入 - 附加依赖项` 中添加 cryptlib.lib。
 
-![](_images/lab-3-4.png ':class=image-70')
+![](_images/lab-3-4.png ':size=70%')
 
 最后，在属性页的 `C/C++ - 代码生成 - 运行库` 中选择 `多线程调试（/MTD）`。
 
-![](_images/lab-3-5.png ':class=image-60')
+![](_images/lab-3-5.png ':size=60%')
 
 运行测试代码：
 
@@ -91,7 +91,7 @@ Aes block size is 16
 
 CBC 的加解密过程如下：
 
-![](_images/lab-3-1.png ':class=image-45')![](_images/lab-3-2.png ':class=image-49')
+![](_images/lab-3-1.png ':size=45%')![](_images/lab-3-2.png ':size=49%')
 
 加密：$C_{i}=E_{K}(P_{i} \oplus C_{i-1}), C_{0}=IV$
 
@@ -223,7 +223,7 @@ string decrypt(string ciphertext, string key, string plaintext)
 
 CTR 的加解密过程如下：
 
-![](_images/lab-3-6.png ':class=image-49')![](_images/lab-3-7.png ':class=image-49')
+![](_images/lab-3-6.png ':size=49%')![](_images/lab-3-7.png ':size=49%')
 
 CTR 相较于 CBC 少了填充的过程。另外，CTR 需要维护一个自增的计数器。
 

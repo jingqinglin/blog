@@ -96,7 +96,7 @@ while(!glfwWindowShouldClose(window))
 
 当渲染循环结束后我们需要正确释放/删除之前的分配的所有资源。我们可以在 `main` 函数的最后调用 `glfwTerminate` 函数来完成。编译并运行，可以看到如下窗口：
 
-![](_images/learnopengl-getting-started-7.png ':class=image-45')
+![](_images/learnopengl-getting-started-7.png ':size=45%')
 
 程序的完整源代码可以在[这里](https://learnopengl.com/code_viewer_gh.php?code=src/1.getting_started/1.1.hello_window/hello_window.cpp)找到。
 

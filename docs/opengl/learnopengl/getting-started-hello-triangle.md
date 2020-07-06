@@ -294,7 +294,7 @@ glDrawArrays(GL_TRIANGLES, 0, 3);
 
 编译后，是这样的：
 
-![](_images/learnopengl-getting-started-12.png ':class=image-45')
+![](_images/learnopengl-getting-started-12.png ':size=45%')
 
 完整的程序源码可以在[这里](https://learnopengl.com/code_viewer_gh.php?code=src/1.getting_started/2.1.hello_triangle/hello_triangle.cpp)找到。
 

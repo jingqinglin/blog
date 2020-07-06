@@ -19,16 +19,16 @@
 
 安装完成后，可以看到 MinGW Installer Manager 已经打开。
 
-![](_images/lab-2-2.png ':class=image-90')
+![](_images/lab-2-2.png ':size=90%')
 
 接着，在 *Basic Setup* 中勾选 mingw32-base-bin 和 mingw32-gcc-g++-bin，在 *MinGW Libraries* 中勾选 mingw32-gmp-dev、mingw32-gmp-dev-info 和 mingw32-gmp-dev-lic 并 Apply Changes，等待安装完成。
 
-![](_images/lab-2-3.png ':class=image-49')
-![](_images/lab-2-4.png ':class=image-49')
+![](_images/lab-2-3.png ':size=49%')
+![](_images/lab-2-4.png ':size=49%')
 
 安装完成后设置环境变量：
 
-![](_images/lab-2-5.png ':class=image-40')
+![](_images/lab-2-5.png ':size=40%')
 
 接着测试以下代码：
 
@@ -53,7 +53,7 @@ int main()
 
 在命令行中编译并链接，`g++ gmpTest.cpp -lgmp -lm -o gmpTest`，再执行 exe 文件，可以看到如下输出：
 
-![](_images/lab-2-7.png ':class=image-50')
+![](_images/lab-2-7.png ':size=50%')
 
 > [!TIP]
 > 头文件 `gmp.h` 支持纯 C 环境。而对于 C++ 来说，可以调用 `gmpxx.h`，它封装了 `mpz_class` 类，并在 `mpz_class` 中重载了一些运算符，使用更加方便，代码如下：
@@ -77,10 +77,10 @@ int main()
 > [!TIP]
 > 如果在 IDE 中运行代码，记得在链接器（Linker）中添加 GMP 的库文件 `libgmp.dll.a;libgmpxx.dll.a`，以我所使用的 CodeLite 为例：
 >
-> ![](_images/lab-2-8.png ':class=image-90')
+> ![](_images/lab-2-8.png ':size=90%')
 >
 > 添加后，即可运行。
 >
-> ![](_images/lab-2-9.png ':class=image-40')
+> ![](_images/lab-2-9.png ':size=40%')
 
 > GMP 的安装参考了 👉 [这篇文章](https://www.cnblogs.com/ECJTUACM-873284962/p/8350320.html)

@@ -3,7 +3,7 @@
 > [!NOTE]
 > 本次作业主要涉及**二项堆**（Binomial Heap，第三版中移入思考题）和**斐波那契堆**，它们都是用于实现有限队列的数据结构。基于不同的数据结构，优先队列的各个操作的时间复杂度的关系是：
 > 
-> ![](_images/task-14-1.png ':class=image-80')<font size="2" color="#c0c0c0">图片来自[CSDN](https://blog.csdn.net/jmh1996/article/details/83662953)</font>
+> ![](_images/task-14-1.png ':size=80%')<font size="2" color="#c0c0c0">图片来自[CSDN](https://blog.csdn.net/jmh1996/article/details/83662953)</font>
 >
 > 斐波那契堆看[这篇](https://blog.csdn.net/jmh1996/article/details/83926783)。
 
@@ -14,7 +14,7 @@
 >
 > <center>
 >
-> ![](_images/task-14-2.svg ':class=image-70')
+> ![](_images/task-14-2.svg ':size=70%')
 >
 > </center>
 > <center><font size="2" color="#c0c0c0">二项树（从左至右度数分别为 0 至 3）</font></center>
@@ -25,7 +25,7 @@
 >
 > <center>
 >
-> ![](_images/task-14-3.svg ':class=image-40')
+> ![](_images/task-14-3.svg ':size=40%')
 >
 > </center>
 > <center><font size="2" color="#c0c0c0">一个含 13 个结点的二项堆</font></center>
@@ -34,7 +34,7 @@
 
 > Show the Fibonacci heap that results from calling $\text{FIB-HEAP-EXTRACT-MIN}$ on the Fibonacci heap shown in Figure 19.4(m).
 >
-> ![](_images/task-14-5.png ':class=image-60')
+> ![](_images/task-14-5.png ':size=60%')
 >
 > 给出图 19-4(m) 中的斐波那契堆调用 $\text{FIB-HEAP-EXTRACT-MIN}$ 后得到的斐波那契堆。
 

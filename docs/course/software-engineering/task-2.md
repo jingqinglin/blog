@@ -2,7 +2,7 @@
 
 作业要求
 
-![](_images/task-2-1.png ':class=image-80')
+![](_images/task-2-1.png ':size=80%')
 
 ## VS Code 运行 lab5-1.tar.gz
 

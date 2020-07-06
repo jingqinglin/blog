@@ -22,11 +22,11 @@
 
 然后在属性页的 `链接器 - 输入 - 附加依赖项` 中添加 cryptlib.lib。
 
-![](_images/lab-3-4.png ':class=image-70')
+![](_images/lab-3-4.png ':size=70%')
 
 最后，在属性页的 `C/C++ - 代码生成 - 运行库` 中选择 `多线程调试（/MTD）`。
 
-![](_images/lab-3-5.png ':class=image-60')
+![](_images/lab-3-5.png ':size=60%')
 
 运行测试代码：
 
