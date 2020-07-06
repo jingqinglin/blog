@@ -11,3 +11,4 @@
     - [Classical Encryption](course/cryptography/summary-classical-encryption.md "Classical Encryption - 复习 - 现代密码学与应用")
     - [DES](course/cryptography/summary-des.md "DES - 复习 - 现代密码学与应用")
     - [AES](course/cryptography/summary-aes.md "AES - 复习 - 现代密码学与应用")
+    - [Modes of Operation](course/cryptography/summary-modes-of-operation.md "Modes of Operation - 复习 - 现代密码学与应用")
