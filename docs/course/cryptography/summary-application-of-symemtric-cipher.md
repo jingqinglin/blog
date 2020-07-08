@@ -48,7 +48,7 @@
 
 (1) ~ (3) 密钥分发步骤，(3) ~ (5) 认证步骤。
 
-- 缺点：会受到重放攻击。任何知道旧会话密钥 $K_S$ 的一方都可以重新发送消息 (3) 并计算正确的消息 (5)（假设 $B$ 不会记录之前的会话密钥），以模拟 $A$ 到 $B$
+- 缺点：会受到重放攻击。任何知道旧会话密钥 $K_S$ 的一方都可以重新发送消息 (3) 并计算正确的消息 (5)（假设 B 不会记录之前的会话密钥），以模拟 A 到 B
 
 **改进 1**：Denning 协议。(2) 中加时间戳（双方时钟必须同步），$\mathrm{E}\left(K_{a},\left[K_{S}\left\|\mathrm{ID}_{B}\right\| T\left\|\mathrm{E}\left(K_{b},\left[K_{S}\left\|\mathrm{ID}_{A}\right\| T\right]\right)\right]\right)\right.$
 
@@ -62,7 +62,7 @@
 
 ![](_images/summary-application-of-symemtric-cipher-5.png ':size=35%')
 
-$T_b$ 所指定的时间只和 $B$ 的时钟相关，因为只有 $B$ 检查该时间戳，因此不要求时钟同步。
+$T_b$ 所指定的时间只和 B 的时钟相关，因为只有 B 检查该时间戳，因此不要求时钟同步。
 
 
 #### Kerberos 协议
@@ -103,7 +103,7 @@ Bob --> Darth : E(PU_d, K_S)
 
 #### 确保保密性和身份验证的密钥分发方案
 
-> 假设 $A$ 和 $B$ 已经通过某一方案安全地交换了公钥
+> 假设 A 和 B 已经通过某一方案安全地交换了公钥
 
 ![](_images/summary-application-of-symemtric-cipher-8.png ':size=80%')
 
