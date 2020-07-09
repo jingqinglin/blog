@@ -83,9 +83,7 @@ $T_b$ 所指定的时间只和 B 的时钟相关，因为只有 B 检查该时�
 
 公钥密码学仅限于用在密钥管理和签名这类应用中。
 
-<!-- <img src="https://cdn.jsdelivr.net/gh/JingqingLin/ImageHosting@master/img/20200604111602.png" width="70%"/>
-
-RSA 填充，抵抗选择密文攻击 -->
+<!-- RSA 填充，抵抗选择密文攻击 -->
 
 #### 简单密码分发方案
 
@@ -119,6 +117,9 @@ Bob --> Darth : E(PU_d, K_S)
 ![](_images/summary-application-of-symemtric-cipher-9.png ':size=80%')
 
 ![](_images/summary-application-of-symemtric-cipher-10.png ':size=60%')
+
+- Diffie-Hellman 密钥交换的安全性建立在下述事实之上：求关于素数的模素数幂运算相对容易，而计算离散对数却非常困难
+- Diffie-Hellman 不能抵抗中间人攻击
 
 
 Station to Station（后面看），Shamir's no-key protocol 没看懂
