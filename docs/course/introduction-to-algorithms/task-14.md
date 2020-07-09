@@ -3,7 +3,7 @@
 > [!NOTE]
 > 本次作业主要涉及**二项堆**（Binomial Heap，第三版中移入思考题）和**斐波那契堆**，它们都是用于实现有限队列的数据结构。基于不同的数据结构，优先队列的各个操作的时间复杂度的关系是：
 > 
-> ![](_images/task-14-1.png ':size=80%')<font size="2" color="#c0c0c0">图片来自[CSDN](https://blog.csdn.net/jmh1996/article/details/83662953)</font>
+> ![](_images/task-14-1.png ':size=80%')<font size="2" color="#8590a6">图片来自[CSDN](https://blog.csdn.net/jmh1996/article/details/83662953)</font>
 >
 > 斐波那契堆看[这篇](https://blog.csdn.net/jmh1996/article/details/83926783)。
 
@@ -17,7 +17,7 @@
 > ![](_images/task-14-2.svg ':size=70%')
 >
 > </center>
-> <center><font size="2" color="#c0c0c0">二项树（从左至右度数分别为 0 至 3）</font></center>
+> <center><font size="2" color="#8590a6">二项树（从左至右度数分别为 0 至 3）</font></center>
 >
 > **二项堆**是指满足以下性质的二项树的集合：
 > - 每棵二项树都满足最小堆性质，即结点关键字大于等于其父结点的值
@@ -28,7 +28,7 @@
 > ![](_images/task-14-3.svg ':size=40%')
 >
 > </center>
-> <center><font size="2" color="#c0c0c0">一个含 13 个结点的二项堆</font></center>
+> <center><font size="2" color="#8590a6">一个含 13 个结点的二项堆</font></center>
 
 ## 19.2-1
 

@@ -34,7 +34,7 @@
 
 ### ** 密文分组链接（CBC） **
 
-![](_images/summary-modes-of-operation-3.png ':size=70%')<font size="2" color="#c0c0c0">IV（Initialization Vector，初始向量）</font>
+![](_images/summary-modes-of-operation-3.png ':size=70%')<font size="2" color="#8590a6">IV（Initialization Vector，初始向量）</font>
 
 
 - 它的主要缺点在于加密过程是串行的，无法被并行化

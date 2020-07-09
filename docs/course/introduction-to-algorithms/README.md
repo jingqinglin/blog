@@ -100,13 +100,13 @@
 
 - 作业二：2.2-2、2.3-3、2.3-4
 
-- 作业三：4.1-1、4.1-2、4.2-1、4.2-2、<font color=#C0C0C0>4.3-1、4.3-2（第二版）</font>
+- 作业三：4.1-1、4.1-2、4.2-1、4.2-2、<font color=#8590a6>4.3-1、4.3-2（第二版）</font>
 
 - 作业四：7.1-2、7.2-1、7.2-2、7.4-1、7.4-4
 
 - [作业五](course/introduction-to-algorithms/task-5.md)：13.1-2、13.1-5、13.2-3、13.3-1、13.3-2
 
-- [作业六](course/introduction-to-algorithms/task-6.md)：13.4-6、14.1-3、14.2-2、<font color=#C0C0C0>14.2-3（第二版）</font>
+- [作业六](course/introduction-to-algorithms/task-6.md)：13.4-6、14.1-3、14.2-2、<font color=#8590a6>14.2-3（第二版）</font>
 
 - [作业七](course/introduction-to-algorithms/task-7.md)：14.3-2、15.1-5
 
@@ -122,8 +122,8 @@
 
 - [作业十三](course/introduction-to-algorithms/task-13.md)：17.1-1、17.1-2、17.2-1、17.3-1、17.3-3、17.3-4、17.4-2、17.4-3
 
-- [作业十四](course/introduction-to-algorithms/task-14.md)：<font color=#C0C0C0>19.1-1、19.1-2、19.2-3、19.2-6（以上均为第二版题号）</font>、19.2-1、19-2.d（思考题）
+- [作业十四](course/introduction-to-algorithms/task-14.md)：<font color=#8590a6>19.1-1、19.1-2、19.2-3、19.2-6（以上均为第二版题号）</font>、19.2-1、19-2.d（思考题）
 
-- [作业十五](course/introduction-to-algorithms/task-15.md)：<font color=#C0C0C0>26.1-1、26.1-2、26.1-5（以上均为第二版题号）</font>
+- [作业十五](course/introduction-to-algorithms/task-15.md)：<font color=#8590a6>26.1-1、26.1-2、26.1-5（以上均为第二版题号）</font>
 
 <!-- tabs:end -->

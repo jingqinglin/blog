@@ -70,7 +70,7 @@ Suppose we have the longest simple path $(a_1, a_2, \dots, a_s)$ and the shortes
 
 > Let $a$, $b$, and $c$ be arbitrary nodes in subtrees $\alpha$, $\beta$, and $\gamma$, respectively, in the left tree of Figure 13.2. How do the depths of $a$, $b$, and $c$ change when a left rotation is performed on node $x$ in the figure?
 >
-> 设在图 13-2 左边一棵树中<span style="font-size: 13px;font-weight: 400;color: #C0C0C0;">（此处有误，应为右边的树。第二版和第三版此图中两棵树左右调换了，但题目描述没改过来）</span>，$a$、$b$ 和 $c$ 分别为子树 $\alpha$、$\beta$ 和 $\gamma$ 中的任意结点。当结点 $x$ 左旋之后，$a$、$b$ 和 $c$ 的深度会如何变化？
+> 设在图 13-2 左边一棵树中<span style="font-size: 13px;font-weight: 400;color: #8590a6;">（此处有误，应为右边的树。第二版和第三版此图中两棵树左右调换了，但题目描述没改过来）</span>，$a$、$b$ 和 $c$ 分别为子树 $\alpha$、$\beta$ 和 $\gamma$ 中的任意结点。当结点 $x$ 左旋之后，$a$、$b$ 和 $c$ 的深度会如何变化？
 
 
 - $a$: increase by $1$.
