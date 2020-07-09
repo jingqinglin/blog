@@ -13,6 +13,21 @@
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css" />
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-gifcontrol/dist/docsify-gifcontrol.css">
   <style type="text/css">
+    /* 侧边栏激活样式 */
+    .sidebar .app-sub-sidebar li.active::before {
+      content: '' !important;
+      position: relative !important;
+      width: 10px !important;
+      height: 10px !important;
+      padding-right: 0px !important;
+      top: 10px !important;
+      left: -8px !important;
+      border-radius: 50% !important;
+      background-color: #42b983 !important;
+      box-shadow: 0 0 0 3px rgba(66, 185, 131, 0.4) !important;
+    }
+
+    /* iconfont 图标样式 */
     .icon {
       width: 1.2em;
       height: 1.2em;
@@ -21,6 +36,7 @@
       overflow: hidden;
     }
 
+    /* 代码块复制图标样式 */
     .docsify-copy-code-button {
       background-color: transparent !important;
       top: 15px !important;
@@ -28,10 +44,12 @@
       padding: 0.6em 0.5em !important;
     }
 
+    /* tab 插件字体 */
     .docsify-tabs__tab {
       font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif !important;
     }
 
+    /* valine 输入框字体 */
     input,
     textarea {
       font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif !important;
@@ -43,11 +61,6 @@
 
     summary {
       cursor: pointer;
-    }
-
-    cloudflare-app[app="back-to-top-button"] {
-      height: 50px !important;
-      width: 50px !important;
     }
   </style>
   <!-- <script type="text/javascript">
@@ -153,6 +166,60 @@
   <!-- https://github.com/zhengxiangqi/docsify-scroll-to-top -->
   <script src="//cdn.jsdelivr.net/gh/JingqingLin/blog/docs/_style/scroll-to-top.js"></script>
   <script src="//at.alicdn.com/t/font_1827840_eg0tzmxidnj.js"></script>
+
+  <!-- 添加网站运行时间统计 -->
+  <script language=javascript>
+    function siteTime() {
+      window.setTimeout("siteTime()", 1000);
+      var seconds = 1000;
+      var minutes = seconds * 60;
+      var hours = minutes * 60;
+      var days = hours * 24;
+      var today = new Date();
+      var todayYear = today.getFullYear();
+      var todayMonth = today.getMonth() + 1;
+      var todayDate = today.getDate();
+      var todayHour = today.getHours();
+      var todayMinute = today.getMinutes();
+      var todaySecond = today.getSeconds();
+      /* Date.UTC () -- 返回 date 对象距世界标准时间（UTC） 1970 年 1 月 1 日午夜之间的毫秒数（时间戳）
+         year - 作为 date 对象的年份，为 4 位年份值
+         month - 0-11 之间的整数，做为 date 对象的月份
+         day - 1-31 之间的整数，做为 date 对象的天数
+         hours - 0（午夜 24 点）-23 之间的整数，做为 date 对象的小时数
+         minutes - 0-59 之间的整数，做为 date 对象的分钟数
+         seconds - 0-59 之间的整数，做为 date 对象的秒数
+         microseconds - 0-999 之间的整数，做为 date 对象的毫秒数 */
+      var t1 = Date.UTC(2020, 05, 12, 21, 21, 32);
+      var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+      var diff = t2 - t1;
+      var diffDays = Math.floor(diff / days);
+      var diffHours = Math.floor((diff - diffDays * days) / hours);
+      var diffMinutes = Math.floor((diff - diffDays * days - diffHours * hours) / minutes);
+      var diffSeconds = Math.floor((diff - diffDays * days - diffHours * hours - diffMinutes * minutes) / seconds);
+      document.getElementById("sitetime").innerHTML = "网站已运行 " + diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分 " + diffSeconds + " 秒";
+    }
+    siteTime();
+  </script>
+  <!-- 离开标签页改变 title -->
+  <!-- <script>
+    var OriginTitile = document.title;
+    var titleTime;
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) {
+        $('[rel="icon"]').attr('href', "_media/baidu.ico");
+        document.title = '百度一下，你就知道';
+        clearTimeout(titleTime);
+      }
+      else {
+        $('[rel="icon"]').attr('href', "_media/emoji-book.png");
+        document.title = OriginTitile;
+        titleTime = setTimeout(function () {
+          document.title = OriginTitile;
+        }, 2000);
+      }
+    });
+  </script> -->
 </body>
 
 </html>

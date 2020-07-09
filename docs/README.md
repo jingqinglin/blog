@@ -118,7 +118,8 @@
 
 ---
 
-<span style="color: #c0c0c0">Powerd by <a href="https://docsify.js.org" target="_blank" style="text-decoration: none;">docsify</a></span> <embed class="icon" src="//cdn.jsdelivr.net/gh/JingqingLin/Blog/docs/_media/docsify.svg" type="image/svg+xml" />
+<span style="color: #8590a6" id="sitetime"></span><br/>
+<span style="color: #8590a6">Powerd by <a href="https://docsify.js.org" target="_blank" style="text-decoration: none;">docsify</a></span> <embed class="icon" src="//cdn.jsdelivr.net/gh/JingqingLin/Blog/docs/_media/docsify.svg" type="image/svg+xml" />
 
 <style>
     .crisp-client, .edit-document, .docsify-pagination-container, #vcomments {
