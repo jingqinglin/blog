@@ -170,7 +170,7 @@
 
 ### ** 💯 复习 **
 
-> 目录是余老师的[各课件](https://github.com/JingqingLin/cryptography)的标题。70% 的期末考试问题来自于课后题，最后一节课的视频在[这里](https://www.eeo.cn/live.php?lessonKey=d19fdb204aa038fe)
+> 目录是余老师的[各课件](https://github.com/JingqingLin/cryptography)的标题。70% 的期末考试问题来自于课后题，最后一节课的视频在[这里](http://home.ustc.edu.cn/~jqlin/video/crypto-summary.mp4)
 
 课程从”实现四类安全服务“为话题展开讨论：
 

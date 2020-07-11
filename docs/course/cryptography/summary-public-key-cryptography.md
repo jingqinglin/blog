@@ -92,5 +92,5 @@ graph LR
 ![](_images/summary-public-key-cryptography-5.png ':size=59%')
 
 - 如果信息必须分组然后以加密的密钥块序列发送，那么每个分块要有唯一的 $k$
-- 解密过程中用到了「分数取模」：$a^{p-2} \bmod p = a^{-1} \bmod p$（[费马小定理](https://zh.wikipedia.org/wiki/%E8%B4%B9%E9%A9%AC%E5%B0%8F%E5%AE%9A%E7%90%86)）
+- 解密过程中用到了「分数取模」：$a^{p-2} \bmod p = a^{-1} \bmod p$（[费马小定理](https://zh.wikipedia.org/wiki/%E8%B4%B9%E9%A9%AC%E5%B0%8F%E5%AE%9A%E7%90%86)或扩展欧几里得算法。费马小定理只适用于 $p$ 为素数，扩展欧几里得算法在教材 2.3.6）
 - ECC 相较于 RSA 有性能上的提升：https://zhuanlan.zhihu.com/p/46143317
