@@ -63,6 +63,9 @@
 - 计时攻击类似于窃贼通过观察他人转动保险柜拨号盘的时间长短来猜测密码
 - 选择密文攻击见教材 P208
 
+> [!TIP|label:当 RSA 用于数字签名时]
+> ![](_images/summary-public-key-cryptography-6.png)
+
 ## 密钥管理
 
 > 第十四章第三节

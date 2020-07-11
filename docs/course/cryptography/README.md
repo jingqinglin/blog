@@ -193,5 +193,7 @@ id(安全服务) --- id4(不可否认性)
 - [Public Key Cryptography](course/cryptography/summary-public-key-cryptography.md "Public Key Cryptography - 复习 - 现代密码学与应用")
 - [Hash Functions](course/cryptography/summary-hash-functions.md "Hash Functions - 复习 - 现代密码学与应用")
 - [Message Authentication](course/cryptography/summary-message-authentication.md "Message Authentication - 复习 - 现代密码学与应用")
+- [Digital Signatures](course/cryptography/summary-digital-signatures.md "Digital Signatures - 复习 - 现代密码学与应用")
+- [Identification](course/cryptography/summary-identification.md "Identification - 复习 - 现代密码学与应用")
 
 <!-- tabs:end -->
