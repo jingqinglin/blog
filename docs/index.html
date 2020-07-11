@@ -132,11 +132,19 @@
           hook.beforeEach(function (html) {
             var url = 'https://github.com/JingqingLin/blog/blob/master/docs/' + vm.route.file;
             return (
-              // '<div align="right" style="font-size:13px">上次更新：<font color="gray">{docsify-updated}</font></div>' +
               '<div class="edit-document" style="font-size: 14px;" align="right">✏️ <a style="font-weight: 400" href=' + url + ' target="_blank">编辑文档</a></div>' +
               '\n\n' +
               html
             );
+          });
+
+          hook.afterEach(function (html) {
+            var footer = [
+              '<footer>',
+              '<div align="right" style="color: #8590a6" class="sitetime"></div>',
+              '</footer>'
+            ].join('');
+            return html + footer;
           });
         }
       ],
@@ -154,7 +162,6 @@
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/ga.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
-  <!-- mermaid usage: https://mermaid-js.github.io/mermaid -->
   <script src="//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-mermaid/dist/docsify-mermaid.js"></script>
   <script src="//cdn.jsdelivr.net/npm/pdfobject/pdfobject.min.js"></script>
@@ -198,9 +205,10 @@
       var diffHours = Math.floor((diff - diffDays * days) / hours);
       var diffMinutes = Math.floor((diff - diffDays * days - diffHours * hours) / minutes);
       var diffSeconds = Math.floor((diff - diffDays * days - diffHours * hours - diffMinutes * minutes) / seconds);
-      document.getElementById("sitetime").innerHTML = "网站已运行 " + diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分 " + diffSeconds + " 秒";
+      Docsify.dom.find('.sitetime').innerHTML = "网站已运行 " + diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分 " + diffSeconds + " 秒";
     }
-    siteTime();
+    // 先让网页加载完，否则 Docsify.dom.find('.sitetime') == null
+    window.setTimeout("siteTime()", 1000);
   </script>
   <!-- 离开标签页改变 title -->
   <!-- <script>
