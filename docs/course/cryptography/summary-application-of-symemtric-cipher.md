@@ -105,6 +105,8 @@ Bob --> Darth : E(PU_d, K_S)
 
 ![](_images/summary-application-of-symemtric-cipher-8.png ':size=80%')
 
+- 只有 B 可以解密消息 (1)，故 $N_1$ 在消息 (2) 中出现可以使 A 确定该消息来自于 B
+
 #### 混合方案
 
 - 使用主密钥分发会话密钥：KDC 与每个主机共享主密钥
