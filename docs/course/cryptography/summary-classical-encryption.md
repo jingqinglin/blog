@@ -1,6 +1,4 @@
-> 教材第三章
-
-可汗学院公开课「[古典密码学](http://open.163.com/newview/movie/courseintro?newurl=%2Fspecial%2FKhan%2Fancientcryptography.html)」
+> 教材第三章。可汗学院公开课「[古典密码学](http://open.163.com/newview/movie/courseintro?newurl=%2Fspecial%2FKhan%2Fancientcryptography.html)」
 
 ## 对称密码模型
 五个基本成分：明文、加密算法、密钥、密文、解密算法。
@@ -47,6 +45,8 @@ PlayFair 和 Vigenère 密码都保留了许多频率信息，而 Hill 密码完
 - 由于密钥的产生、分配和保护问题存在困难，一次一密实际上很少使用
 
 ## 置换技术
+
+相当于打乱明文顺序。
 
 ![](_images/summary-classical-encryption-4.png ':size=80%')
 

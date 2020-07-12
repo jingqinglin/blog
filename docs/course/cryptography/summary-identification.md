@@ -26,7 +26,9 @@ A 想要一个来自 B 的新消息，首先发给 B 一个临时交互号（询
   - 第六张课件中有 [NeedHam Schroeder](course/cryptography/summary-application-of-symemtric-cipher?id=needham-schroeder-协议) 以及其改进方案。
 - 基于公钥密码的挑战/应答
 - 基于数字签名的挑战/应答
-  - 站间协议（STS）：若不加密，可能遭遇交织攻击（PPT P38），https://xz.aliyun.com/t/2965 这里有中文描述
+  - 站间协议（STS），https://xz.aliyun.com/t/2965 这里有中文描述。下图为无加密版本：
+  ![](_images/summary-identification-1.png ':size=70%')  
+  若不加密，可能遭遇交织攻击（PPT P38，让 A 误以为 ta 在和 B 通信，实际上在和 C 通信）
 
 
 ## 一些攻击手段
