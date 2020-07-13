@@ -156,10 +156,10 @@ graph LR
 
 > ![](_images/summary-public-key-cryptography-8.png)
 
-1. 敌方 X 拦截了 A 发给 B 的消息，$[A, \mathrm{E}(P U_{b^{\prime}}, M), B]$
-2. X 给 B 发送 $[X, \mathrm{E}(PU_{b^{\prime}}, M), B]$
-3. B 通过给 X 发送 $[B, \mathrm{E}(PU_{x^{\prime}}, M), X]$ 表示 ta 收到了 X 发送的消息
-4. X 使用他的私钥解密 $\mathrm{E}(PU_{x^{\prime}}, M)$，从而得到 $M$
+1. 敌方 X 拦截了 A 发给 B 的消息，$[A, \mathrm{E}(P U_{b}, M), B]$
+2. X 给 B 发送 $[X, \mathrm{E}(PU_{b}, M), B]$
+3. B 通过给 X 发送 $[B, \mathrm{E}(PU_{x}, M), X]$ 表示 ta 收到了 X 发送的消息
+4. X 使用他的私钥解密 $\mathrm{E}(PU_{x}, M)$，从而得到 $M$
 
 ### ** 9.18 **
 
