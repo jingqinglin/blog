@@ -5,7 +5,7 @@
 > 
 > ![](_images/task-14-1.png ':size=80%')<font size="2" color="#8590a6">图片来自[CSDN](https://blog.csdn.net/jmh1996/article/details/83662953)</font>
 >
-> 斐波那契堆看[这篇](https://blog.csdn.net/jmh1996/article/details/83926783)和[这篇](https://www.cnblogs.com/junyuhuang/p/4463758.html)（后一篇“合并”操作有误，但“减值”操作比较详细），二项堆看[这篇](https://blog.csdn.net/jmh1996/article/details/83688059)。
+> 斐波那契堆看[这篇](https://www.cnblogs.com/dongkuo/p/7623882.html)和[这篇](https://www.cnblogs.com/junyuhuang/p/4463758.html)（后一篇“合并”操作有误，但“减值”操作比较详细），二项堆看[这篇](https://blog.csdn.net/jmh1996/article/details/83688059)。
 
 > [!NOTE|label:二项树（Binomial Tree）和二项堆（Binomial Heap）]
 > 二项树递归定义如下：
