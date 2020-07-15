@@ -128,4 +128,14 @@
     .crisp-client, .edit-document, .docsify-pagination-container, #vcomments {
         display: none !important;
     }
+
+    #tip-version {
+        padding: 0 5px;
+        white-space: nowrap;
+        border: 1px solid;
+        border-radius: 4px;
+        color: var(--theme-color, #42b983);
+        background: #f6ffed;
+        border-color: #b7eb8f;
+    }
 </style>
