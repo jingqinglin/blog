@@ -56,10 +56,37 @@
       font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif !important;
     }
 
+    /* 评论区占位符颜色 */
+    textarea::-webkit-input-placeholder {
+      /* WebKit browsers */
+      color: #c0c0c0;
+    }
+
+    textarea:-moz-placeholder {
+      /* Mozilla Firefox 4 to 18 */
+      color: #c0c0c0;
+    }
+
+    textarea::-moz-placeholder {
+      /* Mozilla Firefox 19+ */
+      color: #c0c0c0;
+    }
+
+    textarea::-ms-input-placeholder {
+      /* Internet Explorer 10+ */
+      color: #c0c0c0;
+    }
+
+    .vpower {
+      line-height: 1 !important;
+      padding: 0 !important;
+    }
+
     .vempty {
       display: none !important;
     }
 
+    /* valine 表情框高度 */
     .vemojis {
       max-height: 300px !important;
     }
@@ -288,12 +315,13 @@
           });
 
           hook.afterEach(function (html) {
-            var footer = [
-              '<footer>',
-              '<div align="right" style="color: #8590a6" class="sitetime"></div>',
-              '</footer>'
-            ].join('');
-            return html + footer;
+            var a = Docsify.dom;
+            var n = a.create("div");
+            n.className = "sitetime";
+            var i = a.getNode("#main");
+            n.style = "color: #8590a6;max-width: 80%;width: " + i.clientWidth + "px !important; margin: 0 auto 20px;padding: 0 15px 0 15px;";
+            a.appendTo(a.find(".content"), n);
+            return html;
           });
         }
       ],
@@ -357,7 +385,7 @@
       Docsify.dom.find('.sitetime').innerHTML = "网站已运行 " + diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分 " + diffSeconds + " 秒";
     }
     // 先让网页加载完，否则 Docsify.dom.find('.sitetime') == null
-    window.setTimeout("siteTime()", 1000);
+    window.setTimeout("siteTime()", 100);
   </script>
   <!-- 离开标签页改变 title -->
   <!-- <script>
