@@ -78,8 +78,15 @@
     }
 
     .vpower {
-      line-height: 1 !important;
-      padding: 0 !important;
+      display: none;
+    }
+
+    /* 找个位置显示 'Powered by Valine' */
+    .vcol.vcol-40.vctrl.text-right::before {
+      content: 'Powered by Valine';
+      padding-right: 10px;
+      font-size: 12px;
+      color: #b3b3b3;
     }
 
     .vempty {
