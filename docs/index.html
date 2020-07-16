@@ -10,7 +10,7 @@
     content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/vue.css">
   <link rel="icon" href="//cdn.jsdelivr.net/gh/JingqingLin/Blog/docs/_media/emoji-book.png">
-  <!-- 最新版本显示有问题 -->
+  <!-- 最新版本显示效果有问题 -->
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@0.11.0/dist/katex.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-gifcontrol/dist/docsify-gifcontrol.css">
   <style type="text/css">
@@ -161,7 +161,6 @@
         placeholder: '昵称栏填入 QQ 号可自动获取昵称，邮箱和 QQ 头像',
         recordIP: 'true',
         enableQQ: 'true',
-        visitor: 'true',
         emojiCDN: '//img.ithome.com/images/svg/emoji/',
         emojiMaps: {
           微笑: "rm_e_weixiao.svg",
@@ -321,14 +320,13 @@
             );
           });
 
-          hook.afterEach(function (html) {
-            var a = Docsify.dom;
-            var n = a.create("div");
-            n.className = "sitetime";
-            var i = a.getNode("#main");
-            n.style = "color: #8590a6;max-width: 80%;width: " + i.clientWidth + "px !important; margin: 0 auto 20px;padding: 0 15px 0 15px;";
-            a.appendTo(a.find(".content"), n);
-            return html;
+          hook.mounted(function () {
+            // 添加网站运行时间
+            var dom = Docsify.dom;
+            var runTimeNode = dom.create("div");
+            runTimeNode.className = "runtime";
+            runTimeNode.style = "color: #8590a6;max-width: 80%;margin: 0 auto 20px;padding: 0 15px 0 15px;";
+            dom.appendTo(dom.find(".content"), runTimeNode);
           });
         }
       ],
@@ -342,7 +340,7 @@
   <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-python.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-glsl.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-katex/dist/docsify-katex.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code@2.1.0"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/ga.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
@@ -389,10 +387,10 @@
       var diffHours = Math.floor((diff - diffDays * days) / hours);
       var diffMinutes = Math.floor((diff - diffDays * days - diffHours * hours) / minutes);
       var diffSeconds = Math.floor((diff - diffDays * days - diffHours * hours - diffMinutes * minutes) / seconds);
-      Docsify.dom.find('.sitetime').innerHTML = "网站已运行 " + diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分 " + diffSeconds + " 秒";
+      Docsify.dom.find('.runtime').innerHTML = "网站已运行 " + diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分 " + diffSeconds + " 秒";
     }
-    // 先让网页加载完，否则 Docsify.dom.find('.sitetime') == null
-    window.setTimeout("siteTime()", 100);
+    // 先让网页加载完，否则 Docsify.dom.find('.runtime') == null
+    window.setTimeout("siteTime()", 500);
   </script>
   <!-- 离开标签页改变 title -->
   <!-- <script>
