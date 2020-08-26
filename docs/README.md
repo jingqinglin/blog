@@ -10,7 +10,7 @@
 
 ---
 
-## <svg class="icon" aria-hidden="true"><use xlink:href="#icon-LeetCode"></use></svg> **LeetCode**
+## 🚩 **LeetCode**
 
 > 此部分记录我所做的力扣题，按照 [CS-Notes](https://cyc2018.github.io/CS-Notes/#/notes/Leetcode%20%E9%A2%98%E8%A7%A3%20-%20%E7%9B%AE%E5%BD%951) 的分类进行做题
 
