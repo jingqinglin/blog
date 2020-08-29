@@ -14,6 +14,61 @@
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@0.11.0/dist/katex.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-gifcontrol/dist/docsify-gifcontrol.css">
   <style type="text/css">
+    /* 深色模式样式 */
+    @media (prefers-color-scheme: light) {
+      :root {
+        --background-color: #ffffff;
+        --code-background-color: #f8f8f8;
+        --content-color: #2c3e50;
+        --transparent-background-color: #ffffffcc;
+        --theme-color: #42b983;
+        --searchbar-border-color: #eee;
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --background-color: #323336;
+        --code-background-color: #3f3f3f;
+        --content-color: #dfdfdf;
+        --transparent-background-color: #323336cc;
+        --theme-color: #42b983;
+        --searchbar-border-color: #858585;
+
+      }
+    }
+
+    body, aside.sidebar, input, .app-nav li ul, .alert.callout, .docsify-tabs__tab {
+      background: var(--background-color) !important;
+      color: var(--content-color) !important;
+    }
+
+    #tip-version {
+      background: var(--background-color) !important;
+    }
+
+    .search {
+      border-bottom: 1px solid var(--searchbar-border-color) !important;
+    }
+
+    .markdown-section h1, .markdown-section h2, .markdown-section h3,
+    .markdown-section h4, .markdown-section h5, .markdown-section strong,
+    .anchor span, .sidebar ul li a {
+      color: var(--content-color) !important;
+    }
+
+    .markdown-section pre, .markdown-section pre > code, .markdown-section code {
+      background: var(--code-background-color) !important;
+    }
+
+    .token.punctuation, .markdown-section pre > code {
+      color: var(--content-color) !important;
+    }
+
+    button.sidebar-toggle {
+      background: var(--transparent-background-color) !important;
+    }
+
     /* 侧边栏激活样式 */
     .sidebar .app-sub-sidebar li.active::before {
       content: '' !important;
@@ -24,7 +79,7 @@
       top: 10px !important;
       left: -8px !important;
       border-radius: 50% !important;
-      background-color: #42b983 !important;
+      background-color: var(--theme-color) !important;
       box-shadow: 0 0 0 3px rgba(66, 185, 131, 0.4) !important;
     }
 

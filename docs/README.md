@@ -1,4 +1,4 @@
-> <span style="font-weight: 400;color: #34495e"><b style="font-size: 30px;color: #42b983;">Hi</b>，我是 Jingqing，我在这个网站记录我的学习心得，网站托管于 <svg class="icon" aria-hidden="true"><use xlink:href="#icon-githubblack"></use></svg> <a href="https://github.com/JingqingLin/blog" target="_blank">Github</a></span>
+> <span style="font-weight: 400;color: var(--content-color)"><b style="font-size: 30px;color: var(--theme-color);">Hi</b>，我是 Jingqing，我在这个网站记录我的学习心得，网站托管于 <svg class="icon" aria-hidden="true"><use xlink:href="#icon-githubblack"></use></svg> <a href="https://github.com/JingqingLin/blog" target="_blank">Github</a></span>
 
 ## 🗡️ **剑指 Offer**
 

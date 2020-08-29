@@ -19,6 +19,7 @@ var install = function (hook, vm) {
     };
     hook.mounted(function () {
         var scrollBtn = document.createElement("span");
+        var backgroundColor = document.body.style.background;
         scrollBtn.className = "scroll-to-top";
         scrollBtn.style.display = CONFIG.auto ? "none" : "block";
         scrollBtn.style.overflow = "hidden";
@@ -27,7 +28,7 @@ var install = function (hook, vm) {
         scrollBtn.style.bottom = CONFIG.bottom + "px";
         scrollBtn.style.width = "40px";
         scrollBtn.style.height = "40px";
-        scrollBtn.style.background = "white";
+        scrollBtn.style.background = backgroundColor;
         scrollBtn.style.color = "#42b983";
         scrollBtn.style.borderRadius = "50%";
         scrollBtn.style.lineHeight = "50px";
