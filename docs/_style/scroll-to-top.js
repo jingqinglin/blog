@@ -28,12 +28,18 @@ var install = function (hook, vm) {
         scrollBtn.style.bottom = CONFIG.bottom + "px";
         scrollBtn.style.width = "40px";
         scrollBtn.style.height = "40px";
-        scrollBtn.style.background = backgroundColor;
+        let prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (prefersDarkMode) {
+            scrollBtn.style.background = "#3f3f3f";
+            scrollBtn.style.boxShadow = "1px 1px 5px #444";
+        } else {
+            scrollBtn.style.background = "white";
+            scrollBtn.style.boxShadow = "1px 1px 5px #ccc";
+        }
         scrollBtn.style.color = "#42b983";
         scrollBtn.style.borderRadius = "50%";
         scrollBtn.style.lineHeight = "50px";
         scrollBtn.style.textAlign = "center";
-        scrollBtn.style.boxShadow = "1px 1px 5px #ccc";
         scrollBtn.style.cursor = "pointer";
         var arrowNode = document.createElement("span");
         arrowNode.className = "up-arrow";
