@@ -1,6 +1,7 @@
 - 💻 C++
   - [C++ 基础](interview/cpp.md "C++ 基础 - 面试相关")
-  - [拷贝构造函数](interview/cpp-copy-constructor.md "拷贝构造函数 - 面试相关")
+  - [拷贝构造函数](interview/cpp-copy-constructor.md "拷贝构造函数")
+  - [为什么不特化函数模板？](interview/cpp-template.md "为什么不特化函数模板？")
 
 - ☕ Java
   - [Java 基础](interview/java.md "Java 基础 - 面试相关")

@@ -10,6 +10,7 @@
 
 - [C++ 基础](interview/cpp.md)
 - [拷贝构造函数](interview/cpp-copy-constructor.md)
+- [为什么不特化函数模板？](interview/cpp-template.md)
 
 ### ☕ Java
 
