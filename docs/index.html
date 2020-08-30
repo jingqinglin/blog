@@ -44,7 +44,16 @@
         --transparent-background-color: #323336cc;
         --theme-color: #42b983;
         --border-color: #858585;
+      }
 
+      img {
+        opacity: 0.7 !important;
+        transition: opacity .5s ease-in-out;
+      }
+
+      img:hover {
+        opacity: 1 !important;
+        transition: opacity .5s ease-in-out;
       }
     }
 
@@ -79,7 +88,7 @@
       color: var(--content-color) !important;
     }
 
-    .markdown-section pre, .markdown-section pre > code, .markdown-section code {
+    .markdown-section pre, .markdown-section pre > code, .markdown-section code, .markdown-section p.tip {
       background: var(--code-background-color) !important;
     }
 
