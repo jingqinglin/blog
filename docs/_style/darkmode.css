@@ -1,0 +1,20 @@
+:root {
+    --background-color: #323336;
+    --code-background-color: #282828;
+    --content-color: #dfdfdf;
+    --transparent-background-color: #323336cc;
+    --theme-color: #42b983;
+    --border-color: #858585;
+    --mermaid-stroke-color: #858585;
+    --mermaid-cluster-color: transparent;
+  }
+
+  img {
+    opacity: 0.6 !important;
+    transition: opacity .5s ease-in-out;
+  }
+
+  img:hover {
+    opacity: 1 !important;
+    transition: opacity .5s ease-in-out;
+  }
