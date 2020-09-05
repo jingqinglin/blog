@@ -13,56 +13,11 @@
   <!-- 最新版本显示效果有问题 -->
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@0.11.0/dist/katex.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-gifcontrol/dist/docsify-gifcontrol.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/JingqingLin/Blog/docs/_style/default-var.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/JingqingLin/Blog/docs/_style/auto-switchmode.css" title="auto">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/JingqingLin/Blog/docs/_style/darkmode.css" title="dark" disabled>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/JingqingLin/Blog/docs/_style/lightmode.css" title="light" disabled>
   <style type="text/css">
-    :root {
-      --background-color: #ffffff;
-      --code-background-color: #f8f8f8;
-      --content-color: #2c3e50;
-      --transparent-background-color: #ffffffcc;
-      --theme-color: #42b983;
-      --border-color: #eeeeee;
-      --mermaid-stroke-color: #333333;
-      --mermaid-cluster-color: #ffffde;
-    }
-
-    /* 定义浅色模式样式 */
-    @media (prefers-color-scheme: light) {
-      :root {
-        --background-color: #ffffff;
-        --code-background-color: #f8f8f8;
-        --content-color: #2c3e50;
-        --transparent-background-color: #ffffffcc;
-        --theme-color: #42b983;
-        --border-color: #eeeeee;
-        --mermaid-stroke-color: #333333;
-        --mermaid-cluster-color: #ffffde;
-      }
-    }
-
-    /* 定义深色模式样式 */
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --background-color: #323336;
-        --code-background-color: #282828;
-        --content-color: #dfdfdf;
-        --transparent-background-color: #323336cc;
-        --theme-color: #42b983;
-        --border-color: #858585;
-        --mermaid-stroke-color: #858585;
-        --mermaid-cluster-color: transparent;
-      }
-
-      img {
-        opacity: 0.6 !important;
-        transition: opacity .5s ease-in-out;
-      }
-
-      img:hover {
-        opacity: 1 !important;
-        transition: opacity .5s ease-in-out;
-      }
-    }
-
     body, aside.sidebar, input, .app-nav li ul, .alert.callout, .docsify-tabs__tab {
       background: var(--background-color) !important;
       color: var(--content-color) !important;
@@ -221,6 +176,7 @@
       cursor: pointer;
     }
   </style>
+
   <!-- <script type="text/javascript">
     window.$crisp = []; window.CRISP_WEBSITE_ID = "858e94c4-08f1-470f-b2ac-9fd244457a6e"; (function () { d = document; s = d.createElement("script"); s.src = "https://client.crisp.chat/l.js"; s.async = 1; d.getElementsByTagName("head")[0].appendChild(s); })(); 
   </script> -->
@@ -557,6 +513,33 @@
     window.onload = () => {
         init();
     };
+  </script>
+  <!-- 深色，浅色模式切换 -->
+  <script>
+    var themes = Docsify.dom.findAll('[rel="stylesheet"]');
+    var darkTheme;
+    var lightTheme;
+    var autoTheme;
+    themes.forEach(function (theme) {
+      if (theme.title == 'dark') {
+        darkTheme = theme
+      } else if (theme.title == 'light') {
+        lightTheme = theme
+      } else if (theme.title == 'auto') {
+        autoTheme = theme
+      }
+    });
+
+    function setDark() {
+      autoTheme.disabled = true
+      darkTheme.disabled = false
+      lightTheme.disabled = true
+    }
+    function setLight() {
+      autoTheme.disabled = true
+      darkTheme.disabled = true
+      lightTheme.disabled = false
+    }
   </script>
   <!-- 离开标签页改变 title -->
   <!-- <script>
