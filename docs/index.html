@@ -20,7 +20,9 @@
       --content-color: #2c3e50;
       --transparent-background-color: #ffffffcc;
       --theme-color: #42b983;
-      --border-color: #eee;
+      --border-color: #eeeeee;
+      --mermaid-stroke-color: #333333;
+      --mermaid-cluster-color: #ffffde;
     }
 
     /* 定义浅色模式样式 */
@@ -31,7 +33,9 @@
         --content-color: #2c3e50;
         --transparent-background-color: #ffffffcc;
         --theme-color: #42b983;
-        --border-color: #eee;
+        --border-color: #eeeeee;
+        --mermaid-stroke-color: #333333;
+        --mermaid-cluster-color: #ffffde;
       }
     }
 
@@ -39,11 +43,13 @@
     @media (prefers-color-scheme: dark) {
       :root {
         --background-color: #323336;
-        --code-background-color: #3f3f3f;
+        --code-background-color: #282828;
         --content-color: #dfdfdf;
         --transparent-background-color: #323336cc;
         --theme-color: #42b983;
         --border-color: #858585;
+        --mermaid-stroke-color: #858585;
+        --mermaid-cluster-color: transparent;
       }
 
       img {
@@ -84,7 +90,7 @@
 
     .markdown-section h1, .markdown-section h2, .markdown-section h3,
     .markdown-section h4, .markdown-section h5, .markdown-section strong,
-    .anchor span, .sidebar ul li a {
+    .anchor span, .sidebar ul li a, .label {
       color: var(--content-color) !important;
     }
 
@@ -99,6 +105,32 @@
 
     button.sidebar-toggle {
       background: var(--transparent-background-color) !important;
+    }
+
+    /* mermaid */
+    .flowchart-link, .edgePath .path, .messageLine0, .messageLine1 {
+      stroke: var(--mermaid-stroke-color) !important;
+    }
+
+    .node rect, rect {
+      fill: var(--code-background-color) !important;
+    }
+
+    .cluster rect {
+      fill: var(--mermaid-cluster-color) !important;
+    }
+
+    .edgeLabel {
+      background-color: var(--code-background-color) !important;
+    }
+
+    .messageText {
+      stroke: var(--mermaid-stroke-color) !important;
+      fill: var(--content-color) !important;
+    }
+
+    g.classGroup text, text.actor > tspan {
+      fill: var(--content-color) !important;
     }
 
     /* 侧边栏激活样式 */
