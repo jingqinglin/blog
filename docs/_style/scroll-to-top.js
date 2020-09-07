@@ -19,8 +19,8 @@ var install = function (hook, vm) {
     };
     hook.mounted(function () {
         var scrollBtn = document.createElement("span");
-        var backgroundColor = document.body.style.background;
         scrollBtn.className = "scroll-to-top";
+        scrollBtn.title = "回到顶部"
         scrollBtn.style.display = CONFIG.auto ? "none" : "block";
         scrollBtn.style.overflow = "hidden";
         scrollBtn.style.position = "fixed";
@@ -28,14 +28,14 @@ var install = function (hook, vm) {
         scrollBtn.style.bottom = CONFIG.bottom + "px";
         scrollBtn.style.width = "40px";
         scrollBtn.style.height = "40px";
-        let prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        if (prefersDarkMode) {
-            scrollBtn.style.background = "#3f3f3f";
-            scrollBtn.style.boxShadow = "1px 1px 5px #444";
-        } else {
-            scrollBtn.style.background = "white";
-            scrollBtn.style.boxShadow = "1px 1px 5px #ccc";
-        }
+        // let prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        // if (prefersDarkMode) {
+        //     scrollBtn.style.background = "#3f3f3f";
+        //     scrollBtn.style.boxShadow = "1px 1px 5px #444";
+        // } else {
+        //     scrollBtn.style.background = "white";
+        //     scrollBtn.style.boxShadow = "1px 1px 5px #ccc";
+        // }
         scrollBtn.style.color = "#42b983";
         scrollBtn.style.borderRadius = "50%";
         scrollBtn.style.lineHeight = "50px";

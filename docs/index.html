@@ -18,7 +18,12 @@
   <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/JingqingLin/Blog/docs/_style/darkmode.css" title="dark" disabled>
   <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/JingqingLin/Blog/docs/_style/lightmode.css" title="light" disabled>
   <style type="text/css">
-    body, aside.sidebar, input, .app-nav li ul, .alert.callout, .docsify-tabs__tab {
+    body,
+    aside.sidebar,
+    input,
+    .app-nav li ul,
+    .alert.callout,
+    .docsify-tabs__tab {
       background: var(--background-color) !important;
       color: var(--content-color) !important;
     }
@@ -43,18 +48,28 @@
       border: 1px solid var(--border-color) !important;
     }
 
-    .markdown-section h1, .markdown-section h2, .markdown-section h3,
-    .markdown-section h4, .markdown-section h5, .markdown-section strong,
-    .anchor span, .sidebar ul li a, .label {
+    .markdown-section h1,
+    .markdown-section h2,
+    .markdown-section h3,
+    .markdown-section h4,
+    .markdown-section h5,
+    .markdown-section strong,
+    .anchor span,
+    .sidebar ul li a,
+    .label {
       color: var(--content-color) !important;
     }
 
-    .markdown-section pre, .markdown-section pre > code, .markdown-section code,
-    .markdown-section p.tip, .markdown-section tr:nth-child(2n) {
+    .markdown-section pre,
+    .markdown-section pre>code,
+    .markdown-section code,
+    .markdown-section p.tip,
+    .markdown-section tr:nth-child(2n) {
       background: var(--code-background-color) !important;
     }
 
-    .token.punctuation, .markdown-section pre > code {
+    .token.punctuation,
+    .markdown-section pre>code {
       color: var(--content-color) !important;
     }
 
@@ -63,11 +78,16 @@
     }
 
     /* mermaid */
-    .flowchart-link, .edgePath .path, .messageLine0, .messageLine1 {
+    .flowchart-link,
+    .edgePath .path,
+    .messageLine0,
+    .messageLine1 {
       stroke: var(--mermaid-stroke-color) !important;
     }
 
-    .node rect, rect {
+    .node rect,
+    rect,
+    .node circle {
       fill: var(--code-background-color) !important;
     }
 
@@ -84,8 +104,20 @@
       fill: var(--content-color) !important;
     }
 
-    g.classGroup text, text.actor > tspan {
+    g.classGroup text,
+    text.actor>tspan {
       fill: var(--content-color) !important;
+    }
+
+    /* 回到顶部按钮悬浮缩放 */
+    .scroll-to-top {
+      transform: scale(1);
+      transition: transform 0.5s ease;
+    }
+
+    .scroll-to-top:hover {
+      transform: scale(1.3);
+      transition: transform 0.5s ease;
     }
 
     /* 侧边栏激活样式 */
@@ -472,46 +504,46 @@
   </script>
   <!-- Leon Sans -->
   <script>
-    let leon, canvas, ctx;  
+    let leon, canvas, ctx;
     const sw = 200;
     const sh = 30;
     const pixelRatio = 3;
     function init() {
-        canvas = Docsify.dom.find("#blog-name");
-        ctx = canvas.getContext("2d");
-        canvas.width = sw * pixelRatio;
-        canvas.height = sh * pixelRatio;
-        canvas.style.width = sw + 'px';
-        canvas.style.height = sh + 'px';
-        ctx.scale(pixelRatio, pixelRatio);
-        leon = new LeonSans({
-            text: 'Jingqing\'s Blog',
-            // colorful: ['#c5d73f', '#9d529c', '#49a9db', '#fec330', '#5eb96e', '#fc5356', '#f38f31'],
-            size: 25,
-            weight: 600
+      canvas = Docsify.dom.find("#blog-name");
+      ctx = canvas.getContext("2d");
+      canvas.width = sw * pixelRatio;
+      canvas.height = sh * pixelRatio;
+      canvas.style.width = sw + 'px';
+      canvas.style.height = sh + 'px';
+      ctx.scale(pixelRatio, pixelRatio);
+      leon = new LeonSans({
+        text: 'Jingqing\'s Blog',
+        // colorful: ['#c5d73f', '#9d529c', '#49a9db', '#fec330', '#5eb96e', '#fc5356', '#f38f31'],
+        size: 25,
+        weight: 600
+      });
+      requestAnimationFrame(animate);
+      let i, total = leon.drawing.length;
+      for (i = 0; i < total; i++) {
+        TweenMax.fromTo(leon.drawing[i], 1.6, {
+          value: 0
+        }, {
+          delay: i * 0.05,
+          value: 1,
+          ease: Power4.easeOut
         });
-        requestAnimationFrame(animate);
-        let i, total = leon.drawing.length;
-        for (i = 0; i < total; i++) {
-            TweenMax.fromTo(leon.drawing[i], 1.6, {
-                value: 0
-            }, {
-                delay: i * 0.05,
-                value: 1,
-                ease: Power4.easeOut
-            });
-        }
+      }
     }
     function animate(t) {
-        requestAnimationFrame(animate);
-        ctx.clearRect(0, 0, sw, sh);
-        const x = (sw - leon.rect.w) / 2;
-        const y = (sh - leon.rect.h) / 2;
-        leon.position(x, y);
-        leon.drawColorful(ctx);
+      requestAnimationFrame(animate);
+      ctx.clearRect(0, 0, sw, sh);
+      const x = (sw - leon.rect.w) / 2;
+      const y = (sh - leon.rect.h) / 2;
+      leon.position(x, y);
+      leon.drawColorful(ctx);
     }
     window.onload = () => {
-        init();
+      init();
     };
   </script>
   <!-- 深色，浅色模式切换 -->
@@ -539,6 +571,11 @@
       autoTheme.disabled = true
       darkTheme.disabled = true
       lightTheme.disabled = false
+    }
+    function autoSwitch() {
+      autoTheme.disabled = false
+      darkTheme.disabled = true
+      lightTheme.disabled = true
     }
   </script>
   <!-- 离开标签页改变 title -->
