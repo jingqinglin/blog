@@ -12,4 +12,4 @@
 - 🌓
   - <a href="javascript:setLight()">浅色模式</a>
   - <a href="javascript:setDark()">深色模式</a>
-  - <a title="在 Windows 10 1903，iOS 13，macOS 10.15 及更高版本系统上可跟随系统外观变色" href="javascript:autoSwitch()">自动</a>
+  - <a title="在 Windows 10 1903，iOS 13，macOS Mojave 及更高版本系统上可跟随系统外观变色" href="javascript:autoSwitch()">自动</a>
