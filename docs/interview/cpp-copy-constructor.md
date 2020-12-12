@@ -439,4 +439,4 @@ int main()
 
 ## 相关
 
-移动构造函数，[传送门](interview/cpp?id=移动语意)
+移动构造函数，[传送门](interview/cpp?id=移动语义)
