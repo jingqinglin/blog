@@ -123,3 +123,49 @@ Shader program
 ### 纹理映射
 
 ![](_images/0709-14.png)
+
+#### 重心坐标 -> 插值
+
+定义：给定三角形的三点坐标 $A, B, C$，该平面内一点 $(x,y)$ 可以写成这三点坐标的线性组合形式，即 $(x,y) = \alpha A+\beta B+ \gamma C$ 且满足 $\alpha + \beta + \gamma=1$ 则称此时 3 个坐标 $A, B, C$ 的权重 $\alpha, \beta ,\gamma$ 为点 $(x,y)$ 的重心坐标。
+
+> https://blog.csdn.net/qq_38065509/article/details/105446756
+
+- 任意一点的的重心坐标可以**通过该点与三角形顶点连线分割出的三个子三角形**的面积比计算出来
+- 投影下不能保证重心坐标不变，要在三维空间里利用重心坐标插值
+- 纹理坐标、法向量、颜色等等都可以用来插值
+
+
+像素在三角形 -> 计算对应 uv -> 取纹理对应颜色值 -> 设置
+
+#### Texture Magnification
+
+纹理太小怎么办 -> 插值
+
+- 纹理像素：texel
+- 解决：
+  - Nearest
+  - Bilinear
+    - Bilinear 插值 lerp
+    - 水平 + 竖直插值 -> 双线性插值
+    - 最近的四个点插值
+  - Bicubic 双向三次插值
+    - 周围 16 个点做三次插值
+    - 运算量更大，结果更好
+
+#### Texture Magnification
+
+> 关于这部分，闫老师的课件比较详细
+
+纹理太大怎么办
+
+- 一个 pixel 对应多个 texel -> 采样频率不足导致摩尔纹或锯齿（走样）
+- 解决：
+  - Supersampling
+    - 太浪费！
+    - Just need to get the average value within a range
+        - Point Query vs. **(Avg.) Range Query**
+  - Mipmap（显存额外开销 1/3）：对正方形区域（屏幕空间一个像素对应纹理像素的正方形区域）查询结果较好
+  - 各向异性过滤（显存额外开销 3 倍）：对长方形区域（屏幕空间一个像素对应纹理像素的长方形区域，下图最右边的那对映射）效果很好
+  - EWA 过滤
+
+![](_images/0709-15.png)
