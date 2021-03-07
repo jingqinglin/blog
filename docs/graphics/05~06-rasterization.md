@@ -26,7 +26,7 @@
 
 $inside(t, x, y)=\left\{\begin{array}{ll}1 & \text { Point }(x, y) \\ & \text { in triangle } t \\ 0 & \text { otherwise }\end{array}\right.$
 
-- 可通过叉积判断一个点在三角形的内部还是外部
+- 可通过叉积判断一个像素点在三角形的内部还是外部
 - 提高采样效率：包围盒（Bounding box）AABB
 
 

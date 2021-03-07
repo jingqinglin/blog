@@ -40,12 +40,14 @@ $A_{n}\left(\ldots A_{2}\left(A_{1}(\mathbf{x})\right)\right)=\mathbf{A}_{n} \cd
 - 旋转的表示：欧拉角、四元数
 - 罗德里格斯旋转公式
 
-## Viewing Transformation
+## 观测变换（Viewing Transformation）
 
 > [!TIP|label:Think about how to take a photo]
 > - Find a good place and arrange people (model transformation)
 > - Find a good "angle" to put the camera (view transformation)
 > - Cheese! (projection transformation)
+
+![](_images/0304-04.png)
 
 ### 视图/相机变换
 
@@ -63,7 +65,7 @@ $A_{n}\left(\ldots A_{2}\left(A_{1}(\mathbf{x})\right)\right)=\mathbf{A}_{n} \cd
 ![](_images/0304-03.png ':size=70%')
 
 - 正交投影
-- 透视投影：可分为两步。
+- 透视投影：可分为两步
   - “挤压”平截头体，让其成为一个长方体或者立方体![](_images/0304-02.png ':size=50%')
   - 对长方体进行正射投影
 

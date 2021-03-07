@@ -14,7 +14,7 @@
 
 ```cpp
 for (each triangle T)
-    for (each sample (x, y, z) in T)
+    for (each sample(x, y, z) in T)
         if (z < zbuffer[x, y])       // closest sample so far
         {
             framebuffer[x, y] = rgb; // update color
@@ -103,7 +103,7 @@ $\begin{aligned} L &=L_{a}+L_{d}+L_{s} \\ &=k_{a} I_{a}+k_{d}\left(I / r^{2}\rig
 
 ![](_images/0709-11.png)
 
-如果面出现的频率已经很高了，那 flat shading 也有比较好的效果，如上图左下角。
+如果**面出现的频率**已经很高了，那 flat shading 也有比较好的效果，如上图左下角。
 
 - 顶点的法线就是相邻各个面的法线的加权平均
   ![](_images/0709-12.png ':size=30%')
@@ -126,7 +126,7 @@ Shader program
 
 #### 重心坐标 -> 插值
 
-定义：给定三角形的三点坐标 $A, B, C$，该平面内一点 $(x,y)$ 可以写成这三点坐标的线性组合形式，即 $(x,y) = \alpha A+\beta B+ \gamma C$ 且满足 $\alpha + \beta + \gamma=1$ 则称此时 3 个坐标 $A, B, C$ 的权重 $\alpha, \beta ,\gamma$ 为点 $(x,y)$ 的重心坐标。
+定义：给定三角形的三点坐标 $A, B, C$，该平面内一点 $(x,y)$ 可以写成这三点坐标的线性组合形式，即 $(x,y) = \alpha A+\beta B+ \gamma C$ 且满足 $\alpha + \beta + \gamma=1$ 则称此时 3 个坐标 $A, B, C$ 的**权重** $\alpha, \beta ,\gamma$ 为点 $(x,y)$ 的重心坐标。
 
 > https://blog.csdn.net/qq_38065509/article/details/105446756
 
@@ -135,11 +135,11 @@ Shader program
 - 纹理坐标、法向量、颜色等等都可以用来插值
 
 
-像素在三角形 -> 计算对应 uv -> 取纹理对应颜色值 -> 设置
+像素在三角形内 -> 计算对应 uv（利用重心坐标） -> 取纹理对应颜色值 -> 设置
 
 #### Texture Magnification
 
-纹理太小怎么办 -> 插值
+##### 纹理太小怎么办 -> 插值
 
 - 纹理像素：texel
 - 解决：
@@ -152,11 +152,9 @@ Shader program
     - 周围 16 个点做三次插值
     - 运算量更大，结果更好
 
-#### Texture Magnification
+##### 纹理太大怎么办
 
 > 关于这部分，闫老师的课件比较详细
-
-纹理太大怎么办
 
 - 一个 pixel 对应多个 texel -> 采样频率不足导致摩尔纹或锯齿（走样）
 - 解决：
