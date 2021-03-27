@@ -9,12 +9,13 @@ using namespace std;
 using namespace CryptoPP;
 
 // https://stackoverflow.com/questions/3381614/c-convert-string-to-hexadecimal-and-vice-versa
-string strToHex(string str)
+string strToHex(const string& str)
 {
     stringstream ss;
     ss << hex << setfill('0');
 
-    for(auto ch : str) {
+    for(auto ch : str)
+    {
         // setw(2) 占两位，setfill('0') 空位填充 0
         ss << setw(2) << (int)(unsigned char)ch;
     }
@@ -23,11 +24,12 @@ string strToHex(string str)
 }
 
 // https://stackoverflow.com/questions/11608878/c-convert-string-to-hex
-string hexToStr(string hex)
+string hexToStr(const string& hex)
 {
     string str;
 
-    for(string::size_type i = 0; i < hex.length(); i += 2) {
+    for(string::size_type i = 0; i < hex.length(); i += 2)
+    {
         string tempStr = hex.substr(i, 2);
         // string to int
         unsigned char ch = (unsigned char)stoi(tempStr, nullptr, 16);
@@ -38,7 +40,7 @@ string hexToStr(string hex)
 }
 
 // 填充
-string padding(string plaintext)
+string padding(const string& plaintext)
 {
     string lastBlock;
     int len = plaintext.length();
@@ -46,31 +48,34 @@ string padding(string plaintext)
     int quotient = len / AES::BLOCKSIZE;
 
     lastBlock = plaintext.substr(AES::BLOCKSIZE * quotient, len % AES::BLOCKSIZE);
-    for(int i = 0; i < AES::BLOCKSIZE - len % AES::BLOCKSIZE; i++) {
+    for(int i = 0; i < AES::BLOCKSIZE - len % AES::BLOCKSIZE; i++)
+    {
         lastBlock.push_back((unsigned char)paddingNum);
     }
 
     return plaintext.substr(0, AES::BLOCKSIZE * quotient) + lastBlock;
 }
 
-string encrypt(string plaintext, string key, string vi, string ciphertext)
+string encrypt(const string& strPlaintext, const string& strKey, const string& strVi)
 {
-    plaintext = padding(plaintext);
-    ciphertext += vi;
-    key = hexToStr(key);
-    vi = hexToStr(vi);
+    string plaintext = padding(strPlaintext);
+    string ciphertext = strVi;
+    string key = hexToStr(strKey);
+    string vi = hexToStr(strVi);
     int multiple = plaintext.length() / AES::BLOCKSIZE;
 
     AESEncryption aesEncryptor;
     aesEncryptor.SetKey((byte*)key.c_str(), key.length());
 
-    for(int i = 0; i < multiple; i++) {
+    for(int i = 0; i < multiple; i++)
+    {
         string plaintextBlock = plaintext.substr(i * AES::BLOCKSIZE, AES::BLOCKSIZE);
         string xorBlock;
         unsigned char outBlock[AES::BLOCKSIZE];
         memset(outBlock, 0, AES::BLOCKSIZE);
 
-        for(int j = 0; j < AES::BLOCKSIZE; j++) {
+        for(int j = 0; j < AES::BLOCKSIZE; j++)
+        {
             xorBlock.push_back(plaintextBlock[j] ^ (unsigned char)vi[j]);
         }
 
@@ -90,11 +95,12 @@ string encrypt(string plaintext, string key, string vi, string ciphertext)
     return ciphertext;
 }
 
-string decrypt(string ciphertext, string key, string plaintext)
+string decrypt(const string& strCiphertext, const string& strKey)
 {
+    string plaintext;
     // 原始 key 为 16 进制形式，需按字节转换为 char
-    key = hexToStr(key);
-    ciphertext = hexToStr(ciphertext);
+    string key = hexToStr(strKey);
+    string ciphertext = hexToStr(strCiphertext);
     // 密文的前 16 个字节为 vi
     string vi = ciphertext.substr(0, AES::BLOCKSIZE);
     ciphertext = ciphertext.substr(AES::BLOCKSIZE, ciphertext.length() - AES::BLOCKSIZE);
@@ -103,7 +109,8 @@ string decrypt(string ciphertext, string key, string plaintext)
     AESDecryption aesDecryptor;
     aesDecryptor.SetKey((byte*)key.c_str(), key.length());
 
-    for(int i = 0; i < multiple; i++) {
+    for(int i = 0; i < multiple; i++)
+    {
         // 分组密文
         string ciphertextBlock = ciphertext.substr(i * AES::BLOCKSIZE, AES::BLOCKSIZE);
         unsigned char outBlock[AES::BLOCKSIZE];
@@ -112,7 +119,8 @@ string decrypt(string ciphertext, string key, string plaintext)
         aesDecryptor.ProcessBlock((byte*)ciphertextBlock.c_str(), outBlock);
 
         // AES 输出结果与上组密文或 vi 异或，得到明文
-        for(int j = 0; j < AES::BLOCKSIZE; j++) {
+        for(int j = 0; j < AES::BLOCKSIZE; j++)
+        {
             plaintext.push_back(outBlock[j] ^ (unsigned char)vi[j]);
         }
 
@@ -125,9 +133,11 @@ string decrypt(string ciphertext, string key, string plaintext)
     int paddingNum = (unsigned char)lastBlock[AES::BLOCKSIZE - 1];
 
     // 把填充字符从明文中去掉
-    for(int i = 0; i < paddingNum; i++) {
+    for(int i = 0; i < paddingNum; i++)
+    {
         // 若填充字符出现不同，则说明给定密文有误
-        if(plaintext.back() != paddingNum) {
+        if(plaintext.back() != paddingNum)
+        {
             return "Ciphertext is invalid!";
         }
         plaintext.pop_back();
@@ -144,7 +154,7 @@ int main(int argc, char** argv)
     string key = "140b41b22a29beb4061bda66b6747e14";
     string vi = "";
 
-    plaintext = decrypt(ciphertext, key, plaintext);
+    plaintext = decrypt(ciphertext, key);
 
     cout << "plaintext: " << plaintext << endl;
 

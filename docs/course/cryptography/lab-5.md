@@ -35,7 +35,7 @@
 
 ```cpp
 // 调用 Crypto++ 库实现 SHA-256
-string SHA256Hash(string data)
+string SHA256Hash(const string& data)
 {
     int len = data.length();
     byte digest[SHA256::DIGESTSIZE];
@@ -44,38 +44,37 @@ string SHA256Hash(string data)
     return string((char*)digest, SHA256::DIGESTSIZE);
 }
 
-vector<string> calculateHash(string fileName)
+vector<string> calculateHash(const string& fileName)
 {
-    // 二进制模式读取
     ifstream file(fileName, ios::binary);
     streampos len;
     int blockNum;
 
-    // 定位到文件末尾并得到文件长度
     file.seekg(0, ios::end);
     len = file.tellg();
     blockNum = (int)len / 1024;
     vector<string> hash(blockNum + 1);
 
-    if(file.is_open()) {
-        // 最后一个块单独处理
+    if(file.is_open())
+    {
         int lastBlockLen = (int)len - blockNum * 1024;
         string block;
         block.resize(lastBlockLen);
-        // 定位到最后一块的起始位置并输入到 block
         file.seekg((int)len - lastBlockLen);
         file.read(&block[0], lastBlockLen);
         hash[blockNum] = SHA256Hash(block);
 
-        // 倒序处理其他块
         block.resize(1024);
-        for(int i = blockNum - 1; i >= 0; i--) {
+        for(int i = blockNum - 1; i >= 0; i--)
+        {
             int blockStart = i * 1024;
             file.seekg(blockStart);
             file.read(&block[0], 1024);
             hash[i] = SHA256Hash(block + hash[i + 1]);
         }
-    } else {
+    }
+    else
+    {
         cout << "Can't open the file\n";
         exit(EXIT_FAILURE);
     }

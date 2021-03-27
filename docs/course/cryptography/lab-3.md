@@ -126,17 +126,16 @@ hello wo<0x08><0x08><0x08><0x08><0x08><0x08><0x08><0x08>    8
 <summary style="font-weight: 600;">加密前的填充代码</summary>
 
 ```cpp
-string padding(string plaintext)
+string padding(const string& plaintext)
 {
+    string lastBlock;
     int len = plaintext.length();
-    // 要填充的值。AES::BLOCKSIZE = 16
     int paddingNum = AES::BLOCKSIZE - len % AES::BLOCKSIZE;
-    // 明文分组个数
     int quotient = len / AES::BLOCKSIZE;
 
-    // 最后一组
-    string lastBlock = plaintext.substr(AES::BLOCKSIZE * quotient, len % AES::BLOCKSIZE);
-    for(int i = 0; i < AES::BLOCKSIZE - len % AES::BLOCKSIZE; i++) {
+    lastBlock = plaintext.substr(AES::BLOCKSIZE * quotient, len % AES::BLOCKSIZE);
+    for(int i = 0; i < AES::BLOCKSIZE - len % AES::BLOCKSIZE; i++)
+    {
         lastBlock.push_back((unsigned char)paddingNum);
     }
 
@@ -158,9 +157,11 @@ string lastBlock = plaintext.substr((multiple - 1) * AES::BLOCKSIZE, AES::BLOCKS
 // 从字符串最后一个字符获取填充字符
 int paddingNum = (unsigned char)lastBlock[AES::BLOCKSIZE - 1];
 // 把填充字符从明文中去掉
-for(int i = 0; i < paddingNum; i++) {
+for(int i = 0; i < paddingNum; i++)
+{
     // 若填充字符出现不同，则说明给定密文有误
-    if(plaintext.back() != paddingNum) {
+    if(plaintext.back() != paddingNum)
+    {
         return "Ciphertext is invalid!";
     }
     plaintext.pop_back();
@@ -174,11 +175,12 @@ for(int i = 0; i < paddingNum; i++) {
 最后，根据以上 CBC 的解密过程图和去填充思路可以写出解密代码：
 
 ```cpp
-string decrypt(string ciphertext, string key, string plaintext)
+string decrypt(const string& strCiphertext, const string& strKey)
 {
+    string plaintext;
     // 原始 key 为 16 进制形式，需按字节转换为 char
-    key = hexToStr(key);
-    ciphertext = hexToStr(ciphertext);
+    string key = hexToStr(strKey);
+    string ciphertext = hexToStr(strCiphertext);
     // 密文的前 16 个字节为 vi
     string vi = ciphertext.substr(0, AES::BLOCKSIZE);
     ciphertext = ciphertext.substr(AES::BLOCKSIZE, ciphertext.length() - AES::BLOCKSIZE);
@@ -187,7 +189,8 @@ string decrypt(string ciphertext, string key, string plaintext)
     AESDecryption aesDecryptor;
     aesDecryptor.SetKey((byte*)key.c_str(), key.length());
 
-    for(int i = 0; i < multiple; i++) {
+    for(int i = 0; i < multiple; i++)
+    {
         // 分组密文
         string ciphertextBlock = ciphertext.substr(i * AES::BLOCKSIZE, AES::BLOCKSIZE);
         unsigned char outBlock[AES::BLOCKSIZE];
@@ -196,18 +199,25 @@ string decrypt(string ciphertext, string key, string plaintext)
         aesDecryptor.ProcessBlock((byte*)ciphertextBlock.c_str(), outBlock);
 
         // AES 输出结果与上组密文或 vi 异或，得到明文
-        for(int j = 0; j < AES::BLOCKSIZE; j++) {
+        for(int j = 0; j < AES::BLOCKSIZE; j++)
+        {
             plaintext.push_back(outBlock[j] ^ (unsigned char)vi[j]);
         }
 
         vi = ciphertextBlock;
     }
 
+    // 解密后，最后一组明文单独处理
     string lastBlock = plaintext.substr((multiple - 1) * AES::BLOCKSIZE, AES::BLOCKSIZE);
+    // 从字符串最后一个字符获取填充字符
     int paddingNum = (unsigned char)lastBlock[AES::BLOCKSIZE - 1];
 
-    for(int i = 0; i < paddingNum; i++) {
-        if(plaintext.back() != paddingNum) {
+    // 把填充字符从明文中去掉
+    for(int i = 0; i < paddingNum; i++)
+    {
+        // 若填充字符出现不同，则说明给定密文有误
+        if(plaintext.back() != paddingNum)
+        {
             return "Ciphertext is invalid!";
         }
         plaintext.pop_back();
@@ -231,18 +241,21 @@ CTR 相较于 CBC 少了填充的过程。另外，CTR 需要维护一个自增�
 <summary style="font-weight: 600;">计数器的自增代码</summary>
 
 ```cpp
-string counterIncrement(string counter, int n)
+string counterIncrement(const string& counter, int n)
 {
     string res = counter;
     int addend = n;
 
-    for(int i = counter.length() - 1; i >= 0; i--) {
+    for(int i = counter.length() - 1; i >= 0; i--)
+    {
         unsigned char tempChar = counter[i];
-        // 出现进位
-        if((int)tempChar + addend > 255) {
+        if((int)tempChar + addend > 255)
+        {
             tempChar = tempChar + addend;
             addend = 1;
-        } else {
+        }
+        else
+        {
             tempChar = tempChar + addend;
             addend = 0;
         }
@@ -259,10 +272,11 @@ string counterIncrement(string counter, int n)
 根据以上 CTR 的解密过程图可以写出解密代码（可根据上方 CBC 修改）：
 
 ```cpp
-string decrypt(string ciphertext, string key, string plaintext)
+string decrypt(const string& strCiphertext, const string& strKey)
 {
-    key = hexToStr(key);
-    ciphertext = hexToStr(ciphertext);
+    string plaintext = "";
+    string key = hexToStr(strKey);
+    string ciphertext = hexToStr(strCiphertext);
     // 密文的前 16 个字节为计数器的初始值
     string counter = ciphertext.substr(0, AES::BLOCKSIZE);
     ciphertext = ciphertext.substr(AES::BLOCKSIZE, ciphertext.length() - AES::BLOCKSIZE);
@@ -271,7 +285,8 @@ string decrypt(string ciphertext, string key, string plaintext)
     AESEncryption aesEncryptor;
     aesEncryptor.SetKey((byte*)key.c_str(), key.length());
 
-    for(int i = 0; i < multiple; i++) {
+    for(int i = 0; i < multiple; i++)
+    {
         string ciphertextBlock = ciphertext.substr(i * AES::BLOCKSIZE, AES::BLOCKSIZE);
         string xorBlock;
         unsigned char outBlock[AES::BLOCKSIZE];
@@ -280,7 +295,8 @@ string decrypt(string ciphertext, string key, string plaintext)
         aesEncryptor.ProcessBlock((byte*)counter.c_str(), outBlock);
 
         // 密文和 AES 加密结果异或，得到明文
-        for(int j = 0; j < AES::BLOCKSIZE; j++) {
+        for(int j = 0; j < AES::BLOCKSIZE; j++)
+        {
             xorBlock.push_back(outBlock[j] ^ (unsigned char)ciphertextBlock[j]);
         }
 
@@ -298,7 +314,8 @@ string decrypt(string ciphertext, string key, string plaintext)
 
     aesEncryptor.ProcessBlock((byte*)counter.c_str(), outBlock);
 
-    for(int j = 0; j < residueLen; j++) {
+    for(int j = 0; j < residueLen; j++)
+    {
         xorBlock.push_back(outBlock[j] ^ (unsigned char)residueCiphertext[j]);
     }
 

@@ -1,4 +1,5 @@
 #include <gmpxx.h>
+
 #include <iostream>
 
 using namespace std;
@@ -35,15 +36,17 @@ void solve2()
     mpz_class A, x;
 
     mpz_sqrt(A.get_mpz_t(), N.get_mpz_t());
-    
-    for(int i = 1; i < 524288; i++) {
+
+    for(int i = 1; i < 524288; i++)
+    {
         A++;
         mpz_class temp = A * A - N;
         mpz_sqrt(x.get_mpz_t(), temp.get_mpz_t());
         p = A - x;
         q = A + x;
 
-        if(p * q == N) {
+        if(p * q == N)
+        {
             cout << "p: " << p << "\nq: " << q << endl;
             break;
         }

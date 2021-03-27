@@ -1,4 +1,6 @@
 #include <gmpxx.h>
+#include <time.h>
+
 #include <iostream>
 #include <string>
 #include <unordered_map>
@@ -18,7 +20,8 @@ void solve()
     mpz_class x0("0"), x1("0"), x("-1");
     unordered_map<string, int> hashMap;
 
-    for(int i = 0; i < B; i++) {
+    for(int i = 0; i < B; i++)
+    {
         mpz_class x_1 = i;
         mpz_class powm;
         mpz_powm(powm.get_mpz_t(), g.get_mpz_t(), x_1.get_mpz_t(), p.get_mpz_t());
@@ -33,9 +36,11 @@ void solve()
     mpz_powm(baseLeft.get_mpz_t(), g.get_mpz_t(), B.get_mpz_t(), p.get_mpz_t());
 
     mpz_class productLeft("1");
-    for(int i = 1; i <= B; i++) {
+    for(int i = 1; i <= B; i++)
+    {
         productLeft = productLeft * baseLeft % p;
-        if(hashMap.find(productLeft.get_str()) != hashMap.end()) {
+        if(hashMap.find(productLeft.get_str()) != hashMap.end())
+        {
             x0 = i;
             x1 = hashMap[productLeft.get_str()];
             break;
@@ -43,7 +48,8 @@ void solve()
     }
 
     x = B * x0 + x1;
-    if(x == -1) {
+    if(x == -1)
+    {
         cout << "There is no solution!" << endl;
         return;
     }
@@ -60,7 +66,8 @@ void solve2()
 
     // x1 = 0, 1, 2...。将等式右边的结果 h * g^x1 % p 存入哈希表，key = h * g^x1 % p，value = x1
     mpz_class productRight = h;
-    for(int i = 0; i < B; i++) {
+    for(int i = 0; i < B; i++)
+    {
         hashMap[productRight.get_str()] = i;
         productRight = productRight * g % p;
     }
@@ -70,12 +77,18 @@ void solve2()
     mpz_class baseLeft;
     // 幂取模运算
     mpz_powm(baseLeft.get_mpz_t(), g.get_mpz_t(), B.get_mpz_t(), p.get_mpz_t());
+    //    for(int i = 0; i < B; i++)
+    //    {
+    //        baseLeft = baseLeft * g % p;
+    //    }
 
     // x0 = 0, 1, 2...。判断等式左边的结果 (g^B % p)^x0 % p 是否在哈希表中
     mpz_class productLeft("1");
-    for(int i = 1; i <= B; i++) {
+    for(int i = 1; i <= B; i++)
+    {
         productLeft = productLeft * baseLeft % p;
-        if(hashMap.find(productLeft.get_str()) != hashMap.end()) {
+        if(hashMap.find(productLeft.get_str()) != hashMap.end())
+        {
             x0 = i;
             x1 = hashMap[productLeft.get_str()];
             break;
@@ -83,7 +96,8 @@ void solve2()
     }
 
     x = B * x0 - x1;
-    if(x == -1) {
+    if(x == -1)
+    {
         cout << "There is no solution!" << endl;
         return;
     }
@@ -95,7 +109,10 @@ void solve2()
 
 int main()
 {
-    solve();
+    clock_t start_time = clock();
     solve2();
+    clock_t end_time = clock();
+    cout << "The run time is: " << (double)(end_time - start_time) / CLOCKS_PER_SEC << "s" << endl;
+
     return 0;
 }

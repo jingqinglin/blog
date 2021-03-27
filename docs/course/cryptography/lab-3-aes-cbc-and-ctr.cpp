@@ -9,27 +9,35 @@
 using namespace std;
 using namespace CryptoPP;
 
-enum AESKeyLength { AES_KEY_LENGTH_16 = 16, AES_KEY_LENGTH_24 = 24, AES_KEY_LENGTH_32 = 32 };
+enum AESKeyLength
+{
+    AES_KEY_LENGTH_16 = 16,
+    AES_KEY_LENGTH_24 = 24,
+    AES_KEY_LENGTH_32 = 32
+};
 
 string strIv;
 
-string strToHex(string str)
+string strToHex(const string& str)
 {
     stringstream ss;
     ss << hex << setfill('0');
 
-    for(auto ch : str) {
+    for(auto ch : str)
+    {
+        // setw(2) 占两位，setfill('0') 空位填充 0
         ss << setw(2) << (int)(unsigned char)ch;
     }
 
     return ss.str();
 }
 
-string hexToStr(string hex)
+string hexToStr(const string& hex)
 {
     string str;
 
-    for(string::size_type i = 0; i < hex.length(); i += 2) {
+    for(string::size_type i = 0; i < hex.length(); i += 2)
+    {
         string tempStr = hex.substr(i, 2);
         // string to int
         unsigned char ch = (unsigned char)stoi(tempStr, nullptr, 16);
@@ -44,14 +52,16 @@ int encryptAesCbc(const string& inData, const string& strKey, string& outData, s
     outData = "";
     errMsg = "";
 
-    if(inData.empty() || strKey.empty()) {
+    if(inData.empty() || strKey.empty())
+    {
         errMsg = "indata or key is empty!!";
         return -1;
     }
 
     unsigned int keyLen = strKey.length();
 
-    if(keyLen != AES_KEY_LENGTH_16 && keyLen != AES_KEY_LENGTH_24 && keyLen != AES_KEY_LENGTH_32) {
+    if(keyLen != AES_KEY_LENGTH_16 && keyLen != AES_KEY_LENGTH_24 && keyLen != AES_KEY_LENGTH_32)
+    {
         errMsg = "aes key invalid!!";
         return -2;
     }
@@ -59,11 +69,14 @@ int encryptAesCbc(const string& inData, const string& strKey, string& outData, s
     byte* iv = (byte*)strIv.c_str();
     int statusCode = 0;
 
-    try {
+    try
+    {
         CBC_Mode<AES>::Encryption e;
         e.SetKeyWithIV((byte*)strKey.c_str(), keyLen, iv);
         StringSource ss(inData, true, new StreamTransformationFilter(e, new StringSink(outData)));
-    } catch(const CryptoPP::Exception& e) {
+    }
+    catch(const CryptoPP::Exception& e)
+    {
         errMsg = "Encryptor throw exception!!";
         statusCode = -3;
     }
@@ -76,14 +89,16 @@ int decryptAesCbc(const string& inData, const string& strKey, string& outData, s
     outData = "";
     errMsg = "";
 
-    if(inData.empty() || strKey.empty()) {
+    if(inData.empty() || strKey.empty())
+    {
         errMsg = "indata or key is empty!!";
         return -1;
     }
 
     unsigned int keyLen = strKey.length();
 
-    if(keyLen != AES_KEY_LENGTH_16 && keyLen != AES_KEY_LENGTH_24 && keyLen != AES_KEY_LENGTH_32) {
+    if(keyLen != AES_KEY_LENGTH_16 && keyLen != AES_KEY_LENGTH_24 && keyLen != AES_KEY_LENGTH_32)
+    {
         errMsg = "aes key invalid!!";
         return -2;
     }
@@ -91,11 +106,14 @@ int decryptAesCbc(const string& inData, const string& strKey, string& outData, s
     byte* iv = (byte*)strIv.c_str();
     int statusCode = 0;
 
-    try {
+    try
+    {
         CBC_Mode<AES>::Decryption d;
         d.SetKeyWithIV((byte*)strKey.c_str(), keyLen, iv);
         StringSource ss(inData, true, new StreamTransformationFilter(d, new StringSink(outData)));
-    } catch(const CryptoPP::Exception& e) {
+    }
+    catch(const CryptoPP::Exception& e)
+    {
         errMsg = "Decryptor throw exception";
         statusCode = -3;
     }
@@ -108,14 +126,16 @@ int encryptAesCtr(const string& inData, const string& strKey, string& outData, s
     outData = "";
     errMsg = "";
 
-    if(inData.empty() || strKey.empty()) {
+    if(inData.empty() || strKey.empty())
+    {
         errMsg = "indata or key is empty!!";
         return -1;
     }
 
     unsigned int keyLen = strKey.length();
 
-    if(keyLen != AES_KEY_LENGTH_16 && keyLen != AES_KEY_LENGTH_24 && keyLen != AES_KEY_LENGTH_32) {
+    if(keyLen != AES_KEY_LENGTH_16 && keyLen != AES_KEY_LENGTH_24 && keyLen != AES_KEY_LENGTH_32)
+    {
         errMsg = "aes key invalid!!";
         return -2;
     }
@@ -123,11 +143,14 @@ int encryptAesCtr(const string& inData, const string& strKey, string& outData, s
     byte* iv = (byte*)strIv.c_str();
     int statusCode = 0;
 
-    try {
+    try
+    {
         CTR_Mode<AES>::Encryption e;
         e.SetKeyWithIV((byte*)strKey.c_str(), keyLen, iv);
         StringSource ss(inData, true, new StreamTransformationFilter(e, new StringSink(outData)));
-    } catch(const CryptoPP::Exception& e) {
+    }
+    catch(const CryptoPP::Exception& e)
+    {
         errMsg = "Encryptor throw exception!!";
         statusCode = -3;
     }
@@ -140,14 +163,16 @@ int decryptAesCtr(const string& inData, const string& strKey, string& outData, s
     outData = "";
     errMsg = "";
 
-    if(inData.empty() || strKey.empty()) {
+    if(inData.empty() || strKey.empty())
+    {
         errMsg = "indata or key is empty!!";
         return -1;
     }
 
     unsigned int keyLen = strKey.length();
 
-    if(keyLen != AES_KEY_LENGTH_16 && keyLen != AES_KEY_LENGTH_24 && keyLen != AES_KEY_LENGTH_32) {
+    if(keyLen != AES_KEY_LENGTH_16 && keyLen != AES_KEY_LENGTH_24 && keyLen != AES_KEY_LENGTH_32)
+    {
         errMsg = "aes key invalid!!";
         return -2;
     }
@@ -155,11 +180,14 @@ int decryptAesCtr(const string& inData, const string& strKey, string& outData, s
     byte* iv = (byte*)strIv.c_str();
     int statusCode = 0;
 
-    try {
+    try
+    {
         CTR_Mode<AES>::Decryption d;
         d.SetKeyWithIV((byte*)strKey.c_str(), keyLen, iv);
         StringSource ss(inData, true, new StreamTransformationFilter(d, new StringSink(outData)));
-    } catch(const CryptoPP::Exception& e) {
+    }
+    catch(const CryptoPP::Exception& e)
+    {
         errMsg = "Decryptor throw exception";
         statusCode = -3;
     }
@@ -180,7 +208,8 @@ int main(int argc, char** argv)
     strCipher = strCipher.substr(16, strCipher.length() - keyLen);
 
     int statusCode = decryptAesCbc(strCipher, strKey, strPlainText, strErrMsg);
-    if(statusCode) {
+    if(statusCode)
+    {
         cout << "Decrypt failed, errMsg: " << strErrMsg;
         return -2;
     }
