@@ -1,13 +1,14 @@
 <!-- _navbar.md -->
 - [首页]()
 
-- 算法题
+- 面试
   - [LeetCode](leetcode/)
   - [剑指 Offer](lcof/lcof.md)
+  - [八股文](interview/)
 
-- 其他
-  - [面试相关](interview/)
-  - [课程相关](course/)
+- 学习
+  - [研究生课程](course/)
+  - [计算机图形学](graphics/)
 
 - 🌓
   - <a href="javascript:setLight()">浅色模式</a>
