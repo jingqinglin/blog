@@ -423,10 +423,19 @@
       plugins: [
         function (hook, vm) {
           hook.beforeEach(function (html) {
-            var url = 'https://github.com/JingqingLin/blog/blob/master/docs/' + vm.route.file;
+            var edit_url = 'https://github.com/jingqinglin//blog/blob/master/docs/' + vm.route.file;
+            var date_url = 'https://api.github.com/repos/jingqinglin/blog/commits?per_page=1&path=docs/' + vm.route.file;
+            fetch(date_url)
+              .then((response) => {
+                return response.json();
+              })
+              .then((commits) => {
+                var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
+                document.getElementById('last-modified').textContent = "上次修改：" + modified;
+              });
             return (
-              '<div class="edit-document" style="font-size: 14px;" align="right">✏️ <a style="font-weight: 400" href=' + url + ' target="_blank">编辑文档</a></div>' +
-              '\n\n' +
+              '<div class="edit-document" style="font-weight: bold;"><span id="last-modified" style="float: right;"></span><span>✏️ <a style="text-decoration: none;color: inherit;" href=' + edit_url + ' target="_blank">在 GitHub 上编辑此页</a></span></div>' +
+              '<hr>\n\n' +
               html
             );
           });
