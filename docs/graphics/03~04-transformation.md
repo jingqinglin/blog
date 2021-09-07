@@ -69,7 +69,7 @@ $A_{n}\left(\ldots A_{2}\left(A_{1}(\mathbf{x})\right)\right)=\mathbf{A}_{n} \cd
   - “挤压”平截头体，让其成为一个长方体或者立方体![](_images/0304-02.png ':size=50%')
   - 对长方体进行正射投影
 
-透视投影比较难理解，看[这篇](https://zhuanlan.zhihu.com/p/152280876)
+透视投影比较难理解，看[这篇](https://zhuanlan.zhihu.com/p/359128442)
 
 ## 补充
 
