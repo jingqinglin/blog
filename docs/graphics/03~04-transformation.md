@@ -8,14 +8,14 @@
 
 使用矩阵表示表换。
 
-- 线性变换：旋转，缩放，切变  
+- 线性变换：旋转，缩放，切变（原点不变）  
   $\left[\begin{array}{l}x^{\prime} \\ y^{\prime}\end{array}\right]=\left[\begin{array}{ll}a & b \\ c & d\end{array}\right]\left[\begin{array}{l}x \\ y\end{array}\right]$
 - 仿射变换：线性变换**接上**平移  
   $\left[\begin{array}{l}x^{\prime} \\ y^{\prime}\end{array}\right]=\left[\begin{array}{ll}a & b \\ c & d\end{array}\right]\left[\begin{array}{l}x \\ y\end{array}\right]+\left[\begin{array}{l}t_{x} \\ t_{y}\end{array}\right]$
 
 ## 齐次坐标
 
-平移不能以矩阵连乘的形式表示，因此引入齐次坐标（用 $N + 1$ 维来代表 $N$ 维坐标）：增加第三个轴（$w$ 轴）
+平移不能以**矩阵连乘**的形式表示，因此引入齐次坐标（用 $N + 1$ 维来代表 $N$ 维坐标）：增加第三个轴（$w$ 轴）
 - 二维点：$(x, y, 1)^{\mathsf{T}}$
 - 二维向量：$(x, y, 0)^{\mathsf{T}}$
 
@@ -28,8 +28,8 @@ $\left[\begin{array}{l}x^{\prime} \\ y^{\prime} \\ w^{\prime}\end{array}\right]=
   - 
     - 向量 + 向量 = 向量
     - 点 - 点 = 向量
-    - 点 + 向量 = 点
-    - 点 + 点 = 两个点的中点
+    - 点 + 向量 = 点（点沿着向量移动）
+    - 点 + 点 = 两个点的中点（相加后 $w = 2$，对相加后三个维度都除以 $2$ 即新的点）
 
 ## 组合变换
 
@@ -38,27 +38,33 @@ $A_{n}\left(\ldots A_{2}\left(A_{1}(\mathbf{x})\right)\right)=\mathbf{A}_{n} \cd
 ## 三维变换
 
 - 旋转的表示：欧拉角、四元数
-- 罗德里格斯旋转公式
+- 罗德里格斯旋转公式：给定转轴和旋转角度后，旋转一个向量的算法（此处默认转轴过原点）
 
 ## 观测变换（Viewing Transformation）
+
+第四节课略难懂。
 
 > [!TIP|label:Think about how to take a photo]
 > - Find a good place and arrange people (model transformation)
 > - Find a good "angle" to put the camera (view transformation)
 > - Cheese! (projection transformation)
+> 
+> 一个物体从三维坐标映射到二维屏幕上，要经过一系列的坐标系变换。物体经历了从物体坐标系到世界坐标系（模型变换，Model Transformation），再从世界坐标系到观察坐标系（相机变换，Camera Transformation 或观测变换，Viewing Transformation），再投影到 2D 平面（投影变换，Projection Transformation）等一系列过程
 
-![](_images/0304-04.png)
+![](_images/0304-00.png)
 
 ### 视图/相机变换
 
-定义相机：
-- Position $\vec{e}$
-- Look-at direction $\hat{g}$
-- Up direction $\hat{t}$
-
-一般约定把相机放在“标准位置”上——The origin, up at Y, look at -Z，所以需要把相机变换到标准位置上（物体也跟着变换）。课件 P15 & 16
-
 ![](_images/0304-01.png ':size=50%')
+
+定义相机：
+- 位置，Position $\vec{e}$
+- 观察方向，Look-at direction $\hat{g}$
+- 上方向，Up direction $\hat{t}$
+
+一般约定把相机放在“标准位置”上——The origin, up at Y, look at -Z，所以需要把相机变换到标准位置上（物体也跟着变换）。需要先平移到原点再作旋转，变换矩阵见课件 P15 & 16。可以从基变换的角度理解（闫老师不推荐这个角度），p16 左下角的矩阵可看作是一个基向量组。下图摘自：https://zhuanlan.zhihu.com/p/356261083
+
+![](_images/0304-02.png ':size=40%')
 
 ### 投影变换
 
@@ -66,10 +72,12 @@ $A_{n}\left(\ldots A_{2}\left(A_{1}(\mathbf{x})\right)\right)=\mathbf{A}_{n} \cd
 
 - 正交投影
 - 透视投影：可分为两步
-  - “挤压”平截头体，让其成为一个长方体或者立方体![](_images/0304-02.png ':size=50%')
+  - “挤压”平截头体（最终效果是往远平面压缩），让其成为一个长方体或者立方体![](_images/0304-04.png ':size=50%')
   - 对长方体进行正射投影
 
-透视投影比较难理解，看[这篇](https://zhuanlan.zhihu.com/p/359128442)
+透视投影比较难理解，看[这篇](https://zhuanlan.zhihu.com/p/359128442)。投影矩阵推导：
+
+![](_images/0304-05.png ':size=50%')
 
 ## 补充
 

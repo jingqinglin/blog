@@ -1,3 +1,4 @@
+图形学的应用领域包括游戏、电影、动画、设计、可视化、虚拟现实、增强现实、数字插画、模拟、图形用户界面、字体等。
 ## Technical Challenges
 
 - Math of (perspective) projections, curves, surfaces
