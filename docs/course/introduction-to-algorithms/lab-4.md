@@ -63,12 +63,12 @@ public class TaskScheduling {
             int insertPos = A.size();
             while (insertPos > 0 &&
                     d[A.get(insertPos - 1)] > d[i] &&
-                    // 若「提前任务子集」中 insertPos 位置任务的 deadline 等于 insertPos，
+                    // 若“提前任务子集”中 insertPos 位置任务的 deadline 等于 insertPos，
                     // 说明这个任务不能被往后移了
                     d[A.get(insertPos - 1)] != insertPos) {
                 insertPos--;
             }
-            // 若 deadline > 插入位置，则插入「提前任务子集」
+            // 若 deadline > 插入位置，则插入“提前任务子集”
             if (d[i] > insertPos) {
                 A.add(insertPos, i);
             } else {

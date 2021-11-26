@@ -1,4 +1,4 @@
-> 教材第三章。可汗学院公开课「[古典密码学](http://open.163.com/newview/movie/courseintro?newurl=%2Fspecial%2FKhan%2Fancientcryptography.html)」
+> 教材第三章。可汗学院公开课“[古典密码学](http://open.163.com/newview/movie/courseintro?newurl=%2Fspecial%2FKhan%2Fancientcryptography.html)”
 
 ## 对称密码模型
 五个基本成分：明文、加密算法、密钥、密文、解密算法。

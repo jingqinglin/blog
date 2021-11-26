@@ -5,7 +5,7 @@
 1976, the concept of public-key cryptographyis developed by Diffie and Hellman.
 
 - 对称加密比较慢，公钥加密更慢。往往用对称加密保护明文，用公钥加密保护对称密钥
-- 公钥加密可解决「不可否认性」问题
+- 公钥加密可解决“不可否认性”问题
 - 用途：加/解密（实现数据保密性），**数字签名**（实现认证），**密钥交换**（不是所有的公钥算法都有这三个用途）
 - 公钥一般用于加密，验证签名；私钥用于解密，创建签名
 - 公钥密码的一些误解和事实：  
@@ -92,7 +92,7 @@ graph LR
 ![](_images/summary-public-key-cryptography-5.png ':class=resizedImage')
 
 - 如果信息必须分组然后以加密的密钥块序列发送，那么每个分块要有唯一的 $k$
-- 解密过程中用到了「分数取模」：$a^{p-2} \bmod p = a^{-1} \bmod p$（[费马小定理](https://zh.wikipedia.org/wiki/%E8%B4%B9%E9%A9%AC%E5%B0%8F%E5%AE%9A%E7%90%86)或扩展欧几里得算法。费马小定理只适用于 $p$ 为素数，扩展欧几里得算法在教材 2.3.6）
+- 解密过程中用到了“分数取模”：$a^{p-2} \bmod p = a^{-1} \bmod p$（[费马小定理](https://zh.wikipedia.org/wiki/%E8%B4%B9%E9%A9%AC%E5%B0%8F%E5%AE%9A%E7%90%86)或扩展欧几里得算法。费马小定理只适用于 $p$ 为素数，扩展欧几里得算法在教材 2.3.6）
 - ECC 相较于 RSA 有性能上的提升：https://zhuanlan.zhihu.com/p/46143317
 
 
