@@ -1,3 +1,4 @@
+/* index.html 通过 cdn 引用此 css，因此本地调试时需改回本地路径 */
 :root {
   --background-color: #ffffff;
   --code-background-color: #f8f8f8;

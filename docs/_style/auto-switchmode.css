@@ -1,3 +1,4 @@
+/* index.html 通过 cdn 引用此 css，因此本地调试时需改回本地路径 */
 /* 定义浅色模式样式 */
 @media (prefers-color-scheme: light) {
   :root {
@@ -25,12 +26,12 @@
     --mermaid-cluster-color: transparent;
   }
 
-  img {
+  img:not(.medium-zoom-image--opened) {
     opacity: 0.6 !important;
     transition: opacity 0.5s ease-in-out;
   }
 
-  img:hover {
+  img:hover:not(.medium-zoom-image--opened) {
     opacity: 1 !important;
     transition: opacity 0.5s ease-in-out;
   }
