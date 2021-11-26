@@ -18,9 +18,7 @@
 
 ## 实验准备
 
-本实验拟采用 C++ 作为编程语言。同实验二，本实验也需要配置 GMP 库，详细配置过程见[实验二](course/cryptography/lab-2?id=windows-下配置-gmp)相应部分或以下网页片段。
-
-[实验二配置 GMP](https://jingqinglin.gitee.io/blog/#/course/cryptography/gmp-config ':include :type=iframe width=100% height=600px')
+本实验拟采用 C++ 作为编程语言。同实验二，本实验也需要配置 GMP 库，详细配置过程见[实验二](course/cryptography/lab-2?id=windows-下配置-gmp)相应部分。
 
 ## 实验分析
 
