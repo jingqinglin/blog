@@ -63,7 +63,7 @@ public static int[] maxDepthAfterSplit(String seq) {
 
 左右各扫描一次
 
-![](_images/april-3-1.png ':size=70%')
+![](_images/april-3-1.png ':class=resizedImage')
 
 ### 双指针 和 单调栈
 
@@ -184,7 +184,7 @@ B 站：
 
 dp 思想截图：
 
-![](_images/april-7-1.png)
+![](_images/april-7-1.png ':class=resizedImage')
 
 按照动规思想写出代码，
 
@@ -219,7 +219,7 @@ public static int superEggDrop(int K, int N) {
 
 类似于下图：
 
-![](_images/april-7-2.png ':size=60%')
+![](_images/april-7-2.png ':class=resizedImage')
 
 因此 max 在两者相交时取到最小值。那么我们令 `low = 1, high = j`（当前总楼层数），`index = (low + high) / 2`
 
@@ -306,7 +306,7 @@ public static int superEggDrop(int K, int N) {
 > 第一眼看起来和<a href="https://leetcode-cn.com/problems/non-overlapping-intervals/" target="_blank">无重叠区间</a>很像，想用贪心做，但失败了
 
 
-![](_images/april-11-1.png ':size=70%')
+![](_images/april-11-1.png ':class=resizedImage')
 
 按左端点排序，遍历区间，将合并后的区间放到“合并数组”中：
 - 若“合并数组”为空，则把当前区间（排序后的第一个区间）加入“合并数组”
@@ -372,7 +372,7 @@ public static boolean canJump(int[] nums) {
 **移动较短的那根**  
 因为短指针限制了高度，如果移动长指针不可能增加整体的高度，而底在不断减少，所以移动短指针来**尝试**增加最大高度
 
-![](_images/april-13-1.png)
+![](_images/april-13-1.png ':class=resizedImage')
 
 ## 14. ⭐ 统计重复个数
 
@@ -422,7 +422,7 @@ public static int getMaxRepetitions(String s1, int n1, String s2, int n2) {
 
 我们可以将不断循环的 `s2` 组成的字符串类比作上面小数部分，去找是否存在一个子串，即「循环节」，满足不断在 `s2` 中循环，且这个**循环节能对应固定数量的 `s1`**。如下图所示，在第一次出现后，`s2` 的子串 `bdadc` 构成一个循环节：之后 `bdadc` 的每次出现都需要有相应的两段 `s1`。
 
-![](_images/april-14-1.png ':size=70%')
+![](_images/april-14-1.png ':class=resizedImage')
 
 - 如何找出循环节？
   1. 以 `s1` 为单位循环遍历 `S1 = [s1,n1]`，同时维护为 `s2` 一个指针 `p`，记录现在指向 `s2` 中的哪个位置。若两字符串字符相等，则 `p++`（指向了 `s2` 的后一个位置）
@@ -462,7 +462,7 @@ public static int getMaxRepetitions(String s1, int n1, String s2, int n2) {
 
 > 不能单条线递归，如下情况，5 不会被遍历进去
 
-![](_images/april-16-1.png ':size=30%')
+![](_images/april-16-1.png ':class=resizedImage')
 
 BFS，⭐ DFS 皆可。BFS 先把左子树入队，DFS 先递归右子树
 
@@ -553,7 +553,7 @@ if (nums[mid] <= nums[mid + 1]) {
 
 用时缩短：
 
-![](_images/april-18-1.png ':size=70%')
+![](_images/april-18-1.png ':class=resizedImage')
 
 ## 19. 合并K个排序链表
 

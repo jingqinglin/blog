@@ -103,7 +103,7 @@ void main()
 
 结果是这样的：
 
-![](_images/learnopengl-getting-started-14.png ':size=45%')
+![](_images/learnopengl-getting-started-14.png ':class=resizedImage')
 
 我们成功地从顶点着色器向片段着色器发送数据。让我们更上一层楼，看看能否从应用程序中直接给片段着色器发送一个颜色！
 
@@ -185,7 +185,7 @@ void main()
 
 因为我们添加了另一个顶点属性，并且更新了 VBO 的内存，我们就必须重新配置顶点属性指针。更新后的 VBO 内存中的数据现在看起来像这样：
 
-![](_images/learnopengl-getting-started-15.png)
+![](_images/learnopengl-getting-started-15.png ':class=resizedImage')
 
 知道了现在使用的布局，我们可以更新顶点格式：
 
@@ -199,7 +199,7 @@ glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * s
 glEnableVertexAttribArray(1);
 ```
 
-![](_images/learnopengl-getting-started-16.png ':size=45%')
+![](_images/learnopengl-getting-started-16.png ':class=resizedImage')
 
 这是在片段着色器中进行的**片段插值**（Fragment Interpolation）的结果。当渲染一个三角形时，光栅化（Rasterization）阶段通常会造成比原指定顶点更多的片段。光栅会根据每个片段在三角形形状上所处相对位置决定这些片段（屏幕上）的位置。
 基于这些位置，它会插值（Interpolate）所有片段着色器的输入变量。比如说，我们有一个线段，上面的端点是绿色的，下面的端点是蓝色的。如果一个片段着色器在线段的 70% 的位置运行，它的颜色输入属性就会是一个绿色和蓝色的线性结合；更精确地说就是 30% 蓝 + 70% 绿。

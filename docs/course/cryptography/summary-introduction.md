@@ -36,19 +36,19 @@ OSI 安全架构主要关注安全攻击、安全服务、安全机制。
 
 #### ** 伪装 **
 
-![](_images/summary-introduction-1.png)
+![](_images/summary-introduction-1.png ':class=resizedImage')
 
 #### ** 重放 **
 
-![](_images/summary-introduction-2.png)
+![](_images/summary-introduction-2.png ':class=resizedImage')
 
 #### ** 信息修改 **
 
-![](_images/summary-introduction-3.png)
+![](_images/summary-introduction-3.png ':class=resizedImage')
 
 #### ** 拒绝服务 **
 
-![](_images/summary-introduction-4.png)
+![](_images/summary-introduction-4.png ':class=resizedImage')
 
 <!-- tabs:end -->
 
@@ -56,7 +56,7 @@ OSI 安全架构主要关注安全攻击、安全服务、安全机制。
 
 **安全服务通过安全机制来实现其安全策略**。X.800 将这些服务分为 5 类共 14 个特定服务（本课对**访问控制**不做要求）：
 
-![](_images/summary-introduction-5.png)
+![](_images/summary-introduction-5.png ':class=resizedImage')
 
 ## 安全机制
 
@@ -65,7 +65,7 @@ OSI 安全架构主要关注安全攻击、安全服务、安全机制。
 - 数字签名：附加于数据单元之后的一种数据，它是对数据单元的密码变换，以使得（如接收方）可证明数据源和完整性，并防止伪造
 - 数据完整性
 
-![](_images/summary-introduction-6.png)
+![](_images/summary-introduction-6.png ':class=resizedImage')
 
 ## 思考题
 

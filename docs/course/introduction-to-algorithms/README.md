@@ -128,12 +128,12 @@
 
 ### ** 💯 复习提纲 **
 
-![](_images/summary-1.png)
-![](_images/summary-2.png)
-![](_images/summary-3.png)
-![](_images/summary-4.png)
-![](_images/summary-5.png)
-![](_images/summary-6.png)
+![](_images/summary-1.png ':class=resizedImage')
+![](_images/summary-2.png ':class=resizedImage')
+![](_images/summary-3.png ':class=resizedImage')
+![](_images/summary-4.png ':class=resizedImage')
+![](_images/summary-5.png ':class=resizedImage')
+![](_images/summary-6.png ':class=resizedImage')
 
 #### 数据结构
 

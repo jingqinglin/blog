@@ -21,7 +21,7 @@
 
 ## 基于哈希函数的 MAC：HMAC
 
-![](_images/summary-message-authentication-1.png ':size=40%')
+![](_images/summary-message-authentication-1.png ':class=resizedImage')
 <font size="2" color="#8590a6">$IV$ 为 Hash 函数输入的初始值</font>
 
 
@@ -38,7 +38,7 @@ $\mathrm{f}\left(IV,\left(K^{+} \oplus \mathrm{opad}\right)\right)$
 
 DAA 采用 DES 运算的密文块链接（CBC）方式。
 
-![](_images/summary-message-authentication-2.png ':size=70%')
+![](_images/summary-message-authentication-2.png ':class=resizedImage')
 
 DAA 有如下的限制：仅能处理固定长度为 $mn$ 的消息，其中 $n$ 是密文分组的长度，$m$ 是一个固定的正整数。例如，给定一个消息分组 $X$ 的 CBC MAC 码，如 $T = MAC(K,x)$，则攻击者马上就知道两个消息分组 $X||(X \oplus T)$ 的 CBC MAC 码，因为这还是 $T$。
 
@@ -46,7 +46,7 @@ DAA 有如下的限制：仅能处理固定长度为 $mn$ 的消息，其中 $n$
 
 DAA 的限制可以使用三个密钥来克服: 一个长度为 $k$ 的密钥 $K$，用在密文分组链接的每一步，两个长度为 $b$ 的密钥，其中 $b$ 是密钥长度。
 
-![](_images/summary-message-authentication-3.png ':size=70%')
+![](_images/summary-message-authentication-3.png ':class=resizedImage')
 
 ## 思考题
 

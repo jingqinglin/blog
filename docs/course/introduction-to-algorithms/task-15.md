@@ -48,7 +48,7 @@ $$
 >
 > 对于图 26-1b 所示的流网络 $G = (V, E)$ 和流 $f$,找出两个子集合 $X, Y \in V$，且满足 $f(X, Y) = −f(V − X, Y)$。再找出两个子集合 $X, Y \in V$，且满足 $f(X, Y) \ne −f(V − X, Y)$。
 >
-> ![](_images/task-15-1.png ':size=50%')
+> ![](_images/task-15-1.png ':class=resizedImage')
 
 1. $X = \{v_1, v_2\}, Y = \{v_3\}$，此时 $f(X, Y) = 12 - 4 = 8, f(V − X, Y) = 7 - 15 = -8$
 2. $X = \{s\}, Y = \{t\}$，此时 $f(X, Y) = 8, f(V − X, Y) = 19$

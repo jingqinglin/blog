@@ -52,34 +52,34 @@ Since the black height of a node depends only on the black height and color of i
 
 - initial:
 
-![](_images/13.4-3-1.png)
+![](_images/13.4-3-1.png ':class=resizedImage')
 
 - delete $8$:
 
-![](_images/13.4-3-2.png ':size=90%')
+![](_images/13.4-3-2.png ':class=resizedImage')
 
 - delete $12$:
 
-![](_images/13.4-3-3.png ':size=70%')
+![](_images/13.4-3-3.png ':class=resizedImage')
 
 - delete $19$:
 
-![](_images/13.4-3-4.png ':size=70%')
+![](_images/13.4-3-4.png ':class=resizedImage')
 
 - delete $31$:
 
-![](_images/13.4-3-5.png ':size=42%')
+![](_images/13.4-3-5.png ':class=resizedImage')
 
 - delete $38$:
 
-![](_images/13.4-3-6.png ':size=10%')
+![](_images/13.4-3-6.png ':class=resizedImage')
 
 - delete $41$:
 
-![](_images/13.4-3-7.png ':size=10%')
+![](_images/13.4-3-7.png ':class=resizedImage')
 
 </details>
 <br>
 
 > [!WARNING]
-> 第二版中的 [14.2-3](https://cdn.jsdelivr.net/gh/JingqingLin/ImageHosting@master/img/20200515170540.png) 在第三版中已合并到 14.2-2
+> 第二版中的 [14.2-3](https://cdn.jsdelivr.net/gh/JingqingLin/ImageHosting@master/img/20200515170540.png ':class=resizedImage') 在第三版中已合并到 14.2-2

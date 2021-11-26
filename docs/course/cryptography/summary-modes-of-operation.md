@@ -23,18 +23,18 @@
 
 ### ** 电码本（ECB） **
 
-![](_images/summary-modes-of-operation-1.png ':size=70%')
+![](_images/summary-modes-of-operation-1.png ':class=resizedImage')
 
 - 每个消息块都使用相同的密钥独立加密，因此相同的明文块会被加密成相同的密文块，不能很好地隐藏数据模式
 
 > [!NOTE|label:错误传播]
 > 密文传输中的比特错误会在相应的明文分组中造成比特错误，不过这种错误对其他分组没有影响（参考解密流程图）
 > 
->![](_images/summary-modes-of-operation-2.png ':size=70%')
+>![](_images/summary-modes-of-operation-2.png ':class=resizedImage')
 
 ### ** 密文分组链接（CBC） **
 
-![](_images/summary-modes-of-operation-3.png ':size=70%')<font size="2" color="#8590a6">IV（Initialization Vector，初始向量）</font>
+![](_images/summary-modes-of-operation-3.png ':class=resizedImage')<font size="2" color="#8590a6">IV（Initialization Vector，初始向量）</font>
 
 
 - 它的主要缺点在于加密过程是串行的，无法被并行化
@@ -43,40 +43,40 @@
 > [!NOTE|label:错误传播]
 > 传送过程中密文分组 $C_i$ 的比特错误，在解密时会造成明文分组 $P_i$ 以及下一个明文分组 $P_{i+1}$ 的比特错误，不会影响到其它明文分组。密文分组重复和分组缺失情况见下图：
 > 
->![](_images/summary-modes-of-operation-4.png ':size=70%')
+>![](_images/summary-modes-of-operation-4.png ':class=resizedImage')
 
 ### ** 密文反馈（CFB） **
 
-![](_images/summary-modes-of-operation-5.png ':size=70%')
+![](_images/summary-modes-of-operation-5.png ':class=resizedImage')
 
 - 与 CBC 相似，明文的改变会影响接下来所有的密文，因此加密过程不能并行化，但解密过程是可以并行化的
 
 > [!NOTE|label:错误传播]
 > 密文中一位数据的改变会影响 $1 + b/s$ 个明文分组：对应明文分组中的一位数据与后 $b/s$ 分组中全部的数据。密文分组重复和分组缺失情况见下图：
 > 
->![](_images/summary-modes-of-operation-6.png ':size=70%')
+>![](_images/summary-modes-of-operation-6.png ':class=resizedImage')
 
 ### ** 输出反馈（OFB） **
 
-![](_images/summary-modes-of-operation-7.png ':size=70%')
+![](_images/summary-modes-of-operation-7.png ':class=resizedImage')
 
 - 每个使用 OFB 的输出块与其前面所有的输出块相关，因此上图中“加密”部分不能并行化处理，但事先算好“加密”部分后，“异或”部分可以并行处理
 
 > [!NOTE|label:错误传播]
 > 密文中一位数据的改变仅会影响对应的明文分组。密文分组重复和分组缺失会导致后续解密全错，如下图：
 > 
->![](_images/summary-modes-of-operation-8.png ':size=70%')
+>![](_images/summary-modes-of-operation-8.png ':class=resizedImage')
 
 ### ** 计数器（CTR） **
 
-![](_images/summary-modes-of-operation-9.png ':size=70%')
+![](_images/summary-modes-of-operation-9.png ':class=resizedImage')
 
 - 加密和解密过程均可以并行处理，CTR 是高速的 OFB
 
 > [!NOTE|label:错误传播]
 > 密文中一位数据的改变仅会影响对应的明文分组。密文分组重复和分组缺失会导致后续解密全错（后续每个计数器的值都错了），如下图：
 > 
->![](_images/summary-modes-of-operation-10.png ':size=70%')
+>![](_images/summary-modes-of-operation-10.png ':class=resizedImage')
 
 <!-- tabs:end -->
 

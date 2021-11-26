@@ -5,7 +5,7 @@
 - 右手定则找出叉乘方向（闫老师提到可以用右手螺旋定则：若 $\vec{c} = \vec{a} \times \vec{b}$ ，那么从 $\vec{a}$ 旋转到 $\vec{b}$，大拇指方向即为 $\vec{c}$ 方向），可以看出叉乘并不满足交换律
 - OpenGL 为左手坐标系：$\vec{x} \times \vec{y} = -\vec{z}$
 - 可通过向量叉乘判断一个点是否在三角形内部。如下图，若三次叉乘（$\vec{AB} \times \vec{AP}$，$\vec{BC} \times \vec{BP}$，$\vec{CA} \times \vec{CP}$）的结果方向相同，则在三角形内部。具体见视频的 39:24
-![](_images/02-01.png)
+![](_images/02-01.png ':class=resizedImage')
 
 ## 矩阵
 

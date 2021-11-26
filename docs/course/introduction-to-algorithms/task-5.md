@@ -57,7 +57,7 @@
 
 We don't draw the _wrong_ red-black tree; however, we draw the adjusted correct tree:
 
-![](_images/13.1-2-1.png)
+![](_images/13.1-2-1.png ':class=resizedImage')
 
 ## 13.1-5
 
@@ -96,24 +96,24 @@ If we chose to set the color of $z$ to black then we would be violating property
 
 - insert $41$:
 
-![](_images/13.3-2-1.png ':size=11%')
+![](_images/13.3-2-1.png ':class=resizedImage')
 
 - insert $38$:
 
-![](_images/13.3-2-2.png ':size=42%')
+![](_images/13.3-2-2.png ':class=resizedImage')
 
 - insert $31$:
 
-![](_images/13.3-2-3.png ':size=78%')
+![](_images/13.3-2-3.png ':class=resizedImage')
 
 - insert $12$:
 
-![](_images/13.3-2-4.png)
+![](_images/13.3-2-4.png ':class=resizedImage')
 
 - insert $19$:
 
-![](_images/13.3-2-5.png)
+![](_images/13.3-2-5.png ':class=resizedImage')
 
 - insert $8$:
 
-![](_images/13.3-2-6.png)
+![](_images/13.3-2-6.png ':class=resizedImage')

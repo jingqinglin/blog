@@ -9,7 +9,7 @@
 - 用途：加/解密（实现数据保密性），**数字签名**（实现认证），**密钥交换**（不是所有的公钥算法都有这三个用途）
 - 公钥一般用于加密，验证签名；私钥用于解密，创建签名
 - 公钥密码的一些误解和事实：  
-  ![](_images/summary-public-key-cryptography-1.png ':size=70%')
+  ![](_images/summary-public-key-cryptography-1.png ':class=resizedImage')
 - 公钥密码体制的应用
   | 算法           | 加/解密 | 数字签名 | 密钥交换 |
   | -------------- | ------- | -------- | -------- |
@@ -38,7 +38,7 @@
 
 #### 公私钥对的生成
 
-![](_images/summary-public-key-cryptography-2.png ':size=80%')
+![](_images/summary-public-key-cryptography-2.png ':class=resizedImage')
 
 - 明文以分组为单位进行加密。在实际应用中，分组的大小是 $i$ 位，其中 $2^{i} < n \leq 2^{i+1}$
 
@@ -57,14 +57,14 @@
 
 #### 安全性
 
-![](_images/summary-public-key-cryptography-3.png ':size=80%')
+![](_images/summary-public-key-cryptography-3.png ':class=resizedImage')
 
 - 一般通过将因子分解的性能作为基准来评价 RSA 的安全性
 - 计时攻击类似于窃贼通过观察他人转动保险柜拨号盘的时间长短来猜测密码
 - 选择密文攻击见教材 P208
 
 > [!TIP|label:当 RSA 用于数字签名时]
-> ![](_images/summary-public-key-cryptography-6.png)
+> ![](_images/summary-public-key-cryptography-6.png ':class=resizedImage')
 
 ## 密钥管理
 
@@ -88,8 +88,8 @@ graph LR
 
 ### ElGamal 密钥体制
 
-![](_images/summary-public-key-cryptography-4.png ':size=40%')
-![](_images/summary-public-key-cryptography-5.png ':size=59%')
+![](_images/summary-public-key-cryptography-4.png ':class=resizedImage')
+![](_images/summary-public-key-cryptography-5.png ':class=resizedImage')
 
 - 如果信息必须分组然后以加密的密钥块序列发送，那么每个分块要有唯一的 $k$
 - 解密过程中用到了「分数取模」：$a^{p-2} \bmod p = a^{-1} \bmod p$（[费马小定理](https://zh.wikipedia.org/wiki/%E8%B4%B9%E9%A9%AC%E5%B0%8F%E5%AE%9A%E7%90%86)或扩展欧几里得算法。费马小定理只适用于 $p$ 为素数，扩展欧几里得算法在教材 2.3.6）
@@ -148,13 +148,13 @@ graph LR
 
 ### ** 9.11 **
 
-> ![](_images/summary-public-key-cryptography-7.png)
+> ![](_images/summary-public-key-cryptography-7.png ':class=resizedImage')
 
 因为第三项等于第一项的平方；第五项等于第一项乘以第二项……
 
 ### ** 9.15 **
 
-> ![](_images/summary-public-key-cryptography-8.png)
+> ![](_images/summary-public-key-cryptography-8.png ':class=resizedImage')
 
 1. 敌方 X 拦截了 A 发给 B 的消息，$[A, \mathrm{E}(P U_{b}, M), B]$
 2. X 给 B 发送 $[X, \mathrm{E}(PU_{b}, M), B]$
@@ -163,7 +163,7 @@ graph LR
 
 ### ** 9.18 **
 
-> ![](_images/summary-public-key-cryptography-9.png)
+> ![](_images/summary-public-key-cryptography-9.png ':class=resizedImage')
 
 $e$ 是公钥，$d$ 是私钥。
 

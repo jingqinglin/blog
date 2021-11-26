@@ -25,7 +25,7 @@
 - 基于公钥密码的挑战/应答
 - 基于数字签名的挑战/应答
   - 站间协议（STS），https://xz.aliyun.com/t/2965 这里有中文描述。下图为无加密版本：
-  ![](_images/summary-identification-1.png ':size=70%')  
+  ![](_images/summary-identification-1.png ':class=resizedImage')  
   若不加密，可能遭遇交织攻击（PPT P38，让 A 误以为 ta 在和 B 通信，实际上在和 C 通信）
 
 
@@ -64,7 +64,7 @@
 
 ### ** 14.1 **
 
-> ![](_images/summary-identification-2.png)
+> ![](_images/summary-identification-2.png ':class=resizedImage')
 
 (a) A 向 B 发送一个连接请求，用 A 与 KDC 共享的密钥加密事件标记或 nonce（$N_a$）。如果 B 准备接受连接，它会向 KDC 发送一个会话密钥请求，包括 A 的加密 nonce 加上 B 生成的 nonce（$N_b$），并用 B 与 KDC 共享的密钥加密。KDC 向 B 返回两个加密的块，其中一个块供 B 使用，包括会话密钥、A 的标识符和 B 的 nonce。为 A 准备了一个类似的块，并从 KDC 传递到 B，然后传递给 A。A 和 B 现在已经安全地获得了会话密钥，并且由于这些非连续性，可以确保另一个是可信的。
 
@@ -72,7 +72,7 @@
 
 ### ** 14.2 **
 
-> ![](_images/summary-identification-3.png)
+> ![](_images/summary-identification-3.png ':class=resizedImage')
 
 1. 向服务器发送源名称 A，目的地名称 Z（他自己的名称）和 $\mathrm{E}(K_{a}, R)$
 2. 服务器将通过向 A 发送 $\mathrm{E}(K_{z}, R)$ 进行响应，而 Z 将截获

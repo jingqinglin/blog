@@ -5,7 +5,7 @@
 - 给一个例子，要会**计算**（数字签名的生成及如何验证）
 - 具体算法不用掌握，要了解不同算法的异同点
 
-![](_images/summary-digital-signatures-1.png ':size=70%')
+![](_images/summary-digital-signatures-1.png ':class=resizedImage')
 
 上图可看出是对哈希码进行签名。
 
@@ -14,7 +14,7 @@
   - Schnorr 数字签名方案
   - DSA 方法
 
-![](_images/summary-digital-signatures-2.png ':size=60%')
+![](_images/summary-digital-signatures-2.png ':class=resizedImage')
 
 - DSA 的公开参数的选择与 Schnorr 签名方案一样
 

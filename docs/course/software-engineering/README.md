@@ -11,7 +11,7 @@
 <details>
 <summary>作业内容</summary>
 
-> ![作业内容](https://cdn.jsdelivr.net/gh/JingqingLin/ImageHosting@master/img/20200316105640.png)
+> ![作业内容](https://cdn.jsdelivr.net/gh/JingqingLin/ImageHosting@master/img/20200316105640.png ':class=resizedImage')
 
 </details>
 

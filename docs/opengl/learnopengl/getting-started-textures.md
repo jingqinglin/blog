@@ -6,7 +6,7 @@
 
 纹理坐标在 x 和 y 轴上，范围为 0 到 1 之间（我们使用的是 2D 纹理图像）。使用纹理坐标获取纹理颜色叫做采样（Sampling）。纹理坐标起始于 $(0, 0)$，也就是纹理图片的左下角，终于 $(1, 1)$。下面的图片展示了我们是如何把纹理坐标映射到三角形上的。
 
-![](_images/learnopengl-getting-started-17.png)
+![](_images/learnopengl-getting-started-17.png ':class=resizedImage')
 
 ```cpp
 float texCoords[] = {
@@ -27,7 +27,7 @@ float texCoords[] = {
 | `GL_CLAMP_TO_EDGE`   | 纹理坐标会被约束在 0 到 1 之间，超出的部分会重复纹理坐标的边缘，产生一种边缘被拉伸的效果 |
 | `GL_CLAMP_TO_BORDER` | 超出的坐标为用户指定的边缘颜色                                                           |
 
-![](_images/learnopengl-getting-started-18.png)
+![](_images/learnopengl-getting-started-18.png ':class=resizedImage')
 
 
 ## 纹理过滤
@@ -40,7 +40,7 @@ float texCoords[] = {
 - **纹理像素**和**纹理坐标**：纹理坐标是给模型顶点设置的那个数组，OpenGL 以这个顶点的纹理坐标数据去查找纹理图像上的像素，然后进行采样提取纹理像素的颜色
 - **临近过滤**：选择中心点最接近纹理坐标的那个像素。（偏像素风）
 - **线性过滤**：一个纹理像素的中心距离纹理坐标越近，那么这个纹理像素的颜色对最终的样本颜色的贡献越大。（更平滑）  
-  ![](_images/learnopengl-getting-started-19.png)
+  ![](_images/learnopengl-getting-started-19.png ':class=resizedImage')
 - **多级渐远纹理**（MipMap）：多级渐远纹理级别之间的过滤方式（有点不懂）
 - 当进行放大（Magnify）和缩小（Minify）操作的时候可以设置纹理过滤选项，比如在纹理被缩小的时候使用邻近过滤，被放大时使用线性过滤：
     ```cpp

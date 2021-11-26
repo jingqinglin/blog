@@ -9,15 +9,15 @@ MinGW 是 GCC 在 Windows 下的编译环境，它托管于 SourceForge（<a hre
 
 1. 选择 x86_64-win32-seh 进行下载
 
-![](_images/task-3-1.png ':size=70%')
+![](_images/task-3-1.png ':class=resizedImage')
 
 2. 解压文件，并把 bin 文件夹添加到系统环境变量
 
-![](_images/task-3-2.png ':size=60%')
+![](_images/task-3-2.png ':class=resizedImage')
 
 3. 在命令行工具中运行 `gcc -v`，显示如下表示安装成功
 
-![](_images/task-3-3.png ':size=70%')
+![](_images/task-3-3.png ':class=resizedImage')
 
 
 ## 配置 VS Code
@@ -27,17 +27,17 @@ MinGW 是 GCC 在 Windows 下的编译环境，它托管于 SourceForge（<a hre
 ### 创建工作区
 新建文件夹，并 `通过 Code 打开` 将文件夹添加到工作区。也可以通过 `文件 - 打开文件夹` 将文件夹添加到工作区。
 
-![](_images/task-3-4.png ':size=30%')
+![](_images/task-3-4.png ':class=resizedImage')
 
 ### 安装插件
 
-![](_images/task-3-5.png ':size=70%')
+![](_images/task-3-5.png ':class=resizedImage')
 
 ### 写一个 Hello World
 
 文件夹下新建 cpp 文件
 
-![](_images/task-3-6.png ':size=90%')
+![](_images/task-3-6.png ':class=resizedImage')
 
 写 Hello World
 
@@ -66,7 +66,7 @@ int main()
 
 从主菜单中，选择 **终端 > 配置默认生成任务...**。在弹出的菜单中，会列出 C++ 编译器的各种预定义的构建任务，选择 **g++.exe build active file**。
 
-![](_images/task-3-7.png ':size=50%')
+![](_images/task-3-7.png ':class=resizedImage')
 
 这会在 .vscode 文件夹中生成 `tasks.json` 文件。
 
@@ -74,18 +74,18 @@ int main()
 
 按下 <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd>，运行 `task.json` 中定义的任务。终端将显示编译器的输出，但输出是这样的
 
-![](_images/task-3-8.png ':size=60%')
+![](_images/task-3-8.png ':class=resizedImage')
 
 使用 **+** 按钮创建一个新终端，并运行刚刚生成的 exe 文件
 
-![](_images/task-3-9.png)
+![](_images/task-3-9.png ':class=resizedImage')
 
 ### 调试
 
 接下来将创建一个 `launch.json` 文件来配置 VS Code，以便在按 <kbd>F5</kbd> 调试程序时启动 GDB 调试器。从菜单中选择 **运行 > 添加配置...** 然后选择 **C++ (GDB/LLDB)**。
 
-![](_images/task-3-10.png ':size=40%')
+![](_images/task-3-10.png ':class=resizedImage')
 
 点击行号左边空白处，为程序打一个断点，再按 <kbd>F5</kbd> 启动调试，即可在左侧的运行视图看到调试信息。
 
-![](_images/task-3-11.png)
+![](_images/task-3-11.png ':class=resizedImage')

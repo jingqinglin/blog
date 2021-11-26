@@ -2,7 +2,7 @@
 
 ## 密钥分层
 
-![](_images/summary-application-of-symemtric-cipher-1.png ':size=30%')
+![](_images/summary-application-of-symemtric-cipher-1.png ':class=resizedImage')
 
 - 主密钥（Master Key）
   - 用于加密会话密钥
@@ -31,7 +31,7 @@
 
 ### 分布式密钥控制
 
-![](_images/summary-application-of-symemtric-cipher-2.png)
+![](_images/summary-application-of-symemtric-cipher-2.png ':class=resizedImage')
 
 - **为什么需要 $N_1$，$N_2$（Nouce，临时交互号）？**
   - 防止重放攻击。$N_1$，$N_2$ 可以是随机数，也可以是时间戳
@@ -44,7 +44,7 @@
 
 > 掌握基本原理及改进
 
-![](_images/summary-application-of-symemtric-cipher-3.png ':size=80%')
+![](_images/summary-application-of-symemtric-cipher-3.png ':class=resizedImage')
 
 (1) ~ (3) 密钥分发步骤，(3) ~ (5) 认证步骤。
 
@@ -56,11 +56,11 @@
 
 **改进 2**：
 
-![](_images/summary-application-of-symemtric-cipher-4.png ':size=60%')
+![](_images/summary-application-of-symemtric-cipher-4.png ':class=resizedImage')
 
 在 $K_S$ 的有效生命周期内，不需要 KDC 认证。
 
-![](_images/summary-application-of-symemtric-cipher-5.png ':size=35%')
+![](_images/summary-application-of-symemtric-cipher-5.png ':class=resizedImage')
 
 $T_b$ 所指定的时间只和 B 的时钟相关，因为只有 B 检查该时间戳，因此不要求时钟同步。
 
@@ -69,7 +69,7 @@ $T_b$ 所指定的时间只和 B 的时钟相关，因为只有 B 检查该时�
 
 > 掌握基本原理
 
-![](_images/summary-application-of-symemtric-cipher-6.png ':size=80%')
+![](_images/summary-application-of-symemtric-cipher-6.png ':class=resizedImage')
 
 
 #### 其他
@@ -87,7 +87,7 @@ $T_b$ 所指定的时间只和 B 的时钟相关，因为只有 B 检查该时�
 
 #### 简单密码分发方案
 
-![](_images/summary-application-of-symemtric-cipher-7.png ':size=80%')
+![](_images/summary-application-of-symemtric-cipher-7.png ':class=resizedImage')
 
 由于没有做身份识别，会受到中间人攻击：
 
@@ -103,7 +103,7 @@ Bob --> Darth : E(PU_d, K_S)
 
 > 假设 A 和 B 已经通过某一方案安全地交换了公钥
 
-![](_images/summary-application-of-symemtric-cipher-8.png ':size=80%')
+![](_images/summary-application-of-symemtric-cipher-8.png ':class=resizedImage')
 
 - 只有 B 可以解密消息 (1)，故 $N_1$ 在消息 (2) 中出现可以使 A 确定该消息来自于 B
 
@@ -116,9 +116,9 @@ Bob --> Darth : E(PU_d, K_S)
 
 双方通过预先分配的密钥材料（如：证书）建立共享的密钥，无需交换任何加密消息。**例子**：固定的 Diffie-Hellman 密钥交换算法。
 
-![](_images/summary-application-of-symemtric-cipher-9.png ':size=80%')
+![](_images/summary-application-of-symemtric-cipher-9.png ':class=resizedImage')
 
-![](_images/summary-application-of-symemtric-cipher-10.png ':size=60%')
+![](_images/summary-application-of-symemtric-cipher-10.png ':class=resizedImage')
 
 - Diffie-Hellman 密钥交换的安全性建立在下述事实之上：求关于素数的模素数幂运算相对容易，而计算离散对数却非常困难
 - Diffie-Hellman 不能抵抗中间人攻击
@@ -127,3 +127,8 @@ Bob --> Darth : E(PU_d, K_S)
 Station to Station，Shamir's no-key protocol 没看
 
 端到端加密 VS 链接加密：https://wenku.baidu.com/view/1f1ce180ec3a87c24028c412.html
+
+<!-- 图片尺寸缩小为 50% -->
+<script>
+
+</script>

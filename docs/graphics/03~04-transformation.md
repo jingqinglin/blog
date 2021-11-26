@@ -51,11 +51,11 @@ $A_{n}\left(\ldots A_{2}\left(A_{1}(\mathbf{x})\right)\right)=\mathbf{A}_{n} \cd
 > 
 > 一个物体从三维坐标映射到二维屏幕上，要经过一系列的坐标系变换。物体经历了从物体坐标系到世界坐标系（模型变换，Model Transformation），再从世界坐标系到观察坐标系（相机变换，Camera Transformation 或观测变换，Viewing Transformation），再投影到 2D 平面（投影变换，Projection Transformation）等一系列过程
 
-![](_images/0304-00.png)
+![](_images/0304-00.png ':class=resizedImage')
 
 ### 视图/相机变换
 
-![](_images/0304-01.png ':size=50%')
+![](_images/0304-01.png ':class=resizedImage')
 
 定义相机：
 - 位置，Position $\vec{e}$
@@ -64,20 +64,20 @@ $A_{n}\left(\ldots A_{2}\left(A_{1}(\mathbf{x})\right)\right)=\mathbf{A}_{n} \cd
 
 一般约定把相机放在“标准位置”上——The origin, up at Y, look at -Z，所以需要把相机变换到标准位置上（物体也跟着变换）。需要先平移到原点再作旋转，变换矩阵见课件 P15 & 16。可以从基变换的角度理解（闫老师不推荐这个角度），p16 左下角的矩阵可看作是一个基向量组。下图摘自：https://zhuanlan.zhihu.com/p/356261083
 
-![](_images/0304-02.png ':size=40%')
+![](_images/0304-02.png ':class=resizedImage')
 
 ### 投影变换
 
-![](_images/0304-03.png ':size=70%')
+![](_images/0304-03.png ':class=resizedImage')
 
 - 正交投影
 - 透视投影：可分为两步
-  - “挤压”平截头体（最终效果是往远平面压缩），让其成为一个长方体或者立方体![](_images/0304-04.png ':size=50%')
+  - “挤压”平截头体（最终效果是往远平面压缩），让其成为一个长方体或者立方体![](_images/0304-04.png ':class=resizedImage')
   - 对长方体进行正射投影
 
 透视投影比较难理解，看[这篇](https://zhuanlan.zhihu.com/p/359128442)。投影矩阵推导：
 
-![](_images/0304-05.png ':size=50%')
+![](_images/0304-05.png ':class=resizedImage')
 
 ## 补充
 

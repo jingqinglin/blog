@@ -8,7 +8,7 @@
 
 ### 消息认证
 
-![](_images/summary-hash-functions-1.png ':size=60%')
+![](_images/summary-hash-functions-1.png ':class=resizedImage')
 
 上图过程无法抵抗中间人攻击，因此要想办法防止攻击者生成能被认证通过的哈希值（教材 P236）。一般消息认证是通过使用消息认证码实现的，即带密钥的哈希函数，在下一章。
 
@@ -18,14 +18,14 @@
 
 ## 需求和安全性
 
-![](_images/summary-hash-functions-2.png ':size=90%')
+![](_images/summary-hash-functions-2.png ':class=resizedImage')
 
 - 碰撞攻击穷举的规模比原像攻击和第二原像攻击更小（由生日悖论可印证）
 - 穷举攻击，密码分析
 
 ### 安全哈希码
 
-![](_images/summary-hash-functions-4.png ':size=70%')
+![](_images/summary-hash-functions-4.png ':class=resizedImage')
 
 SHA 在内的目前所使用的大多数 Hash 函数都是这种结构。Hash 函数将输入消息分为 $L$ 个固定长度的分组，每一分组长为 $b$ 位，最后一个分组不足 $b$ 位时需要将其填充为 $b$ 位，最后一个分组包含输入的总长度。<span style="color: #8590a6">（由于输入中包含长度，所以攻击者必须找出具有相同 Hash 值且长度相等的两条消息，或者找出两条长度不等但加入消息长度后 Hash 值相同的消息，从而增加了攻击的难度）</span>
 
@@ -33,7 +33,7 @@ Hash 函数中重复使用了**压缩函数** $f$，它的输入包括两部分�
 
 ## 安全哈希算法（SHA）
 
-![](_images/summary-hash-functions-3.png ':size=90%')
+![](_images/summary-hash-functions-3.png ':class=resizedImage')
 
 ## 思考题
 

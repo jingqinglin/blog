@@ -98,45 +98,45 @@ public static boolean recursion(TreeNode node, Long lower, Long upper) {
 
 - 插入 $1$:
 
-![](_images/lab-3-1.png ':size=12%')
+![](_images/lab-3-1.png ':class=resizedImage')
 
 - 插入 $5$、$6$:
 
-![](_images/lab-3-2.png ':size=20%')![](_images/lab-3-3.png ':size=20%')
+![](_images/lab-3-2.png ':class=resizedImage')
 
 - 插入 $7$、$8$
 
-![](_images/lab-3-4.png ':size=35%')![](_images/lab-3-5.png ':size=35%')
+![](_images/lab-3-4.png ':class=resizedImage')
 
 - 插入 $9$、$10$
 
-![](_images/lab-3-6.png ':size=50%')![](_images/lab-3-7.png ':size=50%')
+![](_images/lab-3-6.png ':class=resizedImage')
 
 - 插入 $11$、$12$
 
-![](_images/lab-3-8.png ':size=50%')![](_images/lab-3-9.png ':size=50%')
+![](_images/lab-3-8.png ':class=resizedImage')
 
 - 插入 $13$
 
-![](_images/lab-3-10.png)
+![](_images/lab-3-10.png ':class=resizedImage')
 
 - 插入 $14$
 
-![](_images/lab-3-11.png)
+![](_images/lab-3-11.png ':class=resizedImage')
 
 - 插入 $15$
 
-![](_images/lab-3-12.png)
+![](_images/lab-3-12.png ':class=resizedImage')
 
 #### 删除
 
 - 删除 $14$:
 
-![](_images/lab-3-13.png ':size=50%')
+![](_images/lab-3-13.png ':class=resizedImage')
 
 - 删除 $9$:
 
-![](_images/lab-3-14.png ':size=50%')
+![](_images/lab-3-14.png ':class=resizedImage')
 
 ### 复杂度分析
 

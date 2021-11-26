@@ -2,7 +2,7 @@
 
 作业要求
 
-![](_images/task-2-1.png ':size=80%')
+![](_images/task-2-1.png ':class=resizedImage')
 
 ## VS Code 运行 lab5-1.tar.gz
 
@@ -13,13 +13,13 @@
 
 终端执行 `gcc -o menu linktable.c menu.c`，对 menu.c 进行编译和链接，输出警告
 
-![](_images/task-2-2.png)
+![](_images/task-2-2.png ':class=resizedImage')
 
 为 menu.c 添加头文件 `#include <string.h>`
 
 再次编译和链接，打开 menu.exe 可以输入三个参数 `help`、`version` 和 `quit`，其中 `quit` 无法运行
 
-![](_images/task-2-3.png)
+![](_images/task-2-3.png ':class=resizedImage')
 
 ## 找出 quit 命令无法运行的原因
 找到输出 `This is a wrong cmd!` 的代码段，可知错误由 `p == null` 引起的，
@@ -104,7 +104,7 @@ int InitMenuData(tLinkTable** ppLinktable)
 
 修改后的 quit 输出如下：
 
-![](_images/task-2-4.png)
+![](_images/task-2-4.png ':class=resizedImage')
 
 ## 分析 callback 函数
 如果你把**函数的指针（地址）** 作为**参数**传递给另一个函数，当这个指针（地址）被用来调用其所指向的函数时，我们就说这是回调函数
@@ -113,4 +113,4 @@ int InitMenuData(tLinkTable** ppLinktable)
 
 维基百科中的图示：
 
-![](_images/task-2-5.png)
+![](_images/task-2-5.png ':class=resizedImage')

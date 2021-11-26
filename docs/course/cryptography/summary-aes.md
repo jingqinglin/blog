@@ -23,11 +23,11 @@
 - 域：域是一个集合，我们可以在其上进行加法、减法、乘法和除法而**不脱离**该集合。有理数集合、实数集合以及复数集合都是我们所熟悉的域的例子
 - 有限域：含有限个元素的域，有限域在密码学中很重要
 
-![](_images/summary-aes-1.png ':size=70%')
+![](_images/summary-aes-1.png ':class=resizedImage')
 
 - $GF(2^n)$ 上的任何元素都表示为多项式，如 1100：$x^3 + x^2$，加法和乘法（需要对既约多项式取模）运算有多项式表示法（下图）和二进制表示法。注意，以多项式表示法运算时系数需模 2
 
-![](_images/summary-aes-2.png)
+![](_images/summary-aes-2.png ':class=resizedImage')
 
 ## AES 原理
 
@@ -37,7 +37,7 @@ AES 轮结构由 4 个不同的阶段组成，包括一个置换和 3 个代替�
 - 列混淆（MixColumns）：利用域 $GF(2^8)$ 上的算术特性的一个代替
 - 轮密钥加（AddRoundKey）：当前分组和扩展密钥的一部分进行按位 XOR
 
-![](_images/summary-aes-3.jpg ':size=50%')
+![](_images/summary-aes-3.jpg ':class=resizedImage')
 
 [AES](aes.mp4 ':include :type=iframe width=100% height=566px')
 

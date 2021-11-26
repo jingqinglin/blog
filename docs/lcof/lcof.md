@@ -162,7 +162,7 @@ if (headNum == '0' || headNum > '2') {
 
 无备忘录的 DFS 会存在重复的计算，时间复杂度并不理想。如下图：
 
-![](_images/46-1.png ':size=80%')<font size="2" color="#8590a6">图片来自[力扣](https://leetcode-cn.com/problems/ba-shu-zi-fan-yi-cheng-zi-fu-chuan-lcof/solution/shou-hui-tu-jie-dfsdi-gui-ji-yi-hua-di-gui-dong-ta/)</font>
+![](_images/46-1.png ':class=resizedImage')<font size="2" color="#8590a6">图片来自[力扣](https://leetcode-cn.com/problems/ba-shu-zi-fan-yi-cheng-zi-fu-chuan-lcof/solution/shou-hui-tu-jie-dfsdi-gui-ji-yi-hua-di-gui-dong-ta/)</font>
 
 ### 动态规划
 

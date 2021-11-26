@@ -92,14 +92,14 @@ def strxor(a, b):
 > [!NOTE]
 > 我们发现，第 8 个字符 `r`（`secret`）被解析成了 `u`。
 >
-> ![](_images/lab-1-1.png ':size=70%')
+> ![](_images/lab-1-1.png ':class=resizedImage')
 >
 > 从上图可以看出，只有第 5 条密文的第 8 个位置被**假定**为空格，但是最终第 8 个字符却解错了，由此说明第 5 条密文的第 8 个位置实际上并不是空格，它被误判了。那这个位置的正确明文是什么呢？[这篇文章](https://blog.csdn.net/liuweiran900217/article/details/19933549)给出了正确率较高的明文，下图：
 >
-> ![](_images/lab-1-2.png ':size=70%')
+> ![](_images/lab-1-2.png ':class=resizedImage')
 >
 > 可以看到该位置是一个单引号 `'`，把单引号和所有字母进行异或：
 >
-> ![](_images/lab-1-3.png ':size=50%')
+> ![](_images/lab-1-3.png ':class=resizedImage')
 >
 > 大多数都是字母，所以单引号被误判了（因为判断空格的依据是异或出来的结果是否为字母）。
