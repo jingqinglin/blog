@@ -36,7 +36,7 @@ $inside(t, x, y)=\left\{\begin{array}{ll}1 & \text { Point }(x, y) \\ & \text { 
 > - 上边完全水平且高于其他边
 > - 左边不完全水平且位于三角形左侧。一个三角形可以有一个或两个左边
 > 
-> ![](_images/0405-04.png ':class=resizedImage')
+> ![](_images/0405-04.png)
 
 ## 深度测试与抗锯齿
 

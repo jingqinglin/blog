@@ -127,8 +127,3 @@ Bob --> Darth : E(PU_d, K_S)
 Station to Station，Shamir's no-key protocol 没看
 
 端到端加密 VS 链接加密：https://wenku.baidu.com/view/1f1ce180ec3a87c24028c412.html
-
-<!-- 图片尺寸缩小为 50% -->
-<script>
-
-</script>
