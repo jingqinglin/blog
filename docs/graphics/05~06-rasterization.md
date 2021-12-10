@@ -12,7 +12,7 @@
 
 - 垂直可视角度（field-of-view）和长宽比（aspect ratio）
 
-![](_images/0405-01.png ':class=resizedImage')
+![](_images/0506-01.png ':class=resizedImage')
 
 在正交投影或透视投影结束后，将规范立方体显示到屏幕上（屏幕由像素点构成，是离散的，二维的）
 
@@ -36,9 +36,11 @@ $inside(t, x, y)=\left\{\begin{array}{ll}1 & \text { Point }(x, y) \\ & \text { 
 > - 上边完全水平且高于其他边
 > - 左边不完全水平且位于三角形左侧。一个三角形可以有一个或两个左边
 > 
-> ![](_images/0405-04.png)
+> ![](_images/0506-04.png)
 
 ## 深度测试与抗锯齿
+
+> 深度测试在下一节
 
 采样的伪像或瑕疵（artifacts）：
 - 锯齿（空间维度采样）
@@ -61,8 +63,8 @@ $inside(t, x, y)=\left\{\begin{array}{ll}1 & \text { Point }(x, y) \\ & \text { 
 
 可以理解为对一个像素点进行多次采样，不同于超采样，MSAA 中对不同的像素会复用一些点。
 
-![](_images/0405-02.png ':class=resizedImage')
-![](_images/0405-03.png ':class=resizedImage')
+![](_images/0506-02.png ':class=resizedImage')
+![](_images/0506-03.png ':class=resizedImage')
 
 缺点：提高了计算的成本
 

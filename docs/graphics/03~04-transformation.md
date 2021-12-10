@@ -50,6 +50,9 @@ $A_{n}\left(\ldots A_{2}\left(A_{1}(\mathbf{x})\right)\right)=\mathbf{A}_{n} \cd
 > - Cheese! (projection transformation)
 > 
 > 一个物体从三维坐标映射到屏幕空间上，要经过一系列的坐标系变换，见下图。物体经历了从物体空间到世界空间（模型变换，Model Transformation），再从世界空间到相机空间（相机变换，Camera Transformation 或视图变换，View Transformation），再到裁剪空间，也称为规范视域体（投影变换，Projection Transformation），最后到屏幕空间（视口变换，Vierport Transformation），这通常被当作是渲染管线的几何阶段。其中三维到二维的变换发生在视口变换过程中。**值得注意的是，图元的坐标变换到屏幕空间后，通常也会保留 $z$ 和 $w$ 分量**，因为渲染管线几何阶段后的光栅化阶段要进行深度测试。
+> 
+> 此过程的详细说明可参考 [Learn OpenGL](https://learnopengl-cn.github.io/01%20Getting%20started/08%20Coordinate%20Systems/)。（关注变换到裁剪空间后应用的透视除法）
+> 
 
 ![](_images/0304-00.png ':class=resizedImage')
 
