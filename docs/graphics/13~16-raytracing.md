@@ -57,7 +57,7 @@ $(\mathbf{o}+t \mathbf{d}-\mathbf{c})^{2}-R^{2}=0$，$t$ 是未知数，即解�
 - 改进的方法 1：光线与三角形所在平面求交，再判断交点是否在三角形内（用点法式来表示平面 $a\left(x-x_{0}\right)+b\left(y-y_{0}\right)+c\left(z-z_{0}\right)=0$），相当于解一元一次方程
 - 改进的方法 2：Möller Trumbore 算法
   - 利用重心坐标表示平面内的点，$\overrightarrow{\mathbf{O}}+t \overrightarrow{\mathbf{D}}=\left(1-b_{1}-b_{2}\right) \overrightarrow{\mathbf{P}}_{0}+b_{1} \overrightarrow{\mathbf{P}}_{1}+b_{2} \overrightarrow{\mathbf{P}}_{2}$
-  - $t, b_1, b_2$ 是未知数，$\overrightarrow{\mathbf{P}}_{0}...$ 是三角形顶点，三维空间中可以列出三个方程式，因此相当于解三元一次方程（用克拉默法则），若三个未知数均为非负，则交点位于三角形内
+  - $t, b_1, b_2$ 是未知数，$\overrightarrow{\mathbf{P}}_{0}...$ 是三角形顶点，三维空间中可以列出三个方程式，因此相当于解三元一次方程（克莱姆法则），若三个未知数均为非负，则交点位于三角形内。该方程组的解在课件 13-29 中，作业 5 用到了
 
 ## 加速求交
 
