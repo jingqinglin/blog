@@ -6,5 +6,6 @@
   - [着色](graphics/07~09-shading.md "着色 - 计算机图形学入门")
   - [几何](graphics/10~12-geometry.md "几何 - 计算机图形学入门")
   - [光线追踪](graphics/13~16-raytracing.md "光线追踪 - 计算机图形学入门")
+  - [材质和外观](graphics/17-materials-appearances.md "材质和外观 - 计算机图形学入门")
 
 - [](占位)
