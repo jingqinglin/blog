@@ -167,7 +167,7 @@ graphics/BVH.pdf
 - 立体角
   - 球面的面积除以半径的平方，$\begin{aligned}\Omega=\frac{A}{r^{2}}\end{aligned}$
   - 整个球的立体角是 $4\pi$ steradians
-  - **微分立体角**，课件 14-49
+  - **微分立体角**，课件 14-P49
 
 
 ### Radiant Irradiance
