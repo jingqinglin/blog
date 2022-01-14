@@ -1,5 +1,3 @@
-高级光线传播与复杂外观建模
-
 > 该节内容作为知识扩展
 
 ## Advanced Light Transport
@@ -12,6 +10,7 @@
   - Vertex connection and merging (VCM)
 
 - 无偏估计：估计量的数学期望等于被估计参数的真实值
+- [如何理解 (un)biased render？ - 知乎](https://www.zhihu.com/question/26683585)
 
 ### 双向路径追踪
 
