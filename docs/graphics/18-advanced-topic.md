@@ -1,6 +1,6 @@
 > 该节内容作为知识扩展
 
-## Advanced Light Transport
+## 高级光线传播
 
 - Unbiased light transport methods
   - 双向路径追踪，Bidirectional path tracing (BDPT)

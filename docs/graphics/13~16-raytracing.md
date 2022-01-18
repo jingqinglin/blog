@@ -194,7 +194,9 @@ graphics/BVH.pdf
 
 Irradiance 和 Radiance 在图形学中用得多。
 
-## Light Transport
+## 光线传播
+
+> Light Transport
 
 > 双向反射分布函数（Bidirectional Reflectance Distribution Function, BRDF）
 

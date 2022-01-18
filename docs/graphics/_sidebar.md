@@ -9,5 +9,7 @@
   - [材质和外观](graphics/17-materials-appearances.md "材质和外观 - 计算机图形学入门")
   - [高级光线传播与复杂外观建模](graphics/18-advanced-topic.md "高级光线传播与复杂外观建模 - 计算机图形学入门")
   - [相机与透镜](graphics/19-cameras-lenses.md "相机与透镜 - 计算机图形学入门")
+  - [光场、颜色与感知](graphics/20-color-and-perception.md "光场、颜色与感知 - 计算机图形学入门")
+  - [动画与模拟](graphics/21-22-animation.md "动画与模拟 - 计算机图形学入门")
 
 - [](占位)
