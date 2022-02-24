@@ -7,13 +7,11 @@
 本课程使用《算法导论》作为教材，张曙老师上课使用第二版。👉 [英文影印版](course/introduction-to-algorithms/introduction-to-algorithms-3rd.pdf ':ignore')（第三版）。
 
 
-<!-- tabs:start -->
-
-### ** 🔬 实验 **
+### 🔬 实验  {docsify-ignore}
 
 > 实验每周一次，只需提交实验报告
 
-#### 🔬 实验一
+#### 🔬 实验一  {docsify-ignore}
 
 ?> 分治法实验
 
@@ -32,7 +30,7 @@
 
 - [实验报告](course/introduction-to-algorithms/lab-1.md)
 
-#### 🔬 实验二
+#### 🔬 实验二  {docsify-ignore}
 
 ?> 典型排序算法训练
 
@@ -47,7 +45,7 @@
 
 - [实验报告](course/introduction-to-algorithms/lab-2.md)
 
-#### 🔬 实验三
+#### 🔬 实验三  {docsify-ignore}
 
 ?> 二叉查找树、红黑树的基本操作实现
 
@@ -62,7 +60,7 @@
 
 - [实验报告](course/introduction-to-algorithms/lab-3.md)
 
-#### 🔬 实验四
+#### 🔬 实验四  {docsify-ignore}
 
 ?> 贪心算法实现最佳任务调度实验
 
@@ -77,7 +75,7 @@
 
 - [实验报告](course/introduction-to-algorithms/lab-4.md)
 
-#### 🔬 实验五
+#### 🔬 实验五  {docsify-ignore}
 
 ?> 0-1 背包问题的算法设计
 
@@ -92,7 +90,7 @@
 
 - [实验报告](course/introduction-to-algorithms/lab-5.md)
 
-### ** 📝 作业 **
+### 📝 作业  {docsify-ignore}
 
 > 张曙老师上课使用的教材是《算法导论》第二版，布置的作业也来自第二版。此笔记的答案摘自 [walkccc](https://walkccc.github.io/CLRS/)，为第三版中对应的题目（第三版删去了第二版的某些题目，如果老师刚好布置了那些题，就不在此记录）
 
@@ -126,7 +124,7 @@
 
 - [作业十五](course/introduction-to-algorithms/task-15.md)：<font color=#8590a6>26.1-1、26.1-2、26.1-5（以上均为第二版题号）</font>
 
-### ** 💯 复习提纲 **
+### 💯 复习提纲  {docsify-ignore}
 
 ![](_images/summary-1.png ':class=resizedImage')
 ![](_images/summary-2.png ':class=resizedImage')
@@ -135,13 +133,13 @@
 ![](_images/summary-5.png ':class=resizedImage')
 ![](_images/summary-6.png ':class=resizedImage')
 
-#### 数据结构
+#### 数据结构  {docsify-ignore}
 
 红黑树的插入、删除具体操作不会考，但**时间复杂度**要知道
 
 二项树的定义，二项堆的定义、根表，和斐波那契堆的根表区别，他们的操作、时间
 
-#### 算法设计方法
+#### 算法设计方法  {docsify-ignore}
 
 第二版中动态规划的几个算法案例要清楚，并能以示例求出最优解
 
@@ -149,7 +147,7 @@
 
 要求掌握基本步骤，适用条件
 
-#### 算法分析
+#### 算法分析  {docsify-ignore}
 
 渐近符号：$\Theta$，$\Omicron$，$\Omega$ 的定义
 
@@ -162,5 +160,3 @@
 正确性分析（循环不变式不考）：寻找最优子结构时用 cut and paste 反证，原来的 cut 掉，新的 paste 上去；归纳法；贪心选择性质
 
 流网络：Ford-Fulkerson，时间复杂度（推送重贴、二分图应用不做要求）
-
-<!-- tabs:end -->

@@ -6,13 +6,11 @@
 
 本课程的参考教材为《密码编码学与网络安全：原理与实践》，👉 [英文影印版](course/cryptography/cryptography-and-network-security_principles-and-practice-7th-global-edition.pdf ':ignore')（第七版）。
 
-<!-- tabs:start -->
-
-### ** 🔬 实验 **
+### 🔬 实验  {docsify-ignore}
 
 > 实验每周一次，QQ 屏幕共享给老师进行验收
 
-#### 🔬 实验一
+#### 🔬 实验一  {docsify-ignore}
 
 ?> Many Time Pad
 
@@ -47,7 +45,7 @@
 
 - [实验报告](course/cryptography/lab-1.md)
 
-#### 🔬 实验二
+#### 🔬 实验二  {docsify-ignore}
 
 ?> 离散对数求解
 
@@ -76,7 +74,7 @@
 
 - [实验报告](course/cryptography/lab-2.md)
 
-#### 🔬 实验三
+#### 🔬 实验三  {docsify-ignore}
 
 ?> CBC 和 CTR 模式下的 AES
 
@@ -110,7 +108,7 @@
 
 - [实验报告](course/cryptography/lab-3.md)
 
-#### 🔬 实验四
+#### 🔬 实验四  {docsify-ignore}
 
 ?> RSA 中公开的模数 N
 
@@ -139,7 +137,7 @@
 
 - [实验报告](course/cryptography/lab-4.md)
 
-#### 🔬 实验五
+#### 🔬 实验五  {docsify-ignore}
 
 ?> 视频大文件验证
 
@@ -168,7 +166,7 @@
 
 - [实验报告](course/cryptography/lab-5.md)
 
-### ** 💯 复习 **
+### 💯 复习  {docsify-ignore}
 
 > 目录是余老师的[各课件](https://gitlab.com/JingqingLin/cryptography)的标题。70% 的期末考试问题来自于课后题，最后一节课的视频在这里（[USTC FTP](http://home.ustc.edu.cn/~jqlin/video/crypto-summary.mp4) 或 [GitLab](https://gitlab.com/JingqingLin/cryptography/-/raw/master/summary.mp4)）
 
@@ -195,5 +193,3 @@ id(安全服务) --- id4(不可否认性)
 - [Message Authentication](course/cryptography/summary-message-authentication.md "Message Authentication - 复习 - 现代密码学与应用")
 - [Digital Signatures](course/cryptography/summary-digital-signatures.md "Digital Signatures - 复习 - 现代密码学与应用")
 - [Identification](course/cryptography/summary-identification.md "Identification - 复习 - 现代密码学与应用")
-
-<!-- tabs:end -->
